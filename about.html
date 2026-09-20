@@ -85,20 +85,17 @@
           >
         </a>
 
-        <nav class="hidden md:flex items-center gap-7 lg:gap-8 text-[14px] lg:text-[15px] font-semibold text-stripe-slate">
-          <a href="index.html" id="nav-home" class="hover:text-stripe-dark transition-colors inline-flex items-center gap-1.5">
-            <svg class="w-4 h-4 text-stripe-slate/70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <nav class="hidden md:flex items-center gap-5 lg:gap-7 text-[14px] lg:text-[15px] font-semibold text-stripe-slate">
+          <a href="index.html" id="nav-back-link" class="text-stripe-slate hover:text-stripe-dark transition-colors inline-flex items-center gap-1 mr-2 text-xs font-semibold py-1 px-2.5 rounded-lg border border-stripe-border hover:border-stripe-borderHover">
+            <svg class="w-3.5 h-3.5 text-stripe-slate/80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>
             </svg>
-            <span id="nav-home-text">Головна</span>
-          </a>
-          <a href="index.html#what-we-do" id="nav-what-we-do" class="hover:text-stripe-dark transition-colors">Що ми робимо</a>
-          <a href="chaos_formula.html" class="hover:text-red-700 transition-colors inline-flex items-center gap-1.5 text-red-700 font-bold">
-            <span class="w-2 h-2 rounded-full bg-red-700 animate-pulse"></span>
-            <span id="nav-chaos">Chaos Formula</span>
+            <span id="nav-back-text">На головну</span>
           </a>
           <a href="#founders" id="nav-founders" class="hover:text-stripe-dark transition-colors">Засновниці</a>
           <a href="#legal" id="nav-legal" class="hover:text-stripe-dark transition-colors">Юридичні дані</a>
+          <a href="#activities" id="nav-activities" class="hover:text-stripe-dark transition-colors">Напрями та мета</a>
+          <a href="#reports" id="nav-reports" class="hover:text-stripe-dark transition-colors">Звітність</a>
           <a href="#contacts" id="nav-contacts" class="hover:text-stripe-dark transition-colors">Контакти</a>
         </nav>
       </div>
@@ -143,15 +140,12 @@
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>
         </svg>
-        <span id="mob-nav-home">Головна</span>
-      </a>
-      <a href="index.html#what-we-do" id="mob-nav-what-we-do" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Що ми робимо</a>
-      <a href="chaos_formula.html" class="block py-1.5 font-bold text-red-700 hover:text-red-800 mob-link flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-red-700 animate-pulse"></span>
-        <span id="mob-nav-chaos">Chaos Formula</span>
+        <span id="mob-nav-home">На головну</span>
       </a>
       <a href="#founders" id="mob-nav-founders" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Засновниці</a>
       <a href="#legal" id="mob-nav-legal" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Юридичні дані</a>
+      <a href="#activities" id="mob-nav-activities" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Напрями та мета</a>
+      <a href="#reports" id="mob-nav-reports" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Звітність</a>
       <a href="#contacts" id="mob-nav-contacts" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Контакти</a>
       <div class="pt-2">
         <button onclick="openModal()" class="w-full bg-stripe-purple text-white py-3 rounded-full font-semibold text-sm shadow-sm" id="mob-btn-join">
@@ -336,7 +330,7 @@
   </div>
 
   <!-- Section: Напрями та Мета -->
-  <section class="py-14 sm:py-20 bg-white">
+  <section id="activities" class="py-14 sm:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
@@ -394,7 +388,7 @@
   </div>
 
   <!-- Section: Фінансування, Звітність та Документи -->
-  <section class="py-14 sm:py-20 bg-stripe-lightBg/40">
+  <section id="reports" class="py-14 sm:py-20 bg-stripe-lightBg/40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
@@ -623,11 +617,11 @@
       uk: {
         metaTitle: "Про організацію — ГО «Формула свободи»",
         brandAlt: "Формула свободи",
-        navHome: "Головна",
-        navWhatWeDo: "Що ми робимо",
-        navChaos: "Chaos Formula",
+        navBack: "На головну",
         navFounders: "Засновниці",
         navLegal: "Юридичні дані",
+        navActivities: "Напрями та мета",
+        navReports: "Звітність",
         navContacts: "Контакти",
         btnJoin: "Долучитися",
         heroBadge: "Громадська організація",
@@ -719,11 +713,11 @@
       en: {
         metaTitle: "About the Organization — NGO “Freedom Formula”",
         brandAlt: "Freedom Formula",
-        navHome: "Home",
-        navWhatWeDo: "What we do",
-        navChaos: "Chaos Formula",
+        navBack: "Main Page",
         navFounders: "Founders",
         navLegal: "Legal Details",
+        navActivities: "Activities & Purpose",
+        navReports: "Reporting",
         navContacts: "Contacts",
         btnJoin: "Join us",
         heroBadge: "Non-Governmental Organization",
@@ -843,16 +837,16 @@
       if (brandLogoImg) brandLogoImg.alt = d.brandAlt;
 
       // Nav Desktop & Mobile
-      setTxt('nav-home-text', d.navHome);
-      setTxt('mob-nav-home', d.navHome);
-      setTxt('nav-what-we-do', d.navWhatWeDo);
-      setTxt('mob-nav-what-we-do', d.navWhatWeDo);
-      setTxt('nav-chaos', d.navChaos);
-      setTxt('mob-nav-chaos', d.navChaos);
+      setTxt('nav-back-text', d.navBack);
+      setTxt('mob-nav-home', d.navBack);
       setTxt('nav-founders', d.navFounders);
       setTxt('mob-nav-founders', d.navFounders);
       setTxt('nav-legal', d.navLegal);
       setTxt('mob-nav-legal', d.navLegal);
+      setTxt('nav-activities', d.navActivities);
+      setTxt('mob-nav-activities', d.navActivities);
+      setTxt('nav-reports', d.navReports);
+      setTxt('mob-nav-reports', d.navReports);
       setTxt('nav-contacts', d.navContacts);
       setTxt('mob-nav-contacts', d.navContacts);
       setTxt('header-btn-join', d.btnJoin);
