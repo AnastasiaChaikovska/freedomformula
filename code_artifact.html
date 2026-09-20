@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Про організацію — ГО «Формула свободи»</title>
+
+  <!-- Favicon з кореня репозиторію -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+          },
+          screens: {
+            'xs': '420px',
+          },
+          colors: {
+            stripe: {
+              purple: '#635bff',
+              purpleHover: '#533afd',
+              dark: '#0a2540',
+              slate: '#425466',
+              lightBg: '#f6f9fc',
+              border: '#e6ebf1',
+              borderHover: '#c4d1eb',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Stripe Hairline Divider */
+    .stripe-divider {
+      height: 1px;
+      background-color: #e6ebf1;
+      width: 100%;
+    }
+
+    /* Stripe Institutional Card Hover */
+    .stripe-card-interactive {
+      background: #ffffff;
+      border: 1px solid #e6ebf1;
+      border-radius: 12px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .stripe-card-interactive:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.06), 0 8px 16px -8px rgba(0, 0, 0, 0.04);
+      border-color: #c4d1eb;
+    }
+
+    .stripe-button-arrow {
+      transition: transform 0.16s cubic-bezier(0.2, 0, 0, 1);
+    }
+    .stripe-btn:hover .stripe-button-arrow {
+      transform: translateX(4px);
+    }
+  </style>
+</head>
+<body class="bg-white text-stripe-dark antialiased selection:bg-stripe-purple selection:text-white font-sans overflow-x-hidden">
+
+  <!-- Header Navigation -->
+  <header class="relative z-30 bg-white/95 backdrop-blur-md border-b border-stripe-border sticky top-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+      
+      <!-- Brand Logo & Main Nav -->
+      <div class="flex items-center gap-8 lg:gap-10">
+        <a href="index.html" class="flex items-center py-3.5 focus:outline-none" aria-label="Головна сторінка Формула свободи">
+          <img 
+            id="brand-logo-img" 
+            src="logo.png" 
+            alt="Формула свободи" 
+            class="h-8 sm:h-9 w-auto max-w-[160px] sm:max-w-[200px] object-contain"
+          >
+        </a>
+
+        <nav class="hidden md:flex items-center gap-7 lg:gap-8 text-[14px] lg:text-[15px] font-semibold text-stripe-slate">
+          <a href="index.html" id="nav-home" class="hover:text-stripe-dark transition-colors inline-flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-stripe-slate/70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>
+            </svg>
+            <span id="nav-home-text">Головна</span>
+          </a>
+          <a href="index.html#what-we-do" id="nav-what-we-do" class="hover:text-stripe-dark transition-colors">Що ми робимо</a>
+          <a href="chaos_formula.html" class="hover:text-red-700 transition-colors inline-flex items-center gap-1.5 text-red-700 font-bold">
+            <span class="w-2 h-2 rounded-full bg-red-700 animate-pulse"></span>
+            <span>Chaos Formula</span>
+          </a>
+          <a href="#founders" id="nav-founders" class="hover:text-stripe-dark transition-colors">Засновниці</a>
+          <a href="#legal" id="nav-legal" class="hover:text-stripe-dark transition-colors">Юридичні дані</a>
+          <a href="#contacts" id="nav-contacts" class="hover:text-stripe-dark transition-colors">Контакти</a>
+        </nav>
+      </div>
+
+      <!-- Language Switcher & Action Button -->
+      <div class="hidden sm:flex items-center gap-4">
+        <div class="flex items-center bg-stripe-lightBg rounded-full p-1 border border-stripe-border text-xs font-semibold">
+          <button type="button" id="btn-lang-uk" onclick="switchLanguage('uk')" class="px-3 py-1 rounded-full transition-all text-white bg-stripe-purple shadow-xs font-bold" aria-label="Українська версія">
+            UA
+          </button>
+          <button type="button" id="btn-lang-en" onclick="switchLanguage('en')" class="px-3 py-1 rounded-full transition-all text-stripe-slate hover:text-stripe-dark font-semibold" aria-label="English version">
+            EN
+          </button>
+        </div>
+
+        <button onclick="openModal()" class="stripe-btn inline-flex items-center gap-1.5 bg-stripe-purple hover:bg-stripe-purpleHover text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-xs hover:shadow-md transition-all">
+          <span id="header-btn-join">Долучитися</span>
+          <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger & Mobile Lang Switcher -->
+      <div class="flex items-center gap-2 md:hidden">
+        <div class="flex items-center bg-stripe-lightBg rounded-full p-0.5 border border-stripe-border text-[11px] font-semibold">
+          <button type="button" id="btn-lang-uk-mob" onclick="switchLanguage('uk')" class="px-2 py-0.5 rounded-full text-white bg-stripe-purple font-bold">UA</button>
+          <button type="button" id="btn-lang-en-mob" onclick="switchLanguage('en')" class="px-2 py-0.5 rounded-full text-stripe-slate font-semibold">EN</button>
+        </div>
+
+        <button id="mobile-toggle" class="p-2 rounded-lg text-stripe-dark hover:bg-stripe-lightBg focus:outline-none" aria-label="Меню">
+          <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-stripe-border px-6 py-4 bg-white space-y-3">
+      <a href="index.html" class="block py-1.5 font-semibold text-stripe-slate hover:text-stripe-purple mob-link flex items-center gap-1.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>
+        </svg>
+        <span id="mob-nav-home">Головна</span>
+      </a>
+      <a href="index.html#what-we-do" id="mob-nav-what-we-do" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Що ми робимо</a>
+      <a href="chaos_formula.html" class="block py-1.5 font-bold text-red-700 hover:text-red-800 mob-link flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-red-700 animate-pulse"></span>
+        <span>Chaos Formula</span>
+      </a>
+      <a href="#founders" id="mob-nav-founders" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Засновниці</a>
+      <a href="#legal" id="mob-nav-legal" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Юридичні дані</a>
+      <a href="#contacts" id="mob-nav-contacts" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Контакти</a>
+      <div class="pt-2">
+        <button onclick="openModal()" class="w-full bg-stripe-purple text-white py-3 rounded-full font-semibold text-sm shadow-sm" id="mob-btn-join">
+          Долучитися
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero: Institutional Intro -->
+  <section class="pt-12 pb-16 sm:pt-16 sm:pb-24 bg-gradient-to-b from-stripe-lightBg/80 via-white to-white border-b border-stripe-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-stripe-border text-xs font-bold text-stripe-purple uppercase tracking-wider mb-4 shadow-xs">
+          <span class="w-1.5 h-1.5 rounded-full bg-stripe-purple"></span>
+          <span id="hero-badge">Громадська організація</span>
+        </div>
+        
+        <h1 id="about-hero-title" class="text-3xl xs:text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-[-0.03em] text-stripe-dark leading-[1.1] mb-6">
+          Про організацію
+        </h1>
+
+        <p id="about-hero-p1" class="text-base sm:text-xl text-stripe-dark font-medium leading-relaxed mb-4">
+          Формула свободи — українська громадська організація, яка створює освітні та соціальні проєкти для жінок.
+        </p>
+
+        <p id="about-hero-p2" class="text-sm sm:text-base text-stripe-slate leading-relaxed mb-6 font-normal">
+          Ми працюємо над тим, щоб у жінок було більше можливостей для професійного розвитку, фінансової незалежності та свободи будувати життя на власних умовах.
+        </p>
+
+        <div class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-stripe-slate bg-white px-4 py-2 rounded-xl border border-stripe-border">
+          <span class="text-stripe-purple font-bold">Офіційно:</span>
+          <span id="about-hero-date">Організацію засновано у серпні 2026 року.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Засновниці -->
+  <section id="founders" class="py-14 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-10 sm:mb-12 max-w-3xl">
+        <span id="founders-eyebrow" class="text-xs uppercase font-bold tracking-widest text-stripe-purple block mb-2">Лідерство</span>
+        <h2 id="founders-title" class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-stripe-dark tracking-[-0.03em]">
+          Засновниці
+        </h2>
+        <p id="founders-desc" class="text-sm sm:text-base text-stripe-slate mt-2 font-normal">
+          «Формулу свободи» створили дві співзасновниці — Анастасія Чайковська та Наталія Рублик.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        
+        <!-- Founder 1 -->
+        <div class="stripe-card-interactive p-6 sm:p-8 flex flex-col justify-between border-t-2 border-t-stripe-purple">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-stripe-purple">Співзасновниця</span>
+              <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-stripe-purple/10 text-stripe-purple">CEO</span>
+            </div>
+            <h3 id="founder-1-name" class="text-xl sm:text-2xl font-extrabold text-stripe-dark mb-1">
+              Анастасія Чайковська
+            </h3>
+            <p id="founder-1-role" class="text-xs sm:text-sm font-semibold text-stripe-slate">
+              Співзасновниця та директорка (CEO)
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-stripe-border/60">
+            <a href="mailto:anastasia@freedomformula.co.ua" class="text-xs font-semibold text-stripe-purple hover:underline inline-flex items-center gap-1.5">
+              <span>anastasia@freedomformula.co.ua</span>
+              <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Founder 2 -->
+        <div class="stripe-card-interactive p-6 sm:p-8 flex flex-col justify-between border-t-2 border-t-stripe-dark">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-stripe-dark">Співзасновниця</span>
+              <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-stripe-dark/10 text-stripe-dark">CGO</span>
+            </div>
+            <h3 id="founder-2-name" class="text-xl sm:text-2xl font-extrabold text-stripe-dark mb-1">
+              Наталія Рублик
+            </h3>
+            <p id="founder-2-role" class="text-xs sm:text-sm font-semibold text-stripe-slate">
+              Співзасновниця (CGO)
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-stripe-border/60">
+            <a href="mailto:natalia@freedomformula.co.ua" class="text-xs font-semibold text-stripe-purple hover:underline inline-flex items-center gap-1.5">
+              <span>natalia@freedomformula.co.ua</span>
+              <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Hairline divider -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="stripe-divider"></div>
+  </div>
+
+  <!-- Section: Юридична інформація (Structured Registry Table) -->
+  <section id="legal" class="py-14 sm:py-20 bg-stripe-lightBg/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-10 sm:mb-12 max-w-3xl">
+        <span id="legal-eyebrow" class="text-xs uppercase font-bold tracking-widest text-stripe-purple block mb-2">Публічний реєстр</span>
+        <h2 id="legal-title" class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-stripe-dark tracking-[-0.03em]">
+          Юридична інформація
+        </h2>
+        <p id="legal-subtitle" class="text-xs sm:text-sm text-stripe-slate mt-1">
+          Ці дані відповідають офіційним відомостям з Єдиного державного реєстру юридичних осіб (ЄДР).
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-stripe-border overflow-hidden shadow-xs">
+        <div class="divide-y divide-stripe-border text-sm">
+          
+          <div class="grid grid-cols-1 md:grid-cols-12 p-4 sm:p-5 gap-1 sm:gap-4 hover:bg-stripe-lightBg/40 transition-colors">
+            <div id="lbl-legal-name" class="md:col-span-4 text-xs font-bold uppercase tracking-wider text-stripe-slate">Повна юридична назва</div>
+            <div id="val-legal-name" class="md:col-span-8 font-semibold text-stripe-dark">ГРОМАДСЬКА ОРГАНІЗАЦІЯ «Формула Свободи»</div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 p-4 sm:p-5 gap-1 sm:gap-4 hover:bg-stripe-lightBg/40 transition-colors">
+            <div id="lbl-en-name" class="md:col-span-4 text-xs font-bold uppercase tracking-wider text-stripe-slate">Назва англійською</div>
+            <div id="val-en-name" class="md:col-span-8 font-semibold text-stripe-dark">NON-GOVERNMENTAL ORGANIZATION “Freedom Formula”</div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 p-4 sm:p-5 gap-1 sm:gap-4 hover:bg-stripe-lightBg/40 transition-colors">
+            <div id="lbl-edrpou" class="md:col-span-4 text-xs font-bold uppercase tracking-wider text-stripe-slate">Код ЄДРПОУ</div>
+            <div id="val-edrpou" class="md:col-span-8 font-mono font-bold text-stripe-purple text-base">46254527</div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 p-4 sm:p-5 gap-1 sm:gap-4 hover:bg-stripe-lightBg/40 transition-colors">
+            <div id="lbl-reg-date" class="md:col-span-4 text-xs font-bold uppercase tracking-wider text-stripe-slate">Дата державної реєстрації</div>
+            <div id="val-reg-date" class="md:col-span-8 font-medium text-stripe-dark">23 серпня 2026 року</div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 p-4 sm:p-5 gap-1 sm:gap-4 hover:bg-stripe-lightBg/40 transition-colors">
+            <div id="lbl-address" class="md:col-span-4 text-xs font-bold uppercase tracking-wider text-stripe-slate">Юридична адреса</div>
+            <div id="val-address" class="md:col-span-8 font-medium text-stripe-dark">Україна, 25006, Кіровоградська область, м. Кропивницький, вул. Фортечна, будинок 20</div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 p-4 sm:p-5 gap-1 sm:gap-4 hover:bg-stripe-lightBg/40 transition-colors">
+            <div id="lbl-head" class="md:col-span-4 text-xs font-bold uppercase tracking-wider text-stripe-slate">Керівниця</div>
+            <div id="val-head" class="md:col-span-8 font-semibold text-stripe-dark">Анастасія Чайковська</div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 p-4 sm:p-5 gap-1 sm:gap-4 hover:bg-stripe-lightBg/40 transition-colors">
+            <div id="lbl-statute" class="md:col-span-4 text-xs font-bold uppercase tracking-wider text-stripe-slate">Організація діє на підставі</div>
+            <div id="val-statute" class="md:col-span-8 font-medium text-stripe-dark">модельного статуту</div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 p-4 sm:p-5 gap-1 sm:gap-4 hover:bg-stripe-lightBg/40 transition-colors">
+            <div id="lbl-organs" class="md:col-span-4 text-xs font-bold uppercase tracking-wider text-stripe-slate">Органи управління</div>
+            <div id="val-organs" class="md:col-span-8 font-medium text-stripe-dark space-y-1">
+              <p>• <strong>Загальні збори</strong> — вищий орган управління</p>
+              <p>• <strong>Директор</strong> — виконавчий орган</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Hairline divider -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="stripe-divider"></div>
+  </div>
+
+  <!-- Section: Напрями та Мета -->
+  <section class="py-14 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+        
+        <!-- Activities -->
+        <div class="p-6 sm:p-8 rounded-2xl border border-stripe-border bg-white flex flex-col justify-between">
+          <div>
+            <span class="text-xs uppercase font-bold tracking-wider text-stripe-purple block mb-2">КВЕД</span>
+            <h3 id="act-title" class="text-xl sm:text-2xl font-extrabold text-stripe-dark mb-4">Напрями діяльності</h3>
+            <p id="act-p1" class="text-xs sm:text-sm text-stripe-slate mb-4">Основні зареєстровані види діяльності:</p>
+            
+            <div class="space-y-3 mb-6">
+              <div class="p-3.5 rounded-xl bg-stripe-lightBg border border-stripe-border flex items-start gap-3">
+                <span class="font-mono text-xs font-bold text-stripe-purple shrink-0 mt-0.5">94.99</span>
+                <span id="act-kved-1" class="text-xs sm:text-sm text-stripe-dark font-medium">Діяльність інших громадських організацій</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-stripe-lightBg border border-stripe-border flex items-start gap-3">
+                <span class="font-mono text-xs font-bold text-stripe-purple shrink-0 mt-0.5">85.59</span>
+                <span id="act-kved-2" class="text-xs sm:text-sm text-stripe-dark font-medium">Інші види освіти</span>
+              </div>
+            </div>
+
+            <p id="act-focus" class="text-xs sm:text-sm text-stripe-slate leading-relaxed border-t border-stripe-border pt-4">
+              У практичній роботі ми фокусуємося на освіті, професійному розвитку та створенні можливостей для жінок.
+            </p>
+          </div>
+        </div>
+
+        <!-- Goal -->
+        <div class="p-6 sm:p-8 rounded-2xl border border-stripe-border bg-white flex flex-col justify-between">
+          <div>
+            <span class="text-xs uppercase font-bold tracking-wider text-stripe-dark block mb-2">Установча мета</span>
+            <h3 id="goal-sec-title" class="text-xl sm:text-2xl font-extrabold text-stripe-dark mb-4">Мета організації</h3>
+            
+            <p id="goal-sec-p1" class="text-xs sm:text-sm text-stripe-slate leading-relaxed mb-4">
+              Відповідно до установчих документів, метою організації є здійснення та захист прав і свобод, а також задоволення суспільних, економічних, соціальних, культурних та інших інтересів.
+            </p>
+            
+            <div class="p-4 rounded-xl bg-stripe-purple/5 border border-stripe-purple/20 mb-4">
+              <p id="goal-sec-p2" class="text-xs sm:text-sm text-stripe-dark font-medium leading-relaxed">
+                Для «Формули свободи» це насамперед означає створювати середовище, у якому жінки мають більше можливостей навчатися, професійно розвиватися, ставати фінансово незалежнішими та самостійно вирішувати, яким буде їхнє життя.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Hairline divider -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="stripe-divider"></div>
+  </div>
+
+  <!-- Section: Фінансування, Звітність та Документи -->
+  <section class="py-14 sm:py-20 bg-stripe-lightBg/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        
+        <!-- Funding & Reports -->
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-stripe-border">
+          <div class="w-8 h-8 rounded-lg bg-stripe-purple/10 text-stripe-purple flex items-center justify-center font-bold text-xs mb-4">
+            01
+          </div>
+          <h3 id="rep-title" class="text-xl font-extrabold text-stripe-dark mb-3">Фінансування та звітність</h3>
+          <p id="rep-p1" class="text-xs sm:text-sm text-stripe-slate leading-relaxed mb-3">
+            Станом на сьогодні «Формула свободи» не отримувала грантового фінансування та не реалізовувала проєктів за рахунок грантів.
+          </p>
+          <p id="rep-p2" class="text-xs sm:text-sm text-stripe-slate leading-relaxed mb-3">
+            Тому окремі публічні фінансові або грантові звіти наразі не публікувалися.
+          </p>
+          <p id="rep-p3" class="text-xs sm:text-sm text-stripe-purple font-medium leading-relaxed">
+            У разі залучення грантового або іншого зовнішнього фінансування інформація про реалізовані проєкти та відповідну звітність буде додаватися на цю сторінку.
+          </p>
+        </div>
+
+        <!-- Documents request -->
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-stripe-border flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-stripe-dark/10 text-stripe-dark flex items-center justify-center font-bold text-xs mb-4">
+              02
+            </div>
+            <h3 id="doc-title" class="text-xl font-extrabold text-stripe-dark mb-3">Документи</h3>
+            <p id="doc-p1" class="text-xs sm:text-sm text-stripe-slate leading-relaxed mb-4">
+              Установчі та реєстраційні документи організації надаємо партнерам, донорам та іншим зацікавленим сторонам за запитом.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stripe-border">
+            <span id="doc-lbl" class="text-xs uppercase font-bold text-stripe-slate block mb-1.5">Для запиту документів:</span>
+            <a href="mailto:info@freedomformula.co.ua" class="text-sm font-bold text-stripe-purple hover:underline inline-flex items-center gap-1.5">
+              <span>info@freedomformula.co.ua</span>
+              <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Контакти команди -->
+  <section id="contacts" class="py-14 sm:py-20 bg-white border-t border-stripe-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-10 sm:mb-12">
+        <span id="contact-sec-tag" class="text-xs uppercase font-bold tracking-widest text-stripe-purple block mb-2">Звʼязок</span>
+        <h2 id="contact-sec-title" class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-stripe-dark tracking-[-0.03em]">
+          Контакти
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <!-- General -->
+        <div class="p-6 rounded-xl border border-stripe-border bg-white hover:border-stripe-purple/50 transition-colors">
+          <span class="text-xs font-bold uppercase tracking-wider text-stripe-purple block mb-2">Організація</span>
+          <h4 id="cnt-gen-title" class="text-base font-bold text-stripe-dark mb-1">Загальні питання та партнерства</h4>
+          <p class="text-xs text-stripe-slate mb-4">Офіційне листування та пропозиції</p>
+          <a href="mailto:info@freedomformula.co.ua" class="text-sm font-semibold text-stripe-purple hover:underline break-all">
+            info@freedomformula.co.ua
+          </a>
+        </div>
+
+        <!-- Anastasia -->
+        <div class="p-6 rounded-xl border border-stripe-border bg-white hover:border-stripe-purple/50 transition-colors">
+          <span class="text-xs font-bold uppercase tracking-wider text-stripe-purple block mb-2">CEO</span>
+          <h4 class="text-base font-bold text-stripe-dark mb-1">Анастасія Чайковська</h4>
+          <p id="cnt-ana-role" class="text-xs text-stripe-slate mb-4">Співзасновниця та директорка (CEO)</p>
+          <a href="mailto:anastasia@freedomformula.co.ua" class="text-sm font-semibold text-stripe-purple hover:underline break-all">
+            anastasia@freedomformula.co.ua
+          </a>
+        </div>
+
+        <!-- Natalia -->
+        <div class="p-6 rounded-xl border border-stripe-border bg-white hover:border-stripe-purple/50 transition-colors">
+          <span class="text-xs font-bold uppercase tracking-wider text-stripe-dark block mb-2">CGO</span>
+          <h4 class="text-base font-bold text-stripe-dark mb-1">Наталія Рублик</h4>
+          <p id="cnt-nat-role" class="text-xs text-stripe-slate mb-4">Співзасновниця (CGO)</p>
+          <a href="mailto:natalia@freedomformula.co.ua" class="text-sm font-semibold text-stripe-purple hover:underline break-all">
+            natalia@freedomformula.co.ua
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-stripe-border pt-14 sm:pt-16 pb-12 text-stripe-slate text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 pb-12 border-b border-stripe-border">
+        
+        <div class="md:col-span-6">
+          <div class="mb-3">
+            <img src="logo.png" alt="Формула свободи" class="h-7 w-auto max-w-[150px] object-contain">
+          </div>
+          <p id="footer-slogan" class="text-stripe-slate text-xs sm:text-sm leading-relaxed max-w-md font-normal">
+            Допомагаємо жінкам навчатися, працювати, ставати незалежнішими і мати більше вибору у власному житті.
+          </p>
+        </div>
+
+        <div class="md:col-span-3">
+          <h4 id="footer-col-org" class="text-xs font-bold uppercase tracking-wider text-stripe-dark mb-4">Організація</h4>
+          <ul class="space-y-2.5">
+            <li>
+              <a href="index.html#what-we-do" id="footer-link-projects" class="hover:text-stripe-purple transition-colors">Наші проєкти</a>
+            </li>
+            <li>
+              <a href="chaos_formula.html" class="text-red-700 hover:text-red-800 font-semibold transition-colors flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-700"></span>
+                <span>Проєкт Chaos Formula</span>
+              </a>
+            </li>
+            <li>
+              <a href="about.html" id="footer-link-about" class="text-stripe-purple font-semibold hover:underline transition-colors">Про організацію</a>
+            </li>
+            <li>
+              <button onclick="openModal()" id="footer-link-join" class="hover:text-stripe-purple transition-colors text-left">Долучитися</button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3">
+          <h4 id="footer-col-contact" class="text-xs font-bold uppercase tracking-wider text-stripe-dark mb-4">Звʼязок</h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="mailto:info@freedomformula.co.ua" class="hover:text-stripe-purple transition-colors font-medium text-stripe-dark break-all">
+                info@freedomformula.co.ua
+              </a>
+            </li>
+            <li class="pt-1">
+              <button onclick="openModal()" class="stripe-btn inline-flex items-center gap-2 bg-stripe-purple hover:bg-stripe-purpleHover text-white px-4 py-2 rounded-full text-xs font-semibold shadow-xs hover:shadow-md transition-all">
+                <span id="footer-link-contacts-text">Контакти</span>
+                <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stripe-slate/70 gap-4">
+        <p id="footer-copyright">&copy; Формула свободи. Всі права захищені.</p>
+        <p id="footer-country">Україна</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-stripe-dark/60 backdrop-blur-sm hidden" role="dialog" aria-modal="true">
+    <div class="bg-white rounded-2xl max-w-lg w-full max-h-[92dvh] overflow-y-auto overscroll-contain p-5 sm:p-8 shadow-2xl border border-stripe-border relative transform transition-all">
+      
+      <button onclick="closeModal()" class="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 rounded-full text-stripe-slate hover:text-stripe-dark hover:bg-stripe-lightBg focus:outline-none" aria-label="Закрити">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <div class="mb-5 sm:mb-6 pr-8">
+        <span id="modal-brand-tag" class="text-xs uppercase tracking-wider font-bold text-stripe-purple">Формула свободи</span>
+        <h3 id="modal-title" class="text-xl sm:text-2xl font-extrabold text-stripe-dark mt-1">Долучитися</h3>
+        <p id="modal-desc" class="text-stripe-slate text-xs sm:text-sm mt-1">Напишіть нам, щоб дізнатися більше або підтримати проєкт.</p>
+      </div>
+
+      <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-3.5 sm:space-y-4">
+        <div>
+          <label id="modal-role-label" class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="role-select">Як ви хочете долучитися:</label>
+          <select id="role-select" required class="w-full px-3.5 sm:px-4 py-2.5 rounded-xl border border-stripe-border bg-white focus:outline-none focus:ring-2 focus:ring-stripe-purple text-base sm:text-sm text-stripe-dark">
+            <option value="учасниця" id="opt-participant">Учасниця (навчання, професія, робота)</option>
+            <option value="ментор" id="opt-mentor">Менторка чи ментор</option>
+            <option value="експерт" id="opt-expert">Експерт</option>
+            <option value="партнер" id="opt-partner">Партнер або компанія</option>
+            <option value="донор" id="opt-donor">Донор</option>
+          </select>
+        </div>
+
+        <div>
+          <label id="modal-name-label" class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="user-name">Ваше імʼя:</label>
+          <input id="user-name" type="text" required placeholder="Імʼя та прізвище" class="w-full px-3.5 sm:px-4 py-2.5 rounded-xl border border-stripe-border bg-white focus:outline-none focus:ring-2 focus:ring-stripe-purple text-base sm:text-sm text-stripe-dark">
+        </div>
+
+        <div>
+          <label id="modal-email-label" class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="user-email">Електронна пошта:</label>
+          <input id="user-email" type="email" required placeholder="email@example.com" class="w-full px-3.5 sm:px-4 py-2.5 rounded-xl border border-stripe-border bg-white focus:outline-none focus:ring-2 focus:ring-stripe-purple text-base sm:text-sm text-stripe-dark">
+        </div>
+
+        <div>
+          <label id="modal-msg-label" class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="user-message">Повідомлення:</label>
+          <textarea id="user-message" rows="3" placeholder="Напишіть нам..." class="w-full px-3.5 sm:px-4 py-2.5 rounded-xl border border-stripe-border bg-white focus:outline-none focus:ring-2 focus:ring-stripe-purple text-base sm:text-sm text-stripe-dark resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="stripe-btn w-full py-3.5 rounded-full font-bold text-white bg-stripe-purple hover:bg-stripe-purpleHover shadow-md transition-all text-sm mt-2 flex items-center justify-center gap-2">
+          <span id="modal-btn-submit">Надіслати</span>
+          <svg class="w-4 h-4 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toast-notify" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 z-50 hidden bg-stripe-dark text-white px-5 py-4 rounded-xl shadow-2xl border border-white/10 flex items-center gap-3 transition-all duration-300">
+    <div class="w-7 h-7 rounded-full bg-stripe-purple flex items-center justify-center text-white font-bold text-sm shrink-0">✓</div>
+    <div>
+      <p class="font-bold text-sm text-white" id="toast-title">Дякуємо за звернення!</p>
+      <p class="text-xs text-stripe-border" id="toast-desc">Ми звʼяжемося з вами найближчим часом.</p>
+    </div>
+  </div>
+
+  <script>
+    const i18n = {
+      uk: {
+        metaTitle: "Про організацію — ГО «Формула свободи»",
+        navHome: "Головна",
+        navWhatWeDo: "Що ми робимо",
+        navFounders: "Засновниці",
+        navLegal: "Юридичні дані",
+        navContacts: "Контакти",
+        btnJoin: "Долучитися",
+        heroBadge: "Громадська організація",
+        aboutHeroTitle: "Про організацію",
+        aboutHeroP1: "Формула свободи — українська громадська організація, яка створює освітні та соціальні проєкти для жінок.",
+        aboutHeroP2: "Ми працюємо над тим, щоб у жінок було більше можливостей для професійного розвитку, фінансової незалежності та свободи будувати життя на власних умовах.",
+        aboutHeroDate: "Організацію засновано у серпні 2026 року.",
+        foundersEyebrow: "Лідерство",
+        foundersTitle: "Засновниці",
+        foundersDesc: "«Формулу свободи» створили дві співзасновниці — Анастасія Чайковська та Наталія Рублик.",
+        founder1Role: "Співзасновниця та директорка (CEO)",
+        founder2Role: "Співзасновниця (CGO)",
+        cntAnaRole: "Співзасновниця та директорка (CEO)",
+        cntNatRole: "Співзасновниця (CGO)",
+        legalEyebrow: "Публічний реєстр",
+        legalTitle: "Юридична інформація",
+        legalSubtitle: "Ці дані відповідають офіційним відомостям з Єдиного державного реєстру юридичних осіб (ЄДР).",
+        lblLegalName: "Повна юридична назва",
+        lblEnName: "Назва англійською",
+        lblEdrpou: "Код ЄДРПОУ",
+        lblRegDate: "Дата державної реєстрації",
+        valRegDate: "23 серпня 2026 року",
+        lblAddress: "Юридична адреса",
+        valAddress: "Україна, 25006, Кіровоградська область, м. Кропивницький, вул. Фортечна, будинок 20",
+        lblHead: "Керівниця",
+        lblStatute: "Організація діє на підставі",
+        valStatute: "модельного статуту",
+        lblOrgans: "Органи управління",
+        actTitle: "Напрями діяльності",
+        actP1: "Основні зареєстровані види діяльності:",
+        actKved1: "Діяльність інших громадських організацій",
+        actKved2: "Інші види освіти",
+        actFocus: "У практичній роботі ми фокусуємося на освіті, професійному розвитку та створенні можливостей для жінок.",
+        goalSecTitle: "Мета організації",
+        goalSecP1: "Відповідно до установчих документів, метою організації є здійснення та захист прав і свобод, а також задоволення суспільних, економічних, соціальних, культурних та інших інтересів.",
+        goalSecP2: "Для «Формули свободи» це насамперед означає створювати середовище, у якому жінки мають більше можливостей навчатися, професійно розвиватися, ставати фінансово незалежнішими та самостійно вирішувати, яким буде їхнє життя.",
+        repTitle: "Фінансування та звітність",
+        repP1: "Станом на сьогодні «Формула свободи» не отримувала грантового фінансування та не реалізовувала проєктів за рахунок грантів.",
+        repP2: "Тому окремі публічні фінансові або грантові звіти наразі не публікувалися.",
+        repP3: "У разі залучення грантового або іншого зовнішнього фінансування інформація про реалізовані проєкти та відповідну звітність буде додаватися на цю сторінку.",
+        docTitle: "Документи",
+        docP1: "Установчі та реєстраційні документи організації надаємо партнерам, донорам та іншим зацікавленим сторонам за запитом.",
+        docLbl: "Для запиту документів:",
+        contactSecTitle: "Контакти",
+        cntGenTitle: "Загальні питання та партнерства",
+        footerSlogan: "Допомагаємо жінкам навчатися, працювати, ставати незалежнішими і мати більше вибору у власному житті.",
+        footerColOrg: "Організація",
+        footerLinkProjects: "Наші проєкти",
+        footerLinkAbout: "Про організацію",
+        footerColContact: "Звʼязок",
+        footerLinkContacts: "Контакти",
+        footerCopyright: "© Формула свободи. Всі права захищені.",
+        footerCountry: "Україна",
+        modalBrandTag: "Формула свободи",
+        modalTitle: "Долучитися",
+        modalDesc: "Напишіть нам, щоб дізнатися більше або підтримати проєкт.",
+        modalRoleLabel: "Як ви хочете долучитися:",
+        optParticipant: "Учасниця (навчання, професія, робота)",
+        optMentor: "Менторка чи ментор",
+        optExpert: "Експерт",
+        optPartner: "Партнер або компанія",
+        optDonor: "Донор",
+        modalNameLabel: "Ваше імʼя:",
+        namePlaceholder: "Імʼя та прізвище",
+        modalEmailLabel: "Електронна пошта:",
+        modalMsgLabel: "Повідомлення:",
+        msgPlaceholder: "Напишіть нам...",
+        modalBtnSubmit: "Надіслати",
+        toastSuccessTitle: "Дякуємо за звернення!",
+        toastSuccessDesc: "Ми звʼяжемося з вами найближчим часом."
+      },
+      en: {
+        metaTitle: "About the Organization — NGO “Freedom Formula”",
+        navHome: "Home",
+        navWhatWeDo: "What we do",
+        navFounders: "Founders",
+        navLegal: "Legal Details",
+        navContacts: "Contacts",
+        btnJoin: "Join us",
+        heroBadge: "Non-Governmental Organization",
+        aboutHeroTitle: "About the Organization",
+        aboutHeroP1: "Freedom Formula is a Ukrainian non-governmental organization building educational and social initiatives for women.",
+        aboutHeroP2: "We work to ensure women have greater opportunities for professional development, financial independence, and the freedom to build their lives on their own terms.",
+        aboutHeroDate: "The organization was founded in August 2026.",
+        foundersEyebrow: "Leadership",
+        foundersTitle: "Founders",
+        foundersDesc: "Freedom Formula was established by two co-founders — Anastasia Chaikovska and Nataliia Rublyk.",
+        founder1Role: "Co-founder & Director (CEO)",
+        founder2Role: "Co-founder (CGO)",
+        cntAnaRole: "Co-founder & Director (CEO)",
+        cntNatRole: "Co-founder (CGO)",
+        legalEyebrow: "Public Registry",
+        legalTitle: "Legal Information",
+        legalSubtitle: "These details correspond to the official records of the Unified State Register of Legal Entities (EDR).",
+        lblLegalName: "Full Legal Name",
+        lblEnName: "English Legal Name",
+        lblEdrpou: "EDRPOU Code",
+        lblRegDate: "Registration Date",
+        valRegDate: "August 23, 2026",
+        lblAddress: "Registered Address",
+        valAddress: "Ukraine, 25006, Kirovohradska Oblast, Kropyvnytskyi, Fortechna St, Bldg 20",
+        lblHead: "Executive Director",
+        lblStatute: "Governing Instrument",
+        valStatute: "Model Statute",
+        lblOrgans: "Governing Bodies",
+        actTitle: "Areas of Activity",
+        actP1: "Primary registered activity codes (NACE/KVED):",
+        actKved1: "Activities of other membership organizations",
+        actKved2: "Other education n.e.c.",
+        actFocus: "In practice, our work focuses on education, career growth, and unlocking opportunities for women.",
+        goalSecTitle: "Organizational Purpose",
+        goalSecP1: "According to our statutory documents, our purpose is the exercise and protection of rights and freedoms, as well as the fulfillment of public, economic, social, cultural, and other interests.",
+        goalSecP2: "For Freedom Formula, this primarily means creating an environment where women have more pathways to learn, advance professionally, gain financial autonomy, and independently shape their lives.",
+        repTitle: "Funding & Reporting",
+        repP1: "As of today, Freedom Formula has not received grant funding and has not implemented projects through grant resources.",
+        repP2: "Therefore, dedicated public financial or grant reports have not yet been published.",
+        repP3: "Upon securing grant or other external funding, details of implemented projects and reports will be published on this page.",
+        docTitle: "Statutory Documents",
+        docP1: "We provide statutory and registration documents to institutional partners, donors, and stakeholders upon formal request.",
+        docLbl: "To request documents:",
+        contactSecTitle: "Contacts",
+        cntGenTitle: "General Inquiries & Partnerships",
+        footerSlogan: "Helping women learn, work, become more independent, and gain more choices in their lives.",
+        footerColOrg: "Organization",
+        footerLinkProjects: "Our initiatives",
+        footerLinkAbout: "About us",
+        footerColContact: "Connect",
+        footerLinkContacts: "Contact",
+        footerCopyright: "© Freedom Formula. All rights reserved.",
+        footerCountry: "Ukraine",
+        modalBrandTag: "Freedom Formula",
+        modalTitle: "Join us",
+        modalDesc: "Reach out to learn more or support our initiatives.",
+        modalRoleLabel: "How would you like to participate:",
+        optParticipant: "Participant (learning, career, employment)",
+        optMentor: "Mentor",
+        optExpert: "Industry expert",
+        optPartner: "Partner or enterprise",
+        optDonor: "Donor",
+        modalNameLabel: "Your name:",
+        namePlaceholder: "Full name",
+        modalEmailLabel: "Email address:",
+        modalMsgLabel: "Message:",
+        msgPlaceholder: "Write your message...",
+        modalBtnSubmit: "Send message",
+        toastSuccessTitle: "Thank you for reaching out!",
+        toastSuccessDesc: "Our team will be in touch with you shortly."
+      }
+    };
+
+    let currentLang = 'uk';
+
+    function setTxt(id, val) {
+      const el = document.getElementById(id);
+      if (el && val !== undefined) el.textContent = val;
+    }
+
+    function switchLanguage(lang) {
+      if (!i18n[lang]) return;
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      try {
+        localStorage.setItem('ff_language', lang);
+      } catch (e) {}
+
+      const d = i18n[lang];
+
+      setTxt('meta-title', d.metaTitle);
+      setTxt('nav-home-text', d.navHome);
+      setTxt('mob-nav-home', d.navHome);
+      setTxt('nav-what-we-do', d.navWhatWeDo);
+      setTxt('mob-nav-what-we-do', d.navWhatWeDo);
+      setTxt('nav-founders', d.navFounders);
+      setTxt('mob-nav-founders', d.navFounders);
+      setTxt('nav-legal', d.navLegal);
+      setTxt('mob-nav-legal', d.navLegal);
+      setTxt('nav-contacts', d.navContacts);
+      setTxt('mob-nav-contacts', d.navContacts);
+      setTxt('header-btn-join', d.btnJoin);
+      setTxt('mob-btn-join', d.btnJoin);
+
+      setTxt('hero-badge', d.heroBadge);
+      setTxt('about-hero-title', d.aboutHeroTitle);
+      setTxt('about-hero-p1', d.aboutHeroP1);
+      setTxt('about-hero-p2', d.aboutHeroP2);
+      setTxt('about-hero-date', d.aboutHeroDate);
+
+      setTxt('founders-eyebrow', d.foundersEyebrow);
+      setTxt('founders-title', d.foundersTitle);
+      setTxt('founders-desc', d.foundersDesc);
+      setTxt('founder-1-role', d.founder1Role);
+      setTxt('founder-2-role', d.founder2Role);
+      setTxt('cnt-ana-role', d.cntAnaRole);
+      setTxt('cnt-nat-role', d.cntNatRole);
+
+      setTxt('legal-eyebrow', d.legalEyebrow);
+      setTxt('legal-title', d.legalTitle);
+      setTxt('legal-subtitle', d.legalSubtitle);
+      setTxt('lbl-legal-name', d.lblLegalName);
+      setTxt('lbl-en-name', d.lblEnName);
+      setTxt('lbl-edrpou', d.lblEdrpou);
+      setTxt('lbl-reg-date', d.lblRegDate);
+      setTxt('val-reg-date', d.valRegDate);
+      setTxt('lbl-address', d.lblAddress);
+      setTxt('val-address', d.valAddress);
+      setTxt('lbl-head', d.lblHead);
+      setTxt('lbl-statute', d.lblStatute);
+      setTxt('val-statute', d.valStatute);
+      setTxt('lbl-organs', d.lblOrgans);
+
+      setTxt('act-title', d.actTitle);
+      setTxt('act-p1', d.actP1);
+      setTxt('act-kved-1', d.actKved1);
+      setTxt('act-kved-2', d.actKved2);
+      setTxt('act-focus', d.actFocus);
+
+      setTxt('goal-sec-title', d.goalSecTitle);
+      setTxt('goal-sec-p1', d.goalSecP1);
+      setTxt('goal-sec-p2', d.goalSecP2);
+
+      setTxt('rep-title', d.repTitle);
+      setTxt('rep-p1', d.repP1);
+      setTxt('rep-p2', d.repP2);
+      setTxt('rep-p3', d.repP3);
+
+      setTxt('doc-title', d.docTitle);
+      setTxt('doc-p1', d.docP1);
+      setTxt('doc-lbl', d.docLbl);
+
+      setTxt('contact-sec-title', d.contactSecTitle);
+      setTxt('cnt-gen-title', d.cntGenTitle);
+
+      setTxt('footer-slogan', d.footerSlogan);
+      setTxt('footer-col-org', d.footerColOrg);
+      setTxt('footer-link-projects', d.footerLinkProjects);
+      setTxt('footer-link-about', d.footerLinkAbout);
+      setTxt('footer-link-join', d.btnJoin);
+      setTxt('footer-col-contact', d.footerColContact);
+      setTxt('footer-link-contacts-text', d.footerLinkContacts);
+      setTxt('footer-copyright', d.footerCopyright);
+      setTxt('footer-country', d.footerCountry);
+
+      setTxt('modal-brand-tag', d.modalBrandTag);
+      setTxt('modal-title', d.modalTitle);
+      setTxt('modal-desc', d.modalDesc);
+      setTxt('modal-role-label', d.modalRoleLabel);
+      setTxt('opt-participant', d.optParticipant);
+      setTxt('opt-mentor', d.optMentor);
+      setTxt('opt-expert', d.optExpert);
+      setTxt('opt-partner', d.optPartner);
+      setTxt('opt-donor', d.optDonor);
+      setTxt('modal-name-label', d.modalNameLabel);
+      setTxt('modal-email-label', d.modalEmailLabel);
+      setTxt('modal-msg-label', d.modalMsgLabel);
+      setTxt('modal-btn-submit', d.modalBtnSubmit);
+
+      const btnUk = document.getElementById('btn-lang-uk');
+      const btnEn = document.getElementById('btn-lang-en');
+      const btnUkMob = document.getElementById('btn-lang-uk-mob');
+      const btnEnMob = document.getElementById('btn-lang-en-mob');
+
+      if (lang === 'en') {
+        if (btnEn) btnEn.className = "px-3 py-1 rounded-full transition-all text-white bg-stripe-purple shadow-xs font-bold";
+        if (btnUk) btnUk.className = "px-3 py-1 rounded-full transition-all text-stripe-slate hover:text-stripe-dark font-semibold";
+        if (btnEnMob) btnEnMob.className = "px-2 py-0.5 rounded-full text-white bg-stripe-purple font-bold";
+        if (btnUkMob) btnUkMob.className = "px-2 py-0.5 rounded-full text-stripe-slate font-semibold";
+      } else {
+        if (btnUk) btnUk.className = "px-3 py-1 rounded-full transition-all text-white bg-stripe-purple shadow-xs font-bold";
+        if (btnEn) btnEn.className = "px-3 py-1 rounded-full transition-all text-stripe-slate hover:text-stripe-dark font-semibold";
+        if (btnUkMob) btnUkMob.className = "px-2 py-0.5 rounded-full text-white bg-stripe-purple font-bold";
+        if (btnEnMob) btnEnMob.className = "px-2 py-0.5 rounded-full text-stripe-slate font-semibold";
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('ff_language') || 'uk';
+      switchLanguage(savedLang);
+    });
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobLinks = document.querySelectorAll('.mob-link');
+
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    mobLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Modal
+    const modal = document.getElementById('contact-modal');
+    const toast = document.getElementById('toast-notify');
+
+    function openModal() {
+      modal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    function showToast(title, desc) {
+      document.getElementById('toast-title').textContent = title;
+      document.getElementById('toast-desc').textContent = desc;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 5000);
+    }
+
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwE0aWK_zxQ1SulNedT9TUTfq4MSPNwo_m67kNH0HvL5nhVvwMlkfCWTOJ5k24ur-5W/exec";
+
+    async function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      const submitBtn = document.getElementById('modal-btn-submit');
+      const originalHtml = submitBtn.innerHTML;
+      const isUk = currentLang === 'uk';
+
+      const payload = {
+        role: document.getElementById('role-select').value,
+        name: document.getElementById('user-name').value.trim(),
+        email: document.getElementById('user-email').value.trim(),
+        message: document.getElementById('user-message').value.trim(),
+        lang: currentLang,
+        source: "Про організацію (about.html)"
+      };
+
+      submitBtn.textContent = isUk ? "Надсилаємо..." : "Sending...";
+      submitBtn.disabled = true;
+
+      try {
+        if (GOOGLE_SCRIPT_URL) {
+          fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            keepalive: true,
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(payload)
+          }).catch(err => {
+            console.error("Помилка фонового надсилання:", err);
+          });
+        }
+        
+        await new Promise(resolve => setTimeout(resolve, 300));
+        
+        closeModal();
+        document.getElementById('contact-form').reset();
+        const d = i18n[currentLang];
+        showToast(d.toastSuccessTitle, d.toastSuccessDesc);
+      } catch (err) {
+        console.error("Помилка відправки:", err);
+        const errTitle = isUk ? "Помилка відправлення" : "Submission error";
+        const errDesc = isUk ? "Будь ласка, напишіть нам на info@freedomformula.co.ua" : "Please reach out to info@freedomformula.co.ua";
+        showToast(errTitle, errDesc);
+      } finally {
+        submitBtn.innerHTML = originalHtml;
+        submitBtn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>
