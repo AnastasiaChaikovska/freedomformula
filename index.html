@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Формула свободи — Можливості для навчання, роботи та незалежного життя</title>
+
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+          },
+          colors: {
+            stripe: {
+              purple: '#635bff',
+              purpleHover: '#533afd',
+              dark: '#0a2540',
+              slate: '#425466',
+              lightBg: '#f6f9fc',
+              border: '#e6ebf1',
+              accentPink: '#ff5492',
+              accentOrange: '#ff7300',
+              accentYellow: '#ffbe38',
+              accentCyan: '#00d4ff',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Stripe's Exact Satin Iridescent Gradient Wave */
+    .hero-container {
+      position: relative;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+
+    .stripe-wave-canvas {
+      position: absolute;
+      top: -20%;
+      right: -18%;
+      width: 82vw;
+      height: 140%;
+      max-width: 1100px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.96;
+      transform: rotate(-10deg) skewX(-14deg);
+      background: linear-gradient(
+        132deg,
+        rgba(99, 91, 255, 0.95) 0%,
+        rgba(155, 93, 229, 0.92) 22%,
+        rgba(255, 84, 146, 0.9) 45%,
+        rgba(255, 115, 0, 0.92) 70%,
+        rgba(255, 190, 56, 0.96) 95%
+      );
+      filter: blur(54px);
+      border-radius: 46% 54% 70% 30% / 40% 48% 60% 55%;
+      animation: stripeFlow 16s ease-in-out infinite alternate;
+    }
+
+    .stripe-wave-secondary {
+      position: absolute;
+      top: 10%;
+      right: -2%;
+      width: 50vw;
+      height: 95%;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.72;
+      background: radial-gradient(
+        circle at 45% 45%,
+        rgba(0, 212, 255, 0.65) 0%,
+        rgba(99, 91, 255, 0.7) 48%,
+        rgba(255, 84, 146, 0) 80%
+      );
+      filter: blur(46px);
+      transform: rotate(16deg);
+      animation: stripeSecondaryFloat 13s ease-in-out infinite alternate;
+    }
+
+    @keyframes stripeFlow {
+      0% {
+        transform: rotate(-12deg) skewX(-12deg) translate(0, 0) scale(1);
+      }
+      50% {
+        transform: rotate(-8deg) skewX(-16deg) translate(-28px, 20px) scale(1.05);
+      }
+      100% {
+        transform: rotate(-13deg) skewX(-10deg) translate(18px, -18px) scale(0.98);
+      }
+    }
+
+    @keyframes stripeSecondaryFloat {
+      0% { transform: rotate(14deg) translateY(0); }
+      100% { transform: rotate(22deg) translateY(32px); }
+    }
+
+    /* Stripe button arrow micro-interaction */
+    .stripe-button-arrow {
+      transition: transform 0.16s cubic-bezier(0.2, 0, 0, 1);
+    }
+    .stripe-btn:hover .stripe-button-arrow {
+      transform: translateX(4px);
+    }
+
+    /* Stripe Hairline Dividers */
+    .stripe-divider {
+      height: 1px;
+      background-color: #e6ebf1;
+      width: 100%;
+    }
+
+    /* Stripe Card Interactive Hover */
+    .stripe-card-interactive {
+      background: #ffffff;
+      border: 1px solid #e6ebf1;
+      border-radius: 12px;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+    .stripe-card-interactive:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.08), 0 8px 16px -8px rgba(0, 0, 0, 0.05);
+      border-color: #c4d1eb;
+    }
+
+    /* Fiber-optic radiating canvas container */
+    .sunburst-container {
+      background: radial-gradient(ellipse at 50% 100%, rgba(246, 233, 255, 0.8) 0%, rgba(255, 255, 255, 1) 75%);
+    }
+  </style>
+</head>
+<body class="bg-white text-stripe-dark antialiased selection:bg-stripe-purple selection:text-white font-sans overflow-x-hidden">
+
+  <!-- Authentic Stripe Navigation Header -->
+  <header class="relative z-30 bg-white/90 backdrop-blur-md border-b border-stripe-border sticky top-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+      
+      <!-- Brand Logo & Main Nav -->
+      <div class="flex items-center gap-10">
+        <a href="#" class="flex items-center gap-2 group">
+          <span class="text-[21px] font-extrabold tracking-[-0.04em] text-stripe-dark">
+            Формула <span class="text-stripe-purple">свободи</span>
+          </span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8 text-[15px] font-semibold text-stripe-slate">
+          <a href="#what-we-do" class="hover:text-stripe-dark transition-colors">Що ми робимо</a>
+          <a href="#for-whom" class="hover:text-stripe-dark transition-colors">Для кого</a>
+          <a href="#why-us" class="hover:text-stripe-dark transition-colors">Чому ми</a>
+          <a href="#formula" class="hover:text-stripe-dark transition-colors">Формула свободи</a>
+          <a href="#beliefs" class="hover:text-stripe-dark transition-colors">У що ми віримо</a>
+        </nav>
+      </div>
+
+      <!-- Action Button -->
+      <div class="hidden sm:flex items-center gap-3">
+        <button onclick="openModal()" class="stripe-btn inline-flex items-center gap-1.5 bg-stripe-purple hover:bg-stripe-purpleHover text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-xs hover:shadow-md transition-all">
+          <span>Долучитися</span>
+          <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-toggle" class="md:hidden p-2 rounded-lg text-stripe-dark hover:bg-stripe-lightBg" aria-label="Меню">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-stripe-border px-6 py-4 bg-white space-y-3">
+      <a href="#what-we-do" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Що ми робимо</a>
+      <a href="#for-whom" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Для кого</a>
+      <a href="#why-us" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Чому ми</a>
+      <a href="#formula" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Формула свободи</a>
+      <a href="#beliefs" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">У що ми віримо</a>
+      <div class="pt-2">
+        <button onclick="openModal()" class="w-full bg-stripe-purple text-white py-2.5 rounded-full font-semibold text-sm">
+          Долучитися
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section in pure Stripe style with Iridescent Mesh Wave -->
+  <section class="hero-container pt-16 pb-24 sm:pt-24 sm:pb-36">
+    <div class="stripe-wave-canvas"></div>
+    <div class="stripe-wave-secondary"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
+        
+        <!-- Main Headline identical to Stripe layout: strong title + subdued text in sentence flow -->
+        <h1 class="text-4xl sm:text-6xl lg:text-[70px] font-extrabold tracking-[-0.035em] text-stripe-dark leading-[1.08] mb-8">
+          Формула свободи.
+          <span class="block text-stripe-slate font-medium text-2xl sm:text-4xl lg:text-[44px] tracking-[-0.025em] mt-3 sm:mt-4 leading-tight">
+            Допомагаємо жінкам отримувати <span class="text-stripe-purple font-semibold">більше можливостей</span> для навчання, роботи та незалежного життя.
+          </span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-stripe-slate leading-relaxed mb-6 max-w-2xl font-normal">
+          Ми створюємо освітні, карʼєрні та соціальні проєкти для жінок. Допомагаємо здобувати нові навички, пробувати себе в нових професіях, знаходити людей і можливості, які можуть стати наступним кроком у карʼєрі або житті.
+        </p>
+
+        <!-- Quote Block -->
+        <p class="text-base sm:text-lg font-medium text-stripe-dark/90 leading-relaxed mb-10 max-w-2xl border-l-2 border-stripe-purple pl-4">
+          «Наша мета проста: щоб у жінок було більше вибору і менше причин відмовлятися від того життя, якого вони хочуть.»
+        </p>
+
+        <!-- Main Call To Action Button -->
+        <div class="flex items-center gap-4">
+          <button onclick="openModal()" class="stripe-btn inline-flex items-center gap-2 bg-stripe-purple hover:bg-stripe-purpleHover text-white px-7 py-3.5 rounded-full text-base font-semibold shadow-md shadow-stripe-purple/25 hover:shadow-lg transition-all">
+            <span>Долучитися</span>
+            <svg class="w-4 h-4 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Hairline divider matching Stripe page architecture -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="stripe-divider"></div>
+  </div>
+
+  <!-- What We Do: Styled identically to Stripe product card showcase -->
+  <section id="what-we-do" class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Stripe Section Heading: Bold title inline with subdued description -->
+      <div class="mb-14 max-w-3xl">
+        <h2 class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark inline">
+          Що ми робимо.
+        </h2>
+        <p class="text-2xl sm:text-3xl lg:text-[36px] font-medium tracking-[-0.03em] text-stripe-slate inline ml-2">
+          Створюємо проєкти та середовище для розвитку й незалежності.
+        </p>
+      </div>
+
+      <!-- 4 Cards Grid with mature, adult architectural layout (no naive icons) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Card 1: Навчання -->
+        <div class="stripe-card-interactive p-8 sm:p-10 flex flex-col justify-between border-t-2 border-t-stripe-purple">
+          <div>
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-stripe-border/70">
+              <span class="text-xs font-bold uppercase tracking-[0.16em] text-stripe-purple">01 / Напрям</span>
+              <span class="text-xs text-stripe-slate/60 font-semibold tracking-wider uppercase">Освіта</span>
+            </div>
+            <h3 class="text-2xl font-extrabold tracking-tight text-stripe-dark mb-4">Навчання</h3>
+            <p class="text-stripe-slate text-[15px] leading-relaxed mb-5 font-normal">
+              Створюємо безкоштовні освітні програми та залучаємо до них людей із реальним професійним досвідом.
+            </p>
+            <p class="text-stripe-slate text-sm leading-relaxed border-t border-stripe-border pt-5">
+              Нам важливо, щоб після навчання залишалися не тільки нові знання, а й навички, які можна використати в роботі: знайти першу позицію, змінити професію або спробувати новий напрям.
+            </p>
+          </div>
+          <div class="mt-8 pt-4">
+            <button onclick="openModal()" class="text-stripe-purple text-sm font-semibold hover:underline inline-flex items-center gap-1.5">
+              <span>Долучитися</span>
+              <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2: Карʼєрні можливості -->
+        <div class="stripe-card-interactive p-8 sm:p-10 flex flex-col justify-between border-t-2 border-t-stripe-dark">
+          <div>
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-stripe-border/70">
+              <span class="text-xs font-bold uppercase tracking-[0.16em] text-stripe-dark">02 / Напрям</span>
+              <span class="text-xs text-stripe-slate/60 font-semibold tracking-wider uppercase">Професія</span>
+            </div>
+            <h3 class="text-2xl font-extrabold tracking-tight text-stripe-dark mb-4">Карʼєрні можливості</h3>
+            <p class="text-stripe-slate text-[15px] leading-relaxed mb-5 font-normal">
+              Допомагаємо жінкам дізнаватися про професії та сфери, в які вони могли раніше навіть не дивитися.
+            </p>
+            <p class="text-stripe-slate text-sm leading-relaxed border-t border-stripe-border pt-5">
+              Знайомимо з експертами, менторами, компаніями та іншими людьми, які можуть поділитися досвідом, контактами або можливостями.
+            </p>
+          </div>
+          <div class="mt-8 pt-4">
+            <button onclick="openModal()" class="text-stripe-purple text-sm font-semibold hover:underline inline-flex items-center gap-1.5">
+              <span>Долучитися</span>
+              <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3: Спільнота -->
+        <div class="stripe-card-interactive p-8 sm:p-10 flex flex-col justify-between border-t-2 border-t-stripe-slate">
+          <div>
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-stripe-border/70">
+              <span class="text-xs font-bold uppercase tracking-[0.16em] text-stripe-slate">03 / Напрям</span>
+              <span class="text-xs text-stripe-slate/60 font-semibold tracking-wider uppercase">Мережа</span>
+            </div>
+            <h3 class="text-2xl font-extrabold tracking-tight text-stripe-dark mb-4">Спільнота</h3>
+            <p class="text-stripe-slate text-[15px] leading-relaxed mb-5 font-normal">
+              Ми хочемо, щоб жінкам було простіше знаходити одна одну і допомагати одна одній.
+            </p>
+            <p class="text-stripe-slate text-sm leading-relaxed border-t border-stripe-border pt-5">
+              Порадою. Контактом. Рекомендацією. Вакансією. Досвідом. Іноді саме цього не вистачає, щоб зробити наступний крок.
+            </p>
+          </div>
+          <div class="mt-8 pt-4">
+            <button onclick="openModal()" class="text-stripe-purple text-sm font-semibold hover:underline inline-flex items-center gap-1.5">
+              <span>Долучитися</span>
+              <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 4: Суспільні проєкти -->
+        <div class="stripe-card-interactive p-8 sm:p-10 flex flex-col justify-between border-t-2 border-t-stripe-purple">
+          <div>
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-stripe-border/70">
+              <span class="text-xs font-bold uppercase tracking-[0.16em] text-stripe-purple">04 / Напрям</span>
+              <span class="text-xs text-stripe-slate/60 font-semibold tracking-wider uppercase">Суспільство</span>
+            </div>
+            <h3 class="text-2xl font-extrabold tracking-tight text-stripe-dark mb-4">Суспільні проєкти</h3>
+            <p class="text-stripe-slate text-[15px] leading-relaxed mb-5 font-normal">
+              Ми також говоримо про речі, які досі впливають на вибір жінок: фінансову залежність, стереотипи про професії та карʼєру.
+            </p>
+            <p class="text-stripe-slate text-sm leading-relaxed border-t border-stripe-border pt-5">
+              Очікування щодо сімʼї, материнства, віку чи того, наскільки «амбіційною» жінці дозволено бути.
+            </p>
+          </div>
+          <div class="mt-8 pt-4">
+            <button onclick="openModal()" class="text-stripe-purple text-sm font-semibold hover:underline inline-flex items-center gap-1.5">
+              <span>Долучитися</span>
+              <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Hairline divider -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="stripe-divider"></div>
+  </div>
+
+  <!-- Target Audience: Stripe's exact Two-Column Section layout (from Screenshot 3) -->
+  <section id="for-whom" class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Two-Column Section Header identical to Stripe's "Transform your enterprise..." -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 mb-14 items-start">
+        <div class="lg:col-span-7">
+          <h2 class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark leading-tight">
+            Для кого ми працюємо
+          </h2>
+          <div class="mt-4">
+            <button onclick="openModal()" class="stripe-btn inline-flex items-center gap-1.5 bg-stripe-purple hover:bg-stripe-purpleHover text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-xs">
+              <span>Долучитися</span>
+              <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="lg:col-span-5">
+          <p class="text-base sm:text-lg text-stripe-slate leading-relaxed font-normal">
+            Для жінок, які хочуть щось змінити у своєму житті.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stripe-styled 6 Action Items in clean card row layout -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+        
+        <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-center gap-3.5 hover:border-stripe-purple/60 transition-colors">
+          <div class="w-2 h-2 rounded-full bg-stripe-purple shrink-0"></div>
+          <span class="text-sm sm:text-base font-semibold text-stripe-dark">Знайти роботу.</span>
+        </div>
+
+        <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-center gap-3.5 hover:border-stripe-purple/60 transition-colors">
+          <div class="w-2 h-2 rounded-full bg-stripe-purple shrink-0"></div>
+          <span class="text-sm sm:text-base font-semibold text-stripe-dark">Освоїти нову професію.</span>
+        </div>
+
+        <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-center gap-3.5 hover:border-stripe-purple/60 transition-colors">
+          <div class="w-2 h-2 rounded-full bg-stripe-purple shrink-0"></div>
+          <span class="text-sm sm:text-base font-semibold text-stripe-dark">Повернутися до карʼєри після перерви.</span>
+        </div>
+
+        <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-center gap-3.5 hover:border-stripe-purple/60 transition-colors">
+          <div class="w-2 h-2 rounded-full bg-stripe-purple shrink-0"></div>
+          <span class="text-sm sm:text-base font-semibold text-stripe-dark">Почати більше заробляти.</span>
+        </div>
+
+        <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-center gap-3.5 hover:border-stripe-purple/60 transition-colors">
+          <div class="w-2 h-2 rounded-full bg-stripe-purple shrink-0"></div>
+          <span class="text-sm sm:text-base font-semibold text-stripe-dark">Запустити свій проєкт.</span>
+        </div>
+
+        <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-center gap-3.5 hover:border-stripe-purple/60 transition-colors">
+          <div class="w-2 h-2 rounded-full bg-stripe-purple shrink-0"></div>
+          <span class="text-sm sm:text-base font-semibold text-stripe-dark">Або просто зрозуміти, куди рухатися далі.</span>
+        </div>
+
+      </div>
+
+      <!-- Stripe Banner Callout: "Не існує одного правильного результату" -->
+      <div class="rounded-2xl border border-stripe-border bg-stripe-lightBg p-8 sm:p-10 max-w-4xl">
+        <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-stripe-dark mb-3">
+          Не існує одного правильного результату.
+        </h3>
+        <p class="text-stripe-slate text-base sm:text-lg leading-relaxed mb-4 font-normal">
+          Комусь потрібна велика карʼєра, комусь — стабільна робота і власний дохід, комусь — можливість повністю змінити напрям.
+        </p>
+        <p class="text-stripe-purple font-semibold text-base">
+          Для нас важливо, щоб цей вибір був у самої жінки.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Hairline divider -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="stripe-divider"></div>
+  </div>
+
+  <!-- Why We Do This: Stripe's Two-Column Architectural layout -->
+  <section id="why-us" class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
+        
+        <!-- Left Column: Title & Key Summary -->
+        <div class="lg:col-span-5">
+          <h2 class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark leading-tight mb-4">
+            Чому ми це робимо
+          </h2>
+          <p class="text-base sm:text-lg text-stripe-slate leading-relaxed mb-8">
+            Бо навіть сьогодні на життя жінок впливає багато речей, які не мають нічого спільного з їхніми здібностями.
+          </p>
+
+          <div class="p-6 rounded-xl bg-stripe-lightBg border border-stripe-border">
+            <p class="text-stripe-dark text-[15px] font-medium leading-relaxed mb-2">
+              Ми не вирішимо всі ці проблеми одним проєктом.
+            </p>
+            <p class="text-stripe-purple font-bold text-[15px]">
+              Але можемо допомогти конкретній жінці отримати ще один варіант.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Column: 5 Reality check blocks with Stripe subtle dividers -->
+        <div class="lg:col-span-7 space-y-4">
+          
+          <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-start gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-stripe-purple mt-2 shrink-0"></span>
+            <p class="text-stripe-dark text-sm sm:text-base leading-relaxed">
+              Хтось відкладає карʼєру, бо більшість турботи про дітей автоматично лягає на неї.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-start gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-stripe-purple mt-2 shrink-0"></span>
+            <p class="text-stripe-dark text-sm sm:text-base leading-relaxed">
+              Хтось роками фінансово залежить від партнера.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-start gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-stripe-purple mt-2 shrink-0"></span>
+            <p class="text-stripe-dark text-sm sm:text-base leading-relaxed">
+              Хтось не подається на хорошу вакансію, бо не вважає себе достатньо кваліфікованою.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-start gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-stripe-purple mt-2 shrink-0"></span>
+            <p class="text-stripe-dark text-sm sm:text-base leading-relaxed">
+              Хтось у 35 чи 40 думає, що вже пізно починати щось нове.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-start gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-stripe-purple mt-2 shrink-0"></span>
+            <p class="text-stripe-dark text-sm sm:text-base leading-relaxed">
+              А хтось із дитинства просто звик до думки, що певні професії, гроші чи рівень амбіцій — «не для неї».
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Hairline divider -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="stripe-divider"></div>
+  </div>
+
+  <!-- Why "Formula of Freedom": Styled with Stripe's signature Fiber-Optic Sunburst Graphic (from Screenshot 4) -->
+  <section id="formula" class="sunburst-container py-20 sm:py-28 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="max-w-3xl mb-14">
+        <h2 class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark inline">
+          Чому «Формула свободи».
+        </h2>
+        <p class="text-2xl sm:text-3xl lg:text-[36px] font-medium tracking-[-0.03em] text-stripe-slate inline ml-2">
+          Тому що свобода для кожної виглядає по-різному.
+        </p>
+      </div>
+
+      <!-- 4 Manifestation Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+        
+        <div class="bg-white p-7 rounded-xl border border-stripe-border shadow-xs hover:border-stripe-purple/50 transition-colors">
+          <div class="w-8 h-8 rounded-lg bg-stripe-purple/10 text-stripe-purple flex items-center justify-center font-bold text-xs mb-4">
+            01
+          </div>
+          <h4 class="text-base font-bold text-stripe-dark mb-1.5">Власні гроші</h4>
+          <p class="text-sm text-stripe-slate leading-relaxed">
+            Для когось це власні гроші.
+          </p>
+        </div>
+
+        <div class="bg-white p-7 rounded-xl border border-stripe-border shadow-xs hover:border-stripe-purple/50 transition-colors">
+          <div class="w-8 h-8 rounded-lg bg-stripe-purple/10 text-stripe-purple flex items-center justify-center font-bold text-xs mb-4">
+            02
+          </div>
+          <h4 class="text-base font-bold text-stripe-dark mb-1.5">Бажана справа</h4>
+          <p class="text-sm text-stripe-slate leading-relaxed">
+            Для когось — робота, яку вона справді хоче.
+          </p>
+        </div>
+
+        <div class="bg-white p-7 rounded-xl border border-stripe-border shadow-xs hover:border-stripe-purple/50 transition-colors">
+          <div class="w-8 h-8 rounded-lg bg-stripe-purple/10 text-stripe-purple flex items-center justify-center font-bold text-xs mb-4">
+            03
+          </div>
+          <h4 class="text-base font-bold text-stripe-dark mb-1.5">Особиста воля</h4>
+          <p class="text-sm text-stripe-slate leading-relaxed">
+            Для когось — можливість піти зі стосунків або роботи, в яких їй погано.
+          </p>
+        </div>
+
+        <div class="bg-white p-7 rounded-xl border border-stripe-border shadow-xs hover:border-stripe-purple/50 transition-colors">
+          <div class="w-8 h-8 rounded-lg bg-stripe-purple/10 text-stripe-purple flex items-center justify-center font-bold text-xs mb-4">
+            04
+          </div>
+          <h4 class="text-base font-bold text-stripe-dark mb-1.5">Новий старт</h4>
+          <p class="text-sm text-stripe-slate leading-relaxed">
+            Для когось — почати все спочатку після переїзду, війни, декрету чи кількох років у зовсім іншій професії.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Fiber-Optic / Constellation Radiating Art (pure vector rendition of Stripe's graphic from Screenshot 4) -->
+      <div class="relative w-full max-w-4xl mx-auto flex flex-col items-center">
+        
+        <div class="text-center max-w-xl mx-auto bg-white/90 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-stripe-border shadow-xs z-10">
+          <p class="text-stripe-slate text-sm sm:text-base leading-relaxed mb-2 font-normal">
+            Ми не знаємо універсальної формули хорошого життя. І не хочемо її придумувати.
+          </p>
+          <p class="text-stripe-dark text-base sm:text-lg font-bold leading-relaxed">
+            Ми хочемо, щоб у більшої кількості жінок були ресурси й можливості знайти свою.
+          </p>
+        </div>
+
+        <!-- Stripe radiating fibers vector art -->
+        <div class="w-full h-44 sm:h-64 mt-[-60px] opacity-70 pointer-events-none flex justify-center items-end">
+          <svg viewBox="0 0 900 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+            <defs>
+              <linearGradient id="fiberGrad" x1="450" y1="360" x2="450" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#ff7300" stop-opacity="0.9"/>
+                <stop offset="40%" stop-color="#ff5492" stop-opacity="0.7"/>
+                <stop offset="85%" stop-color="#635bff" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#635bff" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- Radiating lines -->
+            <path d="M450 360 L100 80 M450 360 L140 60 M450 360 L190 45 M450 360 L240 30 M450 360 L300 20 M450 360 L360 15 M450 360 L420 10 M450 360 L450 8 M450 360 L480 10 M450 360 L540 15 M450 360 L600 20 M450 360 L660 30 M450 360 L710 45 M450 360 L760 60 M450 360 L800 80" stroke="url(#fiberGrad)" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M450 360 L120 140 M450 360 L170 110 M450 360 L220 90 M450 360 L270 70 M450 360 L330 55 M450 360 L390 45 M450 360 L510 45 M450 360 L570 55 M450 360 L630 70 M450 360 L680 90 M450 360 L730 110 M450 360 L780 140" stroke="url(#fiberGrad)" stroke-width="0.8" stroke-dasharray="2 3"/>
+            <!-- Fiber tip dots -->
+            <circle cx="100" cy="80" r="2.5" fill="#635bff"/>
+            <circle cx="190" cy="45" r="2.5" fill="#635bff"/>
+            <circle cx="300" cy="20" r="3" fill="#ff5492"/>
+            <circle cx="450" cy="8" r="3.5" fill="#ff7300"/>
+            <circle cx="600" cy="20" r="3" fill="#ff5492"/>
+            <circle cx="710" cy="45" r="2.5" fill="#635bff"/>
+            <circle cx="800" cy="80" r="2.5" fill="#635bff"/>
+          </svg>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Hairline divider -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="stripe-divider"></div>
+  </div>
+
+  <!-- Beliefs: Stripe's layout with clean, adult typography (no naive checkmarks) -->
+  <section id="beliefs" class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-14">
+        <h2 class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark">
+          У що ми віримо
+        </h2>
+      </div>
+
+      <!-- 4 Pillars structured in mature, clean editorial style -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 mb-16">
+        
+        <div class="border-l-2 border-stripe-purple pl-6 py-1">
+          <span class="text-xs font-bold text-stripe-purple uppercase tracking-wider block mb-1">Принцип 01</span>
+          <h3 class="text-base sm:text-lg font-bold text-stripe-dark inline">
+            Жінка сама знає, як хоче жити.
+          </h3>
+          <p class="text-stripe-slate text-sm sm:text-base leading-relaxed inline ml-1 font-normal">
+            Ми не хочемо пояснювати жінкам, що їм потрібно робити з карʼєрою, сімʼєю чи життям. Ми хочемо дати більше варіантів, з яких можна обирати.
+          </p>
+        </div>
+
+        <div class="border-l-2 border-stripe-purple pl-6 py-1">
+          <span class="text-xs font-bold text-stripe-purple uppercase tracking-wider block mb-1">Принцип 02</span>
+          <h3 class="text-base sm:text-lg font-bold text-stripe-dark inline">
+            Власний дохід має значення.
+          </h3>
+          <p class="text-stripe-slate text-sm sm:text-base leading-relaxed inline ml-1 font-normal">
+            Гроші не вирішують усіх проблем, але фінансова незалежність дуже сильно впливає на те, скільки в людини є вибору.
+          </p>
+        </div>
+
+        <div class="border-l-2 border-stripe-purple pl-6 py-1">
+          <span class="text-xs font-bold text-stripe-purple uppercase tracking-wider block mb-1">Принцип 03</span>
+          <h3 class="text-base sm:text-lg font-bold text-stripe-dark inline">
+            Починати спочатку — нормально.
+          </h3>
+          <p class="text-stripe-slate text-sm sm:text-base leading-relaxed inline ml-1 font-normal">
+            У 25, 35 чи 50. Після декрету, переїзду, звільнення, війни або просто в момент, коли зрозуміла, що більше не хочеш жити так, як раніше.
+          </p>
+        </div>
+
+        <div class="border-l-2 border-stripe-purple pl-6 py-1">
+          <span class="text-xs font-bold text-stripe-purple uppercase tracking-wider block mb-1">Принцип 04</span>
+          <h3 class="text-base sm:text-lg font-bold text-stripe-dark inline">
+            Жінки можуть відкривати можливості одна для одної.
+          </h3>
+          <p class="text-stripe-slate text-sm sm:text-base leading-relaxed inline ml-1 font-normal">
+            Ми самі багато разів бачили, як один контакт, рекомендація чи проста підтримка змінювали чиєсь життя. Хочемо, щоб таких історій ставало більше.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Manifesto & Stance: Styled as Stripe's dual banner cards (Startups / Atlas from Screenshot 1) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+        <!-- Banner Card 1: "Ми не рятуємо жінок" with purple gradient artwork -->
+        <div class="relative overflow-hidden rounded-2xl border border-stripe-border bg-white p-7 sm:p-8 flex flex-col justify-between group">
+          <div class="absolute right-0 top-0 bottom-0 w-2/5 bg-gradient-to-l from-stripe-purple/20 via-pink-400/10 to-transparent pointer-events-none"></div>
+          <div class="relative z-10 max-w-md">
+            <span class="text-xs uppercase font-bold tracking-widest text-stripe-purple block mb-2">Це важливо</span>
+            <h3 class="text-xl sm:text-2xl font-extrabold text-stripe-dark mb-2">Ми не рятуємо жінок.</h3>
+            <p class="text-sm text-stripe-slate leading-relaxed mb-4">
+              Ми не ставимося до наших учасниць як до людей, яких потрібно врятувати або навчити правильно жити. У них уже є здібності, досвід і власні плани.
+            </p>
+            <p class="text-sm text-stripe-slate leading-relaxed">
+              Іноді просто не вистачає конкретної речі: знань, грошей на навчання, потрібного контакту, першого досвіду роботи або людини, яка скаже: <span class="font-semibold text-stripe-dark">«Я знаю, кому тебе представити»</span>.
+            </p>
+          </div>
+          <div class="relative z-10 mt-6 pt-4 border-t border-stripe-border/60">
+            <span class="text-xs font-semibold text-stripe-purple">Ось тут ми й можемо бути корисними.</span>
+          </div>
+        </div>
+
+        <!-- Banner Card 2: "Наша мета проста" with warm geometric artwork -->
+        <div class="relative overflow-hidden rounded-2xl border border-stripe-border bg-white p-7 sm:p-8 flex flex-col justify-between group">
+          <div class="absolute right-0 top-0 bottom-0 w-2/5 bg-gradient-to-l from-stripe-accentYellow/30 via-orange-400/10 to-transparent pointer-events-none"></div>
+          <div class="relative z-10 max-w-md">
+            <span class="text-xs uppercase font-bold tracking-widest text-amber-600 block mb-2">Головний фокус</span>
+            <h3 class="text-xl sm:text-2xl font-extrabold text-stripe-dark mb-2">Більше вибору для кожної.</h3>
+            <p class="text-sm text-stripe-slate leading-relaxed mb-4">
+              Наша мета проста: щоб у жінок було більше вибору і менше причин відмовлятися від того життя, якого вони хочуть.
+            </p>
+            <p class="text-sm text-stripe-slate leading-relaxed">
+              Кожен проєкт створюється для того, щоб відкривати нові карʼєрні, освітні та фінансові горизонти.
+            </p>
+          </div>
+          <div class="relative z-10 mt-6 pt-4 border-t border-stripe-border/60">
+            <button onclick="openModal()" class="text-stripe-purple text-sm font-semibold hover:underline inline-flex items-center gap-1.5">
+              <span>Долучитися до ініціативи</span>
+              <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Hairline divider -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="stripe-divider"></div>
+  </div>
+
+  <!-- Call to action block: Matching Stripe's "Ready to get started?" Section -->
+  <section id="join" class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center justify-between">
+        <div class="lg:col-span-8">
+          <h2 class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-stripe-dark tracking-[-0.03em] mb-4">
+            Долучитися
+          </h2>
+          <p class="text-stripe-slate text-base sm:text-lg leading-relaxed mb-3 max-w-2xl font-normal">
+            Наші проєкти існують завдяки людям і компаніям, які готові ділитися своїм часом, знаннями та ресурсами.
+          </p>
+          <p class="text-stripe-slate text-sm sm:text-base leading-relaxed mb-4 max-w-2xl font-normal">
+            До нас можна долучитися як менторка чи ментор, експерт, партнер, компанія або донор.
+          </p>
+          <p class="text-stripe-dark font-semibold text-sm sm:text-base">
+            Якщо вам близьке те, що ми робимо, — напишіть нам.
+          </p>
+        </div>
+
+        <div class="lg:col-span-4 flex lg:justify-end">
+          <button onclick="openModal()" class="stripe-btn inline-flex items-center gap-2 bg-stripe-purple hover:bg-stripe-purpleHover text-white px-8 py-3.5 rounded-full text-base font-semibold shadow-md shadow-stripe-purple/25 hover:shadow-lg transition-all">
+            <span>Долучитися</span>
+            <svg class="w-4 h-4 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer matching Stripe's exact structure and user's requested links -->
+  <footer class="bg-white border-t border-stripe-border pt-16 pb-12 text-stripe-slate text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-stripe-border">
+        
+        <!-- Column 1: Brand & Slogan -->
+        <div class="md:col-span-6">
+          <div class="text-lg font-extrabold text-stripe-dark tracking-tight mb-3">
+            Формула <span class="text-stripe-purple">свободи</span>
+          </div>
+          <p class="text-stripe-slate text-sm leading-relaxed max-w-md font-normal">
+            Допомагаємо жінкам навчатися, працювати, ставати незалежнішими і мати більше вибору у власному житті.
+          </p>
+        </div>
+
+        <!-- Column 2: Requested Organization Navigation -->
+        <div class="md:col-span-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-stripe-dark mb-4">Організація</h4>
+          <ul class="space-y-2.5">
+            <li>
+              <a href="#what-we-do" class="hover:text-stripe-purple transition-colors">Наші проєкти</a>
+            </li>
+            <li>
+              <a href="#formula" class="hover:text-stripe-purple transition-colors">Про організацію</a>
+            </li>
+            <li>
+              <button onclick="openModal()" class="hover:text-stripe-purple transition-colors text-left">Долучитися</button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Requested Social & Contacts -->
+        <div class="md:col-span-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-stripe-dark mb-4">Звʼязок</h4>
+          <ul class="space-y-2.5">
+            <li>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-stripe-purple transition-colors">Instagram</a>
+            </li>
+            <li>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-stripe-purple transition-colors">LinkedIn</a>
+            </li>
+            <li>
+              <button onclick="openModal()" class="hover:text-stripe-purple transition-colors text-left">Контакти</button>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom note -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stripe-slate/70 gap-4">
+        <p>&copy; Формула свободи. Всі права захищені.</p>
+        <p>Україна</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Interactive Modal Dialog -->
+  <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stripe-dark/60 backdrop-blur-sm hidden" role="dialog" aria-modal="true">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-stripe-border relative transform transition-all">
+      
+      <!-- Close button -->
+      <button onclick="closeModal()" class="absolute top-5 right-5 p-2 rounded-full text-stripe-slate hover:text-stripe-dark hover:bg-stripe-lightBg focus:outline-none" aria-label="Закрити">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <div class="mb-6">
+        <span class="text-xs uppercase tracking-wider font-bold text-stripe-purple">Формула свободи</span>
+        <h3 class="text-2xl font-extrabold text-stripe-dark mt-1">Долучитися</h3>
+        <p class="text-stripe-slate text-sm mt-1">Напишіть нам, щоб дізнатися більше або підтримати проєкт.</p>
+      </div>
+
+      <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="role-select">Як ви хочете долучитися:</label>
+          <select id="role-select" required class="w-full px-4 py-2.5 rounded-xl border border-stripe-border bg-white focus:outline-none focus:ring-2 focus:ring-stripe-purple text-sm text-stripe-dark">
+            <option value="учасниця">Учасниця (навчання, професія, робота)</option>
+            <option value="ментор">Менторка чи ментор</option>
+            <option value="експерт">Експерт</option>
+            <option value="партнер">Партнер або компанія</option>
+            <option value="донор">Донор</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="user-name">Ваше імʼя:</label>
+          <input id="user-name" type="text" required placeholder="Імʼя та прізвище" class="w-full px-4 py-2.5 rounded-xl border border-stripe-border bg-white focus:outline-none focus:ring-2 focus:ring-stripe-purple text-sm text-stripe-dark">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="user-email">Електронна пошта:</label>
+          <input id="user-email" type="email" required placeholder="email@example.com" class="w-full px-4 py-2.5 rounded-xl border border-stripe-border bg-white focus:outline-none focus:ring-2 focus:ring-stripe-purple text-sm text-stripe-dark">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="user-message">Повідомлення:</label>
+          <textarea id="user-message" rows="3" placeholder="Напишіть нам..." class="w-full px-4 py-2.5 rounded-xl border border-stripe-border bg-white focus:outline-none focus:ring-2 focus:ring-stripe-purple text-sm text-stripe-dark resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="stripe-btn w-full py-3.5 rounded-full font-bold text-white bg-stripe-purple hover:bg-stripe-purpleHover shadow-md transition-all text-sm mt-2 flex items-center justify-center gap-2">
+          <span>Надіслати</span>
+          <svg class="w-4 h-4 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notification Toast (No alert() used) -->
+  <div id="toast-notify" class="fixed bottom-6 right-6 z-50 hidden bg-stripe-dark text-white px-5 py-4 rounded-xl shadow-2xl border border-white/10 flex items-center gap-3 transition-all duration-300">
+    <div class="w-7 h-7 rounded-full bg-stripe-purple flex items-center justify-center text-white font-bold text-sm shrink-0">✓</div>
+    <div>
+      <p class="font-bold text-sm text-white" id="toast-title">Дякуємо за звернення!</p>
+      <p class="text-xs text-stripe-border" id="toast-desc">Ми звʼяжемося з вами найближчим часом.</p>
+    </div>
+  </div>
+
+  <script>
+    // Mobile navigation toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobLinks = document.querySelectorAll('.mob-link');
+
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    mobLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Modal logic
+    const modal = document.getElementById('contact-modal');
+    const toast = document.getElementById('toast-notify');
+
+    function openModal() {
+      modal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    function showToast(title, desc) {
+      document.getElementById('toast-title').textContent = title;
+      document.getElementById('toast-desc').textContent = desc;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 5000);
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      closeModal();
+      document.getElementById('contact-form').reset();
+      showToast('Повідомлення надіслано!', 'Дякуємо, що написали нам. Ми звʼяжемося з вами незабаром.');
+    }
+  </script>
+</body>
+</html>
