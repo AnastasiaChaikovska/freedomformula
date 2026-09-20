@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Формула свободи — Можливості для навчання, роботи та незалежного життя</title>
+  <title id="meta-title">Формула свободи — Можливості для навчання, роботи та незалежного життя</title>
 
   <!-- Google Fonts: Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +38,7 @@
   </script>
 
   <style>
-    /* Stripe's Exact Satin Iridescent Gradient Wave */
+    /* Stripe's Satin Iridescent Gradient Wave */
     .hero-container {
       position: relative;
       background-color: #ffffff;
@@ -142,61 +142,76 @@
 </head>
 <body class="bg-white text-stripe-dark antialiased selection:bg-stripe-purple selection:text-white font-sans overflow-x-hidden">
 
-  <!-- Authentic Stripe Navigation Header -->
   <header class="relative z-30 bg-white/90 backdrop-blur-md border-b border-stripe-border sticky top-0">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
       
       <!-- Brand Logo & Main Nav -->
       <div class="flex items-center gap-10">
-        <a href="#" class="flex items-center gap-2 group">
-          <span class="text-[21px] font-extrabold tracking-[-0.04em] text-stripe-dark">
+        <a href="#" class="flex items-center gap-2 group py-4">
+          <span id="brand-logo" class="text-[21px] font-extrabold tracking-[-0.04em] text-stripe-dark">
             Формула <span class="text-stripe-purple">свободи</span>
           </span>
         </a>
 
         <nav class="hidden md:flex items-center gap-8 text-[15px] font-semibold text-stripe-slate">
-          <a href="#what-we-do" class="hover:text-stripe-dark transition-colors">Що ми робимо</a>
-          <a href="#for-whom" class="hover:text-stripe-dark transition-colors">Для кого</a>
-          <a href="#why-us" class="hover:text-stripe-dark transition-colors">Чому ми</a>
-          <a href="#formula" class="hover:text-stripe-dark transition-colors">Формула свободи</a>
-          <a href="#beliefs" class="hover:text-stripe-dark transition-colors">У що ми віримо</a>
+          <a href="#what-we-do" id="nav-what-we-do" class="hover:text-stripe-dark transition-colors">Що ми робимо</a>
+          <a href="#for-whom" id="nav-for-whom" class="hover:text-stripe-dark transition-colors">Для кого</a>
+          <a href="#why-us" id="nav-why-us" class="hover:text-stripe-dark transition-colors">Чому ми</a>
+          <a href="#formula" id="nav-formula" class="hover:text-stripe-dark transition-colors">Формула свободи</a>
+          <a href="#beliefs" id="nav-beliefs" class="hover:text-stripe-dark transition-colors">У що ми віримо</a>
         </nav>
       </div>
 
-      <!-- Action Button -->
-      <div class="hidden sm:flex items-center gap-3">
+      <!-- Action Button & Language Switcher -->
+      <div class="hidden sm:flex items-center gap-4">
+        <!-- Language Switcher Component -->
+        <div class="flex items-center bg-stripe-lightBg rounded-full p-1 border border-stripe-border text-xs font-semibold">
+          <button type="button" id="btn-lang-uk" onclick="switchLanguage('uk')" class="px-3 py-1 rounded-full transition-all text-white bg-stripe-purple shadow-xs font-bold" aria-label="Українська версія">
+            UA
+          </button>
+          <button type="button" id="btn-lang-en" onclick="switchLanguage('en')" class="px-3 py-1 rounded-full transition-all text-stripe-slate hover:text-stripe-dark font-semibold" aria-label="English version">
+            EN
+          </button>
+        </div>
+
         <button onclick="openModal()" class="stripe-btn inline-flex items-center gap-1.5 bg-stripe-purple hover:bg-stripe-purpleHover text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-xs hover:shadow-md transition-all">
-          <span>Долучитися</span>
+          <span id="header-btn-join">Долучитися</span>
           <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
           </svg>
         </button>
       </div>
 
-      <!-- Mobile Hamburger Button -->
-      <button id="mobile-toggle" class="md:hidden p-2 rounded-lg text-stripe-dark hover:bg-stripe-lightBg" aria-label="Меню">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
-        </svg>
-      </button>
+      <!-- Mobile Hamburger & Lang Switcher -->
+      <div class="flex items-center gap-2 md:hidden">
+        <div class="flex items-center bg-stripe-lightBg rounded-full p-0.5 border border-stripe-border text-[11px] font-semibold">
+          <button type="button" id="btn-lang-uk-mob" onclick="switchLanguage('uk')" class="px-2 py-0.5 rounded-full text-white bg-stripe-purple font-bold">UA</button>
+          <button type="button" id="btn-lang-en-mob" onclick="switchLanguage('en')" class="px-2 py-0.5 rounded-full text-stripe-slate font-semibold">EN</button>
+        </div>
+
+        <button id="mobile-toggle" class="p-2 rounded-lg text-stripe-dark hover:bg-stripe-lightBg" aria-label="Меню">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Dropdown Navigation -->
     <div id="mobile-menu" class="hidden md:hidden border-b border-stripe-border px-6 py-4 bg-white space-y-3">
-      <a href="#what-we-do" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Що ми робимо</a>
-      <a href="#for-whom" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Для кого</a>
-      <a href="#why-us" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Чому ми</a>
-      <a href="#formula" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Формула свободи</a>
-      <a href="#beliefs" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">У що ми віримо</a>
+      <a href="#what-we-do" id="mob-nav-what-we-do" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Що ми робимо</a>
+      <a href="#for-whom" id="mob-nav-for-whom" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Для кого</a>
+      <a href="#why-us" id="mob-nav-why-us" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Чому ми</a>
+      <a href="#formula" id="mob-nav-formula" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Формула свободи</a>
+      <a href="#beliefs" id="mob-nav-beliefs" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">У що ми віримо</a>
       <div class="pt-2">
-        <button onclick="openModal()" class="w-full bg-stripe-purple text-white py-2.5 rounded-full font-semibold text-sm">
+        <button onclick="openModal()" class="w-full bg-stripe-purple text-white py-2.5 rounded-full font-semibold text-sm" id="mob-btn-join">
           Долучитися
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section in pure Stripe style with Iridescent Mesh Wave -->
   <section class="hero-container pt-16 pb-24 sm:pt-24 sm:pb-36">
     <div class="stripe-wave-canvas"></div>
     <div class="stripe-wave-secondary"></div>
@@ -204,27 +219,27 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-3xl">
         
-        <!-- Main Headline identical to Stripe layout: strong title + subdued text in sentence flow -->
+        <!-- Main Headline in Stripe layout -->
         <h1 class="text-4xl sm:text-6xl lg:text-[70px] font-extrabold tracking-[-0.035em] text-stripe-dark leading-[1.08] mb-8">
-          Формула свободи.
-          <span class="block text-stripe-slate font-medium text-2xl sm:text-4xl lg:text-[44px] tracking-[-0.025em] mt-3 sm:mt-4 leading-tight">
+          <span id="hero-title-main">Формула свободи.</span>
+          <span id="hero-title-sub" class="block text-stripe-slate font-medium text-2xl sm:text-4xl lg:text-[44px] tracking-[-0.025em] mt-3 sm:mt-4 leading-tight">
             Допомагаємо жінкам отримувати <span class="text-stripe-purple font-semibold">більше можливостей</span> для навчання, роботи та незалежного життя.
           </span>
         </h1>
 
-        <p class="text-base sm:text-lg text-stripe-slate leading-relaxed mb-6 max-w-2xl font-normal">
+        <p id="hero-description" class="text-base sm:text-lg text-stripe-slate leading-relaxed mb-6 max-w-2xl font-normal">
           Ми створюємо освітні, карʼєрні та соціальні проєкти для жінок. Допомагаємо здобувати нові навички, пробувати себе в нових професіях, знаходити людей і можливості, які можуть стати наступним кроком у карʼєрі або житті.
         </p>
 
         <!-- Quote Block -->
-        <p class="text-base sm:text-lg font-medium text-stripe-dark/90 leading-relaxed mb-10 max-w-2xl border-l-2 border-stripe-purple pl-4">
+        <p id="hero-quote" class="text-base sm:text-lg font-medium text-stripe-dark/90 leading-relaxed mb-10 max-w-2xl border-l-2 border-stripe-purple pl-4">
           «Наша мета проста: щоб у жінок було більше вибору і менше причин відмовлятися від того життя, якого вони хочуть.»
         </p>
 
-        <!-- Main Call To Action Button -->
+        <!-- Call To Action Button -->
         <div class="flex items-center gap-4">
           <button onclick="openModal()" class="stripe-btn inline-flex items-center gap-2 bg-stripe-purple hover:bg-stripe-purpleHover text-white px-7 py-3.5 rounded-full text-base font-semibold shadow-md shadow-stripe-purple/25 hover:shadow-lg transition-all">
-            <span>Долучитися</span>
+            <span id="hero-btn-join">Долучитися</span>
             <svg class="w-4 h-4 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
             </svg>
@@ -235,46 +250,45 @@
     </div>
   </section>
 
-  <!-- Hairline divider matching Stripe page architecture -->
+  <!-- Hairline divider -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="stripe-divider"></div>
   </div>
 
-  <!-- What We Do: Styled identically to Stripe product card showcase -->
   <section id="what-we-do" class="py-20 sm:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Stripe Section Heading: Bold title inline with subdued description -->
+      <!-- Section Heading -->
       <div class="mb-14 max-w-3xl">
-        <h2 class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark inline">
+        <h2 id="what-title-lead" class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark inline">
           Що ми робимо.
         </h2>
-        <p class="text-2xl sm:text-3xl lg:text-[36px] font-medium tracking-[-0.03em] text-stripe-slate inline ml-2">
+        <p id="what-title-sub" class="text-2xl sm:text-3xl lg:text-[36px] font-medium tracking-[-0.03em] text-stripe-slate inline ml-2">
           Створюємо проєкти та середовище для розвитку й незалежності.
         </p>
       </div>
 
-      <!-- 4 Cards Grid with mature, adult architectural layout (no naive icons) -->
+      <!-- 4 Cards Grid with adult architectural layout -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <!-- Card 1: Навчання -->
         <div class="stripe-card-interactive p-8 sm:p-10 flex flex-col justify-between border-t-2 border-t-stripe-purple">
           <div>
             <div class="flex items-center justify-between mb-6 pb-4 border-b border-stripe-border/70">
-              <span class="text-xs font-bold uppercase tracking-[0.16em] text-stripe-purple">01 / Напрям</span>
-              <span class="text-xs text-stripe-slate/60 font-semibold tracking-wider uppercase">Освіта</span>
+              <span id="card-1-tag" class="text-xs font-bold uppercase tracking-[0.16em] text-stripe-purple">01 / Напрям</span>
+              <span id="card-1-cat" class="text-xs text-stripe-slate/60 font-semibold tracking-wider uppercase">Освіта</span>
             </div>
-            <h3 class="text-2xl font-extrabold tracking-tight text-stripe-dark mb-4">Навчання</h3>
-            <p class="text-stripe-slate text-[15px] leading-relaxed mb-5 font-normal">
+            <h3 id="card-1-title" class="text-2xl font-extrabold tracking-tight text-stripe-dark mb-4">Навчання</h3>
+            <p id="card-1-p1" class="text-stripe-slate text-[15px] leading-relaxed mb-5 font-normal">
               Створюємо безкоштовні освітні програми та залучаємо до них людей із реальним професійним досвідом.
             </p>
-            <p class="text-stripe-slate text-sm leading-relaxed border-t border-stripe-border pt-5">
+            <p id="card-1-p2" class="text-stripe-slate text-sm leading-relaxed border-t border-stripe-border pt-5">
               Нам важливо, щоб після навчання залишалися не тільки нові знання, а й навички, які можна використати в роботі: знайти першу позицію, змінити професію або спробувати новий напрям.
             </p>
           </div>
           <div class="mt-8 pt-4">
             <button onclick="openModal()" class="text-stripe-purple text-sm font-semibold hover:underline inline-flex items-center gap-1.5">
-              <span>Долучитися</span>
+              <span class="card-btn-join">Долучитися</span>
               <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
               </svg>
@@ -286,20 +300,20 @@
         <div class="stripe-card-interactive p-8 sm:p-10 flex flex-col justify-between border-t-2 border-t-stripe-dark">
           <div>
             <div class="flex items-center justify-between mb-6 pb-4 border-b border-stripe-border/70">
-              <span class="text-xs font-bold uppercase tracking-[0.16em] text-stripe-dark">02 / Напрям</span>
-              <span class="text-xs text-stripe-slate/60 font-semibold tracking-wider uppercase">Професія</span>
+              <span id="card-2-tag" class="text-xs font-bold uppercase tracking-[0.16em] text-stripe-dark">02 / Напрям</span>
+              <span id="card-2-cat" class="text-xs text-stripe-slate/60 font-semibold tracking-wider uppercase">Професія</span>
             </div>
-            <h3 class="text-2xl font-extrabold tracking-tight text-stripe-dark mb-4">Карʼєрні можливості</h3>
-            <p class="text-stripe-slate text-[15px] leading-relaxed mb-5 font-normal">
+            <h3 id="card-2-title" class="text-2xl font-extrabold tracking-tight text-stripe-dark mb-4">Карʼєрні можливості</h3>
+            <p id="card-2-p1" class="text-stripe-slate text-[15px] leading-relaxed mb-5 font-normal">
               Допомагаємо жінкам дізнаватися про професії та сфери, в які вони могли раніше навіть не дивитися.
             </p>
-            <p class="text-stripe-slate text-sm leading-relaxed border-t border-stripe-border pt-5">
+            <p id="card-2-p2" class="text-stripe-slate text-sm leading-relaxed border-t border-stripe-border pt-5">
               Знайомимо з експертами, менторами, компаніями та іншими людьми, які можуть поділитися досвідом, контактами або можливостями.
             </p>
           </div>
           <div class="mt-8 pt-4">
             <button onclick="openModal()" class="text-stripe-purple text-sm font-semibold hover:underline inline-flex items-center gap-1.5">
-              <span>Долучитися</span>
+              <span class="card-btn-join">Долучитися</span>
               <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
               </svg>
@@ -311,20 +325,20 @@
         <div class="stripe-card-interactive p-8 sm:p-10 flex flex-col justify-between border-t-2 border-t-stripe-slate">
           <div>
             <div class="flex items-center justify-between mb-6 pb-4 border-b border-stripe-border/70">
-              <span class="text-xs font-bold uppercase tracking-[0.16em] text-stripe-slate">03 / Напрям</span>
-              <span class="text-xs text-stripe-slate/60 font-semibold tracking-wider uppercase">Мережа</span>
+              <span id="card-3-tag" class="text-xs font-bold uppercase tracking-[0.16em] text-stripe-slate">03 / Напрям</span>
+              <span id="card-3-cat" class="text-xs text-stripe-slate/60 font-semibold tracking-wider uppercase">Мережа</span>
             </div>
-            <h3 class="text-2xl font-extrabold tracking-tight text-stripe-dark mb-4">Спільнота</h3>
-            <p class="text-stripe-slate text-[15px] leading-relaxed mb-5 font-normal">
+            <h3 id="card-3-title" class="text-2xl font-extrabold tracking-tight text-stripe-dark mb-4">Спільнота</h3>
+            <p id="card-3-p1" class="text-stripe-slate text-[15px] leading-relaxed mb-5 font-normal">
               Ми хочемо, щоб жінкам було простіше знаходити одна одну і допомагати одна одній.
             </p>
-            <p class="text-stripe-slate text-sm leading-relaxed border-t border-stripe-border pt-5">
+            <p id="card-3-p2" class="text-stripe-slate text-sm leading-relaxed border-t border-stripe-border pt-5">
               Порадою. Контактом. Рекомендацією. Вакансією. Досвідом. Іноді саме цього не вистачає, щоб зробити наступний крок.
             </p>
           </div>
           <div class="mt-8 pt-4">
             <button onclick="openModal()" class="text-stripe-purple text-sm font-semibold hover:underline inline-flex items-center gap-1.5">
-              <span>Долучитися</span>
+              <span class="card-btn-join">Долучитися</span>
               <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
               </svg>
@@ -336,20 +350,20 @@
         <div class="stripe-card-interactive p-8 sm:p-10 flex flex-col justify-between border-t-2 border-t-stripe-purple">
           <div>
             <div class="flex items-center justify-between mb-6 pb-4 border-b border-stripe-border/70">
-              <span class="text-xs font-bold uppercase tracking-[0.16em] text-stripe-purple">04 / Напрям</span>
-              <span class="text-xs text-stripe-slate/60 font-semibold tracking-wider uppercase">Суспільство</span>
+              <span id="card-4-tag" class="text-xs font-bold uppercase tracking-[0.16em] text-stripe-purple">04 / Напрям</span>
+              <span id="card-4-cat" class="text-xs text-stripe-slate/60 font-semibold tracking-wider uppercase">Суспільство</span>
             </div>
-            <h3 class="text-2xl font-extrabold tracking-tight text-stripe-dark mb-4">Суспільні проєкти</h3>
-            <p class="text-stripe-slate text-[15px] leading-relaxed mb-5 font-normal">
+            <h3 id="card-4-title" class="text-2xl font-extrabold tracking-tight text-stripe-dark mb-4">Суспільні проєкти</h3>
+            <p id="card-4-p1" class="text-stripe-slate text-[15px] leading-relaxed mb-5 font-normal">
               Ми також говоримо про речі, які досі впливають на вибір жінок: фінансову залежність, стереотипи про професії та карʼєру.
             </p>
-            <p class="text-stripe-slate text-sm leading-relaxed border-t border-stripe-border pt-5">
+            <p id="card-4-p2" class="text-stripe-slate text-sm leading-relaxed border-t border-stripe-border pt-5">
               Очікування щодо сімʼї, материнства, віку чи того, наскільки «амбіційною» жінці дозволено бути.
             </p>
           </div>
           <div class="mt-8 pt-4">
             <button onclick="openModal()" class="text-stripe-purple text-sm font-semibold hover:underline inline-flex items-center gap-1.5">
-              <span>Долучитися</span>
+              <span class="card-btn-join">Долучитися</span>
               <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
               </svg>
@@ -366,19 +380,18 @@
     <div class="stripe-divider"></div>
   </div>
 
-  <!-- Target Audience: Stripe's exact Two-Column Section layout (from Screenshot 3) -->
   <section id="for-whom" class="py-20 sm:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Two-Column Section Header identical to Stripe's "Transform your enterprise..." -->
+      <!-- Two-Column Section Header -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 mb-14 items-start">
         <div class="lg:col-span-7">
-          <h2 class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark leading-tight">
+          <h2 id="for-whom-title" class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark leading-tight">
             Для кого ми працюємо
           </h2>
           <div class="mt-4">
             <button onclick="openModal()" class="stripe-btn inline-flex items-center gap-1.5 bg-stripe-purple hover:bg-stripe-purpleHover text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-xs">
-              <span>Долучитися</span>
+              <span class="audience-btn-join">Долучитися</span>
               <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
               </svg>
@@ -386,56 +399,54 @@
           </div>
         </div>
         <div class="lg:col-span-5">
-          <p class="text-base sm:text-lg text-stripe-slate leading-relaxed font-normal">
+          <p id="for-whom-subtitle" class="text-base sm:text-lg text-stripe-slate leading-relaxed font-normal">
             Для жінок, які хочуть щось змінити у своєму житті.
           </p>
         </div>
       </div>
 
-      <!-- Stripe-styled 6 Action Items in clean card row layout -->
+      <!-- Action Items Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-        
         <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-center gap-3.5 hover:border-stripe-purple/60 transition-colors">
           <div class="w-2 h-2 rounded-full bg-stripe-purple shrink-0"></div>
-          <span class="text-sm sm:text-base font-semibold text-stripe-dark">Знайти роботу.</span>
+          <span id="target-item-1" class="text-sm sm:text-base font-semibold text-stripe-dark">Знайти роботу.</span>
         </div>
 
         <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-center gap-3.5 hover:border-stripe-purple/60 transition-colors">
           <div class="w-2 h-2 rounded-full bg-stripe-purple shrink-0"></div>
-          <span class="text-sm sm:text-base font-semibold text-stripe-dark">Освоїти нову професію.</span>
+          <span id="target-item-2" class="text-sm sm:text-base font-semibold text-stripe-dark">Освоїти нову професію.</span>
         </div>
 
         <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-center gap-3.5 hover:border-stripe-purple/60 transition-colors">
           <div class="w-2 h-2 rounded-full bg-stripe-purple shrink-0"></div>
-          <span class="text-sm sm:text-base font-semibold text-stripe-dark">Повернутися до карʼєри після перерви.</span>
+          <span id="target-item-3" class="text-sm sm:text-base font-semibold text-stripe-dark">Повернутися до карʼєри після перерви.</span>
         </div>
 
         <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-center gap-3.5 hover:border-stripe-purple/60 transition-colors">
           <div class="w-2 h-2 rounded-full bg-stripe-purple shrink-0"></div>
-          <span class="text-sm sm:text-base font-semibold text-stripe-dark">Почати більше заробляти.</span>
+          <span id="target-item-4" class="text-sm sm:text-base font-semibold text-stripe-dark">Почати більше заробляти.</span>
         </div>
 
         <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-center gap-3.5 hover:border-stripe-purple/60 transition-colors">
           <div class="w-2 h-2 rounded-full bg-stripe-purple shrink-0"></div>
-          <span class="text-sm sm:text-base font-semibold text-stripe-dark">Запустити свій проєкт.</span>
+          <span id="target-item-5" class="text-sm sm:text-base font-semibold text-stripe-dark">Запустити свій проєкт.</span>
         </div>
 
         <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-center gap-3.5 hover:border-stripe-purple/60 transition-colors">
           <div class="w-2 h-2 rounded-full bg-stripe-purple shrink-0"></div>
-          <span class="text-sm sm:text-base font-semibold text-stripe-dark">Або просто зрозуміти, куди рухатися далі.</span>
+          <span id="target-item-6" class="text-sm sm:text-base font-semibold text-stripe-dark">Або просто зрозуміти, куди рухатися далі.</span>
         </div>
-
       </div>
 
-      <!-- Stripe Banner Callout: "Не існує одного правильного результату" -->
+      <!-- Callout: "Не існує одного правильного результату" -->
       <div class="rounded-2xl border border-stripe-border bg-stripe-lightBg p-8 sm:p-10 max-w-4xl">
-        <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-stripe-dark mb-3">
+        <h3 id="target-banner-title" class="text-xl sm:text-2xl font-bold tracking-tight text-stripe-dark mb-3">
           Не існує одного правильного результату.
         </h3>
-        <p class="text-stripe-slate text-base sm:text-lg leading-relaxed mb-4 font-normal">
+        <p id="target-banner-p1" class="text-stripe-slate text-base sm:text-lg leading-relaxed mb-4 font-normal">
           Комусь потрібна велика карʼєра, комусь — стабільна робота і власний дохід, комусь — можливість повністю змінити напрям.
         </p>
-        <p class="text-stripe-purple font-semibold text-base">
+        <p id="target-banner-p2" class="text-stripe-purple font-semibold text-base">
           Для нас важливо, щоб цей вибір був у самої жінки.
         </p>
       </div>
@@ -448,69 +459,66 @@
     <div class="stripe-divider"></div>
   </div>
 
-  <!-- Why We Do This: Stripe's Two-Column Architectural layout -->
   <section id="why-us" class="py-20 sm:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
         
-        <!-- Left Column: Title & Key Summary -->
+        <!-- Left Column -->
         <div class="lg:col-span-5">
-          <h2 class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark leading-tight mb-4">
+          <h2 id="why-title" class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark leading-tight mb-4">
             Чому ми це робимо
           </h2>
-          <p class="text-base sm:text-lg text-stripe-slate leading-relaxed mb-8">
+          <p id="why-subtitle" class="text-base sm:text-lg text-stripe-slate leading-relaxed mb-8">
             Бо навіть сьогодні на життя жінок впливає багато речей, які не мають нічого спільного з їхніми здібностями.
           </p>
 
           <div class="p-6 rounded-xl bg-stripe-lightBg border border-stripe-border">
-            <p class="text-stripe-dark text-[15px] font-medium leading-relaxed mb-2">
+            <p id="why-quote-1" class="text-stripe-dark text-[15px] font-medium leading-relaxed mb-2">
               Ми не вирішимо всі ці проблеми одним проєктом.
             </p>
-            <p class="text-stripe-purple font-bold text-[15px]">
+            <p id="why-quote-2" class="text-stripe-purple font-bold text-[15px]">
               Але можемо допомогти конкретній жінці отримати ще один варіант.
             </p>
           </div>
         </div>
 
-        <!-- Right Column: 5 Reality check blocks with Stripe subtle dividers -->
+        <!-- Right Column: 5 Reality Check items -->
         <div class="lg:col-span-7 space-y-4">
-          
           <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-start gap-4">
             <span class="w-1.5 h-1.5 rounded-full bg-stripe-purple mt-2 shrink-0"></span>
-            <p class="text-stripe-dark text-sm sm:text-base leading-relaxed">
+            <p id="why-item-1" class="text-stripe-dark text-sm sm:text-base leading-relaxed">
               Хтось відкладає карʼєру, бо більшість турботи про дітей автоматично лягає на неї.
             </p>
           </div>
 
           <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-start gap-4">
             <span class="w-1.5 h-1.5 rounded-full bg-stripe-purple mt-2 shrink-0"></span>
-            <p class="text-stripe-dark text-sm sm:text-base leading-relaxed">
+            <p id="why-item-2" class="text-stripe-dark text-sm sm:text-base leading-relaxed">
               Хтось роками фінансово залежить від партнера.
             </p>
           </div>
 
           <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-start gap-4">
             <span class="w-1.5 h-1.5 rounded-full bg-stripe-purple mt-2 shrink-0"></span>
-            <p class="text-stripe-dark text-sm sm:text-base leading-relaxed">
+            <p id="why-item-3" class="text-stripe-dark text-sm sm:text-base leading-relaxed">
               Хтось не подається на хорошу вакансію, бо не вважає себе достатньо кваліфікованою.
             </p>
           </div>
 
           <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-start gap-4">
             <span class="w-1.5 h-1.5 rounded-full bg-stripe-purple mt-2 shrink-0"></span>
-            <p class="text-stripe-dark text-sm sm:text-base leading-relaxed">
+            <p id="why-item-4" class="text-stripe-dark text-sm sm:text-base leading-relaxed">
               Хтось у 35 чи 40 думає, що вже пізно починати щось нове.
             </p>
           </div>
 
           <div class="p-5 rounded-xl border border-stripe-border bg-white flex items-start gap-4">
             <span class="w-1.5 h-1.5 rounded-full bg-stripe-purple mt-2 shrink-0"></span>
-            <p class="text-stripe-dark text-sm sm:text-base leading-relaxed">
+            <p id="why-item-5" class="text-stripe-dark text-sm sm:text-base leading-relaxed">
               А хтось із дитинства просто звик до думки, що певні професії, гроші чи рівень амбіцій — «не для неї».
             </p>
           </div>
-
         </div>
 
       </div>
@@ -523,28 +531,26 @@
     <div class="stripe-divider"></div>
   </div>
 
-  <!-- Why "Formula of Freedom": Styled with Stripe's signature Fiber-Optic Sunburst Graphic (from Screenshot 4) -->
   <section id="formula" class="sunburst-container py-20 sm:py-28 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <div class="max-w-3xl mb-14">
-        <h2 class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark inline">
+        <h2 id="formula-title-lead" class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark inline">
           Чому «Формула свободи».
         </h2>
-        <p class="text-2xl sm:text-3xl lg:text-[36px] font-medium tracking-[-0.03em] text-stripe-slate inline ml-2">
+        <p id="formula-title-sub" class="text-2xl sm:text-3xl lg:text-[36px] font-medium tracking-[-0.03em] text-stripe-slate inline ml-2">
           Тому що свобода для кожної виглядає по-різному.
         </p>
       </div>
 
       <!-- 4 Manifestation Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
-        
         <div class="bg-white p-7 rounded-xl border border-stripe-border shadow-xs hover:border-stripe-purple/50 transition-colors">
           <div class="w-8 h-8 rounded-lg bg-stripe-purple/10 text-stripe-purple flex items-center justify-center font-bold text-xs mb-4">
             01
           </div>
-          <h4 class="text-base font-bold text-stripe-dark mb-1.5">Власні гроші</h4>
-          <p class="text-sm text-stripe-slate leading-relaxed">
+          <h4 id="freedom-card-1-title" class="text-base font-bold text-stripe-dark mb-1.5">Власні гроші</h4>
+          <p id="freedom-card-1-p" class="text-sm text-stripe-slate leading-relaxed">
             Для когось це власні гроші.
           </p>
         </div>
@@ -553,8 +559,8 @@
           <div class="w-8 h-8 rounded-lg bg-stripe-purple/10 text-stripe-purple flex items-center justify-center font-bold text-xs mb-4">
             02
           </div>
-          <h4 class="text-base font-bold text-stripe-dark mb-1.5">Бажана справа</h4>
-          <p class="text-sm text-stripe-slate leading-relaxed">
+          <h4 id="freedom-card-2-title" class="text-base font-bold text-stripe-dark mb-1.5">Бажана справа</h4>
+          <p id="freedom-card-2-p" class="text-sm text-stripe-slate leading-relaxed">
             Для когось — робота, яку вона справді хоче.
           </p>
         </div>
@@ -563,8 +569,8 @@
           <div class="w-8 h-8 rounded-lg bg-stripe-purple/10 text-stripe-purple flex items-center justify-center font-bold text-xs mb-4">
             03
           </div>
-          <h4 class="text-base font-bold text-stripe-dark mb-1.5">Особиста воля</h4>
-          <p class="text-sm text-stripe-slate leading-relaxed">
+          <h4 id="freedom-card-3-title" class="text-base font-bold text-stripe-dark mb-1.5">Особиста воля</h4>
+          <p id="freedom-card-3-p" class="text-sm text-stripe-slate leading-relaxed">
             Для когось — можливість піти зі стосунків або роботи, в яких їй погано.
           </p>
         </div>
@@ -573,22 +579,20 @@
           <div class="w-8 h-8 rounded-lg bg-stripe-purple/10 text-stripe-purple flex items-center justify-center font-bold text-xs mb-4">
             04
           </div>
-          <h4 class="text-base font-bold text-stripe-dark mb-1.5">Новий старт</h4>
-          <p class="text-sm text-stripe-slate leading-relaxed">
+          <h4 id="freedom-card-4-title" class="text-base font-bold text-stripe-dark mb-1.5">Новий старт</h4>
+          <p id="freedom-card-4-p" class="text-sm text-stripe-slate leading-relaxed">
             Для когось — почати все спочатку після переїзду, війни, декрету чи кількох років у зовсім іншій професії.
           </p>
         </div>
-
       </div>
 
-      <!-- Fiber-Optic / Constellation Radiating Art (pure vector rendition of Stripe's graphic from Screenshot 4) -->
+      <!-- Fiber-Optic Radiating Art & Central Message -->
       <div class="relative w-full max-w-4xl mx-auto flex flex-col items-center">
-        
         <div class="text-center max-w-xl mx-auto bg-white/90 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-stripe-border shadow-xs z-10">
-          <p class="text-stripe-slate text-sm sm:text-base leading-relaxed mb-2 font-normal">
+          <p id="formula-manifesto-p1" class="text-stripe-slate text-sm sm:text-base leading-relaxed mb-2 font-normal">
             Ми не знаємо універсальної формули хорошого життя. І не хочемо її придумувати.
           </p>
-          <p class="text-stripe-dark text-base sm:text-lg font-bold leading-relaxed">
+          <p id="formula-manifesto-p2" class="text-stripe-dark text-base sm:text-lg font-bold leading-relaxed">
             Ми хочемо, щоб у більшої кількості жінок були ресурси й можливості знайти свою.
           </p>
         </div>
@@ -604,10 +608,8 @@
                 <stop offset="100%" stop-color="#635bff" stop-opacity="0"/>
               </linearGradient>
             </defs>
-            <!-- Radiating lines -->
             <path d="M450 360 L100 80 M450 360 L140 60 M450 360 L190 45 M450 360 L240 30 M450 360 L300 20 M450 360 L360 15 M450 360 L420 10 M450 360 L450 8 M450 360 L480 10 M450 360 L540 15 M450 360 L600 20 M450 360 L660 30 M450 360 L710 45 M450 360 L760 60 M450 360 L800 80" stroke="url(#fiberGrad)" stroke-width="1.2" stroke-linecap="round"/>
             <path d="M450 360 L120 140 M450 360 L170 110 M450 360 L220 90 M450 360 L270 70 M450 360 L330 55 M450 360 L390 45 M450 360 L510 45 M450 360 L570 55 M450 360 L630 70 M450 360 L680 90 M450 360 L730 110 M450 360 L780 140" stroke="url(#fiberGrad)" stroke-width="0.8" stroke-dasharray="2 3"/>
-            <!-- Fiber tip dots -->
             <circle cx="100" cy="80" r="2.5" fill="#635bff"/>
             <circle cx="190" cy="45" r="2.5" fill="#635bff"/>
             <circle cx="300" cy="20" r="3" fill="#ff5492"/>
@@ -617,7 +619,6 @@
             <circle cx="800" cy="80" r="2.5" fill="#635bff"/>
           </svg>
         </div>
-
       </div>
 
     </div>
@@ -628,98 +629,97 @@
     <div class="stripe-divider"></div>
   </div>
 
-  <!-- Beliefs: Stripe's layout with clean, adult typography (no naive checkmarks) -->
   <section id="beliefs" class="py-20 sm:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="mb-14">
-        <h2 class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark">
+        <h2 id="beliefs-title" class="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-[-0.03em] text-stripe-dark">
           У що ми віримо
         </h2>
       </div>
 
-      <!-- 4 Pillars structured in mature, clean editorial style -->
+      <!-- 4 Pillars structured in editorial style -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 mb-16">
         
         <div class="border-l-2 border-stripe-purple pl-6 py-1">
-          <span class="text-xs font-bold text-stripe-purple uppercase tracking-wider block mb-1">Принцип 01</span>
-          <h3 class="text-base sm:text-lg font-bold text-stripe-dark inline">
+          <span id="pillar-tag-1" class="text-xs font-bold text-stripe-purple uppercase tracking-wider block mb-1">Принцип 01</span>
+          <h3 id="pillar-1-title" class="text-base sm:text-lg font-bold text-stripe-dark inline">
             Жінка сама знає, як хоче жити.
           </h3>
-          <p class="text-stripe-slate text-sm sm:text-base leading-relaxed inline ml-1 font-normal">
+          <p id="pillar-1-desc" class="text-stripe-slate text-sm sm:text-base leading-relaxed inline ml-1 font-normal">
             Ми не хочемо пояснювати жінкам, що їм потрібно робити з карʼєрою, сімʼєю чи життям. Ми хочемо дати більше варіантів, з яких можна обирати.
           </p>
         </div>
 
         <div class="border-l-2 border-stripe-purple pl-6 py-1">
-          <span class="text-xs font-bold text-stripe-purple uppercase tracking-wider block mb-1">Принцип 02</span>
-          <h3 class="text-base sm:text-lg font-bold text-stripe-dark inline">
+          <span id="pillar-tag-2" class="text-xs font-bold text-stripe-purple uppercase tracking-wider block mb-1">Принцип 02</span>
+          <h3 id="pillar-2-title" class="text-base sm:text-lg font-bold text-stripe-dark inline">
             Власний дохід має значення.
           </h3>
-          <p class="text-stripe-slate text-sm sm:text-base leading-relaxed inline ml-1 font-normal">
+          <p id="pillar-2-desc" class="text-stripe-slate text-sm sm:text-base leading-relaxed inline ml-1 font-normal">
             Гроші не вирішують усіх проблем, але фінансова незалежність дуже сильно впливає на те, скільки в людини є вибору.
           </p>
         </div>
 
         <div class="border-l-2 border-stripe-purple pl-6 py-1">
-          <span class="text-xs font-bold text-stripe-purple uppercase tracking-wider block mb-1">Принцип 03</span>
-          <h3 class="text-base sm:text-lg font-bold text-stripe-dark inline">
+          <span id="pillar-tag-3" class="text-xs font-bold text-stripe-purple uppercase tracking-wider block mb-1">Принцип 03</span>
+          <h3 id="pillar-3-title" class="text-base sm:text-lg font-bold text-stripe-dark inline">
             Починати спочатку — нормально.
           </h3>
-          <p class="text-stripe-slate text-sm sm:text-base leading-relaxed inline ml-1 font-normal">
+          <p id="pillar-3-desc" class="text-stripe-slate text-sm sm:text-base leading-relaxed inline ml-1 font-normal">
             У 25, 35 чи 50. Після декрету, переїзду, звільнення, війни або просто в момент, коли зрозуміла, що більше не хочеш жити так, як раніше.
           </p>
         </div>
 
         <div class="border-l-2 border-stripe-purple pl-6 py-1">
-          <span class="text-xs font-bold text-stripe-purple uppercase tracking-wider block mb-1">Принцип 04</span>
-          <h3 class="text-base sm:text-lg font-bold text-stripe-dark inline">
+          <span id="pillar-tag-4" class="text-xs font-bold text-stripe-purple uppercase tracking-wider block mb-1">Принцип 04</span>
+          <h3 id="pillar-4-title" class="text-base sm:text-lg font-bold text-stripe-dark inline">
             Жінки можуть відкривати можливості одна для одної.
           </h3>
-          <p class="text-stripe-slate text-sm sm:text-base leading-relaxed inline ml-1 font-normal">
+          <p id="pillar-4-desc" class="text-stripe-slate text-sm sm:text-base leading-relaxed inline ml-1 font-normal">
             Ми самі багато разів бачили, як один контакт, рекомендація чи проста підтримка змінювали чиєсь життя. Хочемо, щоб таких історій ставало більше.
           </p>
         </div>
 
       </div>
 
-      <!-- Manifesto & Stance: Styled as Stripe's dual banner cards (Startups / Atlas from Screenshot 1) -->
+      <!-- Manifesto & Stance: Styled as Stripe's dual banner cards -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         
-        <!-- Banner Card 1: "Ми не рятуємо жінок" with purple gradient artwork -->
+        <!-- Banner Card 1: "Ми не рятуємо жінок" -->
         <div class="relative overflow-hidden rounded-2xl border border-stripe-border bg-white p-7 sm:p-8 flex flex-col justify-between group">
           <div class="absolute right-0 top-0 bottom-0 w-2/5 bg-gradient-to-l from-stripe-purple/20 via-pink-400/10 to-transparent pointer-events-none"></div>
           <div class="relative z-10 max-w-md">
-            <span class="text-xs uppercase font-bold tracking-widest text-stripe-purple block mb-2">Це важливо</span>
-            <h3 class="text-xl sm:text-2xl font-extrabold text-stripe-dark mb-2">Ми не рятуємо жінок.</h3>
-            <p class="text-sm text-stripe-slate leading-relaxed mb-4">
+            <span id="stance-tag" class="text-xs uppercase font-bold tracking-widest text-stripe-purple block mb-2">Це важливо</span>
+            <h3 id="stance-title" class="text-xl sm:text-2xl font-extrabold text-stripe-dark mb-2">Ми не рятуємо жінок.</h3>
+            <p id="stance-p1" class="text-sm text-stripe-slate leading-relaxed mb-4">
               Ми не ставимося до наших учасниць як до людей, яких потрібно врятувати або навчити правильно жити. У них уже є здібності, досвід і власні плани.
             </p>
-            <p class="text-sm text-stripe-slate leading-relaxed">
-              Іноді просто не вистачає конкретної речі: знань, грошей на навчання, потрібного контакту, першого досвіду роботи або людини, яка скаже: <span class="font-semibold text-stripe-dark">«Я знаю, кому тебе представити»</span>.
+            <p id="stance-p2" class="text-sm text-stripe-slate leading-relaxed">
+              Іноді просто не вистачає конкретної речі: знань, грошей на навчання, потрібного контакту, першого досвіду роботи або людини, яка скаже: <span id="stance-quote-highlight" class="font-semibold text-stripe-dark">«Я знаю, кому тебе представити»</span>.
             </p>
           </div>
           <div class="relative z-10 mt-6 pt-4 border-t border-stripe-border/60">
-            <span class="text-xs font-semibold text-stripe-purple">Ось тут ми й можемо бути корисними.</span>
+            <span id="stance-conclusion" class="text-xs font-semibold text-stripe-purple">Ось тут ми й можемо бути корисними.</span>
           </div>
         </div>
 
-        <!-- Banner Card 2: "Наша мета проста" with warm geometric artwork -->
+        <!-- Banner Card 2: "Наша мета проста" -->
         <div class="relative overflow-hidden rounded-2xl border border-stripe-border bg-white p-7 sm:p-8 flex flex-col justify-between group">
           <div class="absolute right-0 top-0 bottom-0 w-2/5 bg-gradient-to-l from-stripe-accentYellow/30 via-orange-400/10 to-transparent pointer-events-none"></div>
           <div class="relative z-10 max-w-md">
-            <span class="text-xs uppercase font-bold tracking-widest text-amber-600 block mb-2">Головний фокус</span>
-            <h3 class="text-xl sm:text-2xl font-extrabold text-stripe-dark mb-2">Більше вибору для кожної.</h3>
-            <p class="text-sm text-stripe-slate leading-relaxed mb-4">
+            <span id="goal-tag" class="text-xs uppercase font-bold tracking-widest text-amber-600 block mb-2">Головний фокус</span>
+            <h3 id="goal-title" class="text-xl sm:text-2xl font-extrabold text-stripe-dark mb-2">Більше вибору для кожної.</h3>
+            <p id="goal-p1" class="text-sm text-stripe-slate leading-relaxed mb-4">
               Наша мета проста: щоб у жінок було більше вибору і менше причин відмовлятися від того життя, якого вони хочуть.
             </p>
-            <p class="text-sm text-stripe-slate leading-relaxed">
+            <p id="goal-p2" class="text-sm text-stripe-slate leading-relaxed">
               Кожен проєкт створюється для того, щоб відкривати нові карʼєрні, освітні та фінансові горизонти.
             </p>
           </div>
           <div class="relative z-10 mt-6 pt-4 border-t border-stripe-border/60">
             <button onclick="openModal()" class="text-stripe-purple text-sm font-semibold hover:underline inline-flex items-center gap-1.5">
-              <span>Долучитися до ініціативи</span>
+              <span id="goal-action-btn">Долучитися до ініціативи</span>
               <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
               </svg>
@@ -737,29 +737,28 @@
     <div class="stripe-divider"></div>
   </div>
 
-  <!-- Call to action block: Matching Stripe's "Ready to get started?" Section -->
   <section id="join" class="py-20 sm:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center justify-between">
         <div class="lg:col-span-8">
-          <h2 class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-stripe-dark tracking-[-0.03em] mb-4">
+          <h2 id="join-section-title" class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-stripe-dark tracking-[-0.03em] mb-4">
             Долучитися
           </h2>
-          <p class="text-stripe-slate text-base sm:text-lg leading-relaxed mb-3 max-w-2xl font-normal">
+          <p id="join-section-p1" class="text-stripe-slate text-base sm:text-lg leading-relaxed mb-3 max-w-2xl font-normal">
             Наші проєкти існують завдяки людям і компаніям, які готові ділитися своїм часом, знаннями та ресурсами.
           </p>
-          <p class="text-stripe-slate text-sm sm:text-base leading-relaxed mb-4 max-w-2xl font-normal">
+          <p id="join-section-p2" class="text-stripe-slate text-sm sm:text-base leading-relaxed mb-4 max-w-2xl font-normal">
             До нас можна долучитися як менторка чи ментор, експерт, партнер, компанія або донор.
           </p>
-          <p class="text-stripe-dark font-semibold text-sm sm:text-base">
+          <p id="join-section-p3" class="text-stripe-dark font-semibold text-sm sm:text-base">
             Якщо вам близьке те, що ми робимо, — напишіть нам.
           </p>
         </div>
 
         <div class="lg:col-span-4 flex lg:justify-end">
           <button onclick="openModal()" class="stripe-btn inline-flex items-center gap-2 bg-stripe-purple hover:bg-stripe-purpleHover text-white px-8 py-3.5 rounded-full text-base font-semibold shadow-md shadow-stripe-purple/25 hover:shadow-lg transition-all">
-            <span>Долучитися</span>
+            <span id="join-section-btn">Долучитися</span>
             <svg class="w-4 h-4 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
             </svg>
@@ -770,7 +769,6 @@
     </div>
   </section>
 
-  <!-- Footer matching Stripe's exact structure and user's requested links -->
   <footer class="bg-white border-t border-stripe-border pt-16 pb-12 text-stripe-slate text-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -778,42 +776,46 @@
         
         <!-- Column 1: Brand & Slogan -->
         <div class="md:col-span-6">
-          <div class="text-lg font-extrabold text-stripe-dark tracking-tight mb-3">
+          <div id="footer-logo" class="text-lg font-extrabold text-stripe-dark tracking-tight mb-3">
             Формула <span class="text-stripe-purple">свободи</span>
           </div>
-          <p class="text-stripe-slate text-sm leading-relaxed max-w-md font-normal">
+          <p id="footer-slogan" class="text-stripe-slate text-sm leading-relaxed max-w-md font-normal">
             Допомагаємо жінкам навчатися, працювати, ставати незалежнішими і мати більше вибору у власному житті.
           </p>
         </div>
 
         <!-- Column 2: Requested Organization Navigation -->
         <div class="md:col-span-3">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-stripe-dark mb-4">Організація</h4>
+          <h4 id="footer-col-org" class="text-xs font-bold uppercase tracking-wider text-stripe-dark mb-4">Організація</h4>
           <ul class="space-y-2.5">
             <li>
-              <a href="#what-we-do" class="hover:text-stripe-purple transition-colors">Наші проєкти</a>
+              <a href="#what-we-do" id="footer-link-projects" class="hover:text-stripe-purple transition-colors">Наші проєкти</a>
             </li>
             <li>
-              <a href="#formula" class="hover:text-stripe-purple transition-colors">Про організацію</a>
+              <a href="#formula" id="footer-link-about" class="hover:text-stripe-purple transition-colors">Про організацію</a>
             </li>
             <li>
-              <button onclick="openModal()" class="hover:text-stripe-purple transition-colors text-left">Долучитися</button>
+              <button onclick="openModal()" id="footer-link-join" class="hover:text-stripe-purple transition-colors text-left">Долучитися</button>
             </li>
           </ul>
         </div>
 
-        <!-- Column 3: Requested Social & Contacts -->
+        <!-- Column 3: Contacts -->
         <div class="md:col-span-3">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-stripe-dark mb-4">Звʼязок</h4>
-          <ul class="space-y-2.5">
+          <h4 id="footer-col-contact" class="text-xs font-bold uppercase tracking-wider text-stripe-dark mb-4">Звʼязок</h4>
+          <ul class="space-y-3">
             <li>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-stripe-purple transition-colors">Instagram</a>
+              <a href="mailto:info@freedomformula.co.ua" class="hover:text-stripe-purple transition-colors font-medium text-stripe-dark break-all">
+                info@freedomformula.co.ua
+              </a>
             </li>
-            <li>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-stripe-purple transition-colors">LinkedIn</a>
-            </li>
-            <li>
-              <button onclick="openModal()" class="hover:text-stripe-purple transition-colors text-left">Контакти</button>
+            <li class="pt-1">
+              <button onclick="openModal()" id="footer-link-contacts" class="stripe-btn inline-flex items-center gap-2 bg-stripe-purple hover:bg-stripe-purpleHover text-white px-4 py-2 rounded-full text-xs font-semibold shadow-xs hover:shadow-md transition-all">
+                <span id="footer-link-contacts-text">Контакти</span>
+                <svg class="w-3.5 h-3.5 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                </svg>
+              </button>
             </li>
           </ul>
         </div>
@@ -822,14 +824,13 @@
 
       <!-- Footer Bottom note -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stripe-slate/70 gap-4">
-        <p>&copy; Формула свободи. Всі права захищені.</p>
-        <p>Україна</p>
+        <p id="footer-copyright">&copy; Формула свободи. Всі права захищені.</p>
+        <p id="footer-country">Україна</p>
       </div>
 
     </div>
   </footer>
 
-  <!-- Interactive Modal Dialog -->
   <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stripe-dark/60 backdrop-blur-sm hidden" role="dialog" aria-modal="true">
     <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-stripe-border relative transform transition-all">
       
@@ -841,40 +842,40 @@
       </button>
 
       <div class="mb-6">
-        <span class="text-xs uppercase tracking-wider font-bold text-stripe-purple">Формула свободи</span>
-        <h3 class="text-2xl font-extrabold text-stripe-dark mt-1">Долучитися</h3>
-        <p class="text-stripe-slate text-sm mt-1">Напишіть нам, щоб дізнатися більше або підтримати проєкт.</p>
+        <span id="modal-brand-tag" class="text-xs uppercase tracking-wider font-bold text-stripe-purple">Формула свободи</span>
+        <h3 id="modal-title" class="text-2xl font-extrabold text-stripe-dark mt-1">Долучитися</h3>
+        <p id="modal-desc" class="text-stripe-slate text-sm mt-1">Напишіть нам, щоб дізнатися більше або підтримати проєкт.</p>
       </div>
 
       <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
         <div>
-          <label class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="role-select">Як ви хочете долучитися:</label>
+          <label id="modal-role-label" class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="role-select">Як ви хочете долучитися:</label>
           <select id="role-select" required class="w-full px-4 py-2.5 rounded-xl border border-stripe-border bg-white focus:outline-none focus:ring-2 focus:ring-stripe-purple text-sm text-stripe-dark">
-            <option value="учасниця">Учасниця (навчання, професія, робота)</option>
-            <option value="ментор">Менторка чи ментор</option>
-            <option value="експерт">Експерт</option>
-            <option value="партнер">Партнер або компанія</option>
-            <option value="донор">Донор</option>
+            <option value="учасниця" id="opt-participant">Учасниця (навчання, професія, робота)</option>
+            <option value="ментор" id="opt-mentor">Менторка чи ментор</option>
+            <option value="експерт" id="opt-expert">Експерт</option>
+            <option value="партнер" id="opt-partner">Партнер або компанія</option>
+            <option value="донор" id="opt-donor">Донор</option>
           </select>
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="user-name">Ваше імʼя:</label>
+          <label id="modal-name-label" class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="user-name">Ваше імʼя:</label>
           <input id="user-name" type="text" required placeholder="Імʼя та прізвище" class="w-full px-4 py-2.5 rounded-xl border border-stripe-border bg-white focus:outline-none focus:ring-2 focus:ring-stripe-purple text-sm text-stripe-dark">
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="user-email">Електронна пошта:</label>
+          <label id="modal-email-label" class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="user-email">Електронна пошта:</label>
           <input id="user-email" type="email" required placeholder="email@example.com" class="w-full px-4 py-2.5 rounded-xl border border-stripe-border bg-white focus:outline-none focus:ring-2 focus:ring-stripe-purple text-sm text-stripe-dark">
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="user-message">Повідомлення:</label>
+          <label id="modal-msg-label" class="block text-xs font-bold text-stripe-slate uppercase tracking-wider mb-1.5" for="user-message">Повідомлення:</label>
           <textarea id="user-message" rows="3" placeholder="Напишіть нам..." class="w-full px-4 py-2.5 rounded-xl border border-stripe-border bg-white focus:outline-none focus:ring-2 focus:ring-stripe-purple text-sm text-stripe-dark resize-none"></textarea>
         </div>
 
         <button type="submit" class="stripe-btn w-full py-3.5 rounded-full font-bold text-white bg-stripe-purple hover:bg-stripe-purpleHover shadow-md transition-all text-sm mt-2 flex items-center justify-center gap-2">
-          <span>Надіслати</span>
+          <span id="modal-btn-submit">Надіслати</span>
           <svg class="w-4 h-4 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
           </svg>
@@ -883,7 +884,7 @@
     </div>
   </div>
 
-  <!-- Notification Toast (No alert() used) -->
+  <!-- Notification Toast -->
   <div id="toast-notify" class="fixed bottom-6 right-6 z-50 hidden bg-stripe-dark text-white px-5 py-4 rounded-xl shadow-2xl border border-white/10 flex items-center gap-3 transition-all duration-300">
     <div class="w-7 h-7 rounded-full bg-stripe-purple flex items-center justify-center text-white font-bold text-sm shrink-0">✓</div>
     <div>
@@ -893,6 +894,512 @@
   </div>
 
   <script>
+    // Complete bilingual dictionaries
+    // Note: English brand name is strictly "Freedom Formula"
+    const i18n = {
+      uk: {
+        metaTitle: "Формула свободи — Можливості для навчання, роботи та незалежного життя",
+        brandHtml: 'Формула <span class="text-stripe-purple">свободи</span>',
+        footerBrandHtml: 'Формула <span class="text-stripe-purple">свободи</span>',
+        navWhatWeDo: "Що ми робимо",
+        navForWhom: "Для кого",
+        navWhyUs: "Чому ми",
+        navFormula: "Формула свободи",
+        navBeliefs: "У що ми віримо",
+        btnJoin: "Долучитися",
+        heroTitleMain: "Формула свободи.",
+        heroTitleSub: 'Допомагаємо жінкам отримувати <span class="text-stripe-purple font-semibold">більше можливостей</span> для навчання, роботи та незалежного життя.',
+        heroDesc: "Ми створюємо освітні, карʼєрні та соціальні проєкти для жінок. Допомагаємо здобувати нові навички, пробувати себе в нових професіях, знаходити людей і можливості, які можуть стати наступним кроком у карʼєрі або житті.",
+        heroQuote: "«Наша мета проста: щоб у жінок було більше вибору і менше причин відмовлятися від того життя, якого вони хочуть.»",
+        whatTitleLead: "Що ми робимо.",
+        whatTitleSub: "Створюємо проєкти та середовище для розвитку й незалежності.",
+        card1Tag: "01 / Напрям",
+        card1Cat: "Освіта",
+        card1Title: "Навчання",
+        card1P1: "Створюємо безкоштовні освітні програми та залучаємо до них людей із реальним професійним досвідом.",
+        card1P2: "Нам важливо, щоб після навчання залишалися не тільки нові знання, а й навички, які можна використати в роботі: знайти першу позицію, змінити професію або спробувати новий напрям.",
+        card2Tag: "02 / Напрям",
+        card2Cat: "Професія",
+        card2Title: "Карʼєрні можливості",
+        card2P1: "Допомагаємо жінкам дізнаватися про професії та сфери, в які вони могли раніше навіть не дивитися.",
+        card2P2: "Знайомимо з експертами, менторами, компаніями та іншими людьми, які можуть поділитися досвідом, контактами або можливостями.",
+        card3Tag: "03 / Напрям",
+        card3Cat: "Мережа",
+        card3Title: "Спільнота",
+        card3P1: "Ми хочемо, щоб жінкам було простіше знаходити одна одну і допомагати одна одній.",
+        card3P2: "Порадою. Контактом. Рекомендацією. Вакансією. Досвідом. Іноді саме цього не вистачає, щоб зробити наступний крок.",
+        card4Tag: "04 / Напрям",
+        card4Cat: "Суспільство",
+        card4Title: "Суспільні проєкти",
+        card4P1: "Ми також говоримо про речі, які досі впливають на вибір жінок: фінансову залежність, стереотипи про професії та карʼєру.",
+        card4P2: "Очікування щодо сімʼї, материнства, віку чи того, наскільки «амбіційною» жінці дозволено бути.",
+        forWhomTitle: "Для кого ми працюємо",
+        forWhomSubtitle: "Для жінок, які хочуть щось змінити у своєму житті.",
+        targetItem1: "Знайти роботу.",
+        targetItem2: "Освоїти нову професію.",
+        targetItem3: "Повернутися до карʼєри після перерви.",
+        targetItem4: "Почати більше заробляти.",
+        targetItem5: "Запустити свій проєкт.",
+        targetItem6: "Або просто зрозуміти, куди рухатися далі.",
+        targetBannerTitle: "Не існує одного правильного результату.",
+        targetBannerP1: "Комусь потрібна велика карʼєра, комусь — стабільна робота і власний дохід, комусь — можливість повністю змінити напрям.",
+        targetBannerP2: "Для нас важливо, щоб цей вибір був у самої жінки.",
+        whyTitle: "Чому ми це робимо",
+        whySubtitle: "Бо навіть сьогодні на життя жінок впливає багато речей, які не мають нічого спільного з їхніми здібностями.",
+        whyQuote1: "Ми не вирішимо всі ці проблеми одним проєктом.",
+        whyQuote2: "Але можемо допомогти конкретній жінці отримати ще один варіант.",
+        whyItem1: "Хтось відкладає карʼєру, бо більшість турботи про дітей автоматично лягає на неї.",
+        whyItem2: "Хтось роками фінансово залежить від партнера.",
+        whyItem3: "Хтось не подається на хорошу вакансію, бо не вважає себе достатньо кваліфікованою.",
+        whyItem4: "Хтось у 35 чи 40 думає, що вже пізно починати щось нове.",
+        whyItem5: "А хтось із дитинства просто звик до думки, що певні професії, гроші чи рівень амбіцій — «не для неї».",
+        formulaTitleLead: "Чому «Формула свободи».",
+        formulaTitleSub: "Тому що свобода для кожної виглядає по-різному.",
+        freedomCard1Title: "Власні гроші",
+        freedomCard1P: "Для когось це власні гроші.",
+        freedomCard2Title: "Бажана справа",
+        freedomCard2P: "Для когось — робота, яку вона справді хоче.",
+        freedomCard3Title: "Особиста воля",
+        freedomCard3P: "Для когось — можливість піти зі стосунків або роботи, в яких їй погано.",
+        freedomCard4Title: "Новий старт",
+        freedomCard4P: "Для когось — почати все спочатку після переїзду, війни, декрету чи кількох років у зовсім іншій професії.",
+        formulaManifestoP1: "Ми не знаємо універсальної формули хорошого життя. І не хочемо її придумувати.",
+        formulaManifestoP2: "Ми хочемо, щоб у більшої кількості жінок були ресурси й можливості знайти свою.",
+        beliefsTitle: "У що ми віримо",
+        pillarTag1: "Принцип 01",
+        pillar1Title: "Жінка сама знає, як хоче жити.",
+        pillar1Desc: "Ми не хочемо пояснювати жінкам, що їм потрібно робити з карʼєрою, сімʼєю чи життям. Ми хочемо дати більше варіантів, з яких можна обирати.",
+        pillarTag2: "Принцип 02",
+        pillar2Title: "Власний дохід має значення.",
+        pillar2Desc: "Гроші не вирішують усіх проблем, але фінансова незалежність дуже сильно впливає на те, скільки в людини є вибору.",
+        pillarTag3: "Принцип 03",
+        pillar3Title: "Починати спочатку — нормально.",
+        pillar3Desc: "У 25, 35 чи 50. Після декрету, переїзду, звільнення, війни або просто в момент, коли зрозуміла, що більше не хочеш жити так, як раніше.",
+        pillarTag4: "Принцип 04",
+        pillar4Title: "Жінки можуть відкривати можливості одна для одної.",
+        pillar4Desc: "Ми самі багато разів бачили, як один контакт, рекомендація чи проста підтримка змінювали чиєсь життя. Хочемо, щоб таких історій ставало більше.",
+        stanceTag: "Це важливо",
+        stanceTitle: "Ми не рятуємо жінок.",
+        stanceP1: "Ми не ставимося до наших учасниць як до людей, яких потрібно врятувати або навчити правильно жити. У них уже є здібності, досвід і власні плани.",
+        stanceP2: 'Іноді просто не вистачає конкретної речі: знань, грошей на навчання, потрібного контакту, першого досвіду роботи або людини, яка скаже: <span class="font-semibold text-stripe-dark">«Я знаю, кому тебе представити»</span>.',
+        stanceConclusion: "Ось тут ми й можемо бути корисними.",
+        goalTag: "Головний фокус",
+        goalTitle: "Більше вибору для кожної.",
+        goalP1: "Наша мета проста: щоб у жінок було більше вибору і менше причин відмовлятися від того життя, якого вони хочуть.",
+        goalP2: "Кожен проєкт створюється для того, щоб відкривати нові карʼєрні, освітні та фінансові горизонти.",
+        goalActionBtn: "Долучитися до ініціативи",
+        joinSectionTitle: "Долучитися",
+        joinSectionP1: "Наші проєкти існують завдяки людям і компаніям, які готові ділитися своїм часом, знаннями та ресурсами.",
+        joinSectionP2: "До нас можна долучитися як менторка чи ментор, експерт, партнер, компанія або донор.",
+        joinSectionP3: "Якщо вам близьке те, що ми робимо, — напишіть нам.",
+        joinSectionBtn: "Долучитися",
+        footerSlogan: "Допомагаємо жінкам навчатися, працювати, ставати незалежнішими і мати більше вибору у власному житті.",
+        footerColOrg: "Організація",
+        footerLinkProjects: "Наші проєкти",
+        footerLinkAbout: "Про організацію",
+        footerLinkJoin: "Долучитися",
+        footerColContact: "Звʼязок",
+        footerLinkContacts: "Контакти",
+        footerCopyright: "© Формула свободи. Всі права захищені.",
+        footerCountry: "Україна",
+        modalBrandTag: "Формула свободи",
+        modalTitle: "Долучитися",
+        modalDesc: "Напишіть нам, щоб дізнатися більше або підтримати проєкт.",
+        modalRoleLabel: "Як ви хочете долучитися:",
+        optParticipant: "Учасниця (навчання, професія, робота)",
+        optMentor: "Менторка чи ментор",
+        optExpert: "Експерт",
+        optPartner: "Партнер або компанія",
+        optDonor: "Донор",
+        modalNameLabel: "Ваше імʼя:",
+        namePlaceholder: "Імʼя та прізвище",
+        modalEmailLabel: "Електронна пошта:",
+        modalMsgLabel: "Повідомлення:",
+        msgPlaceholder: "Напишіть нам...",
+        modalBtnSubmit: "Надіслати",
+        toastSuccessTitle: "Дякуємо за звернення!",
+        toastSuccessDesc: "Ми звʼяжемося з вами найближчим часом."
+      },
+      en: {
+        metaTitle: "Freedom Formula — Opportunities for Learning, Career, and Independent Living",
+        brandHtml: 'Freedom <span class="text-stripe-purple">Formula</span>',
+        footerBrandHtml: 'Freedom <span class="text-stripe-purple">Formula</span>',
+        navWhatWeDo: "What we do",
+        navForWhom: "Who it's for",
+        navWhyUs: "Why us",
+        navFormula: "Freedom Formula",
+        navBeliefs: "What we believe",
+        btnJoin: "Join us",
+        heroTitleMain: "Freedom Formula.",
+        heroTitleSub: 'Helping women unlock <span class="text-stripe-purple font-semibold">more opportunities</span> for learning, work, and an independent life.',
+        heroDesc: "We create educational, career, and social initiatives for women. We help develop new skills, explore new professions, and connect with people and opportunities that can become the catalyst for the next step in career or life.",
+        heroQuote: "“Our goal is simple: to ensure women have more choices and fewer reasons to compromise on the life they truly want.”",
+        whatTitleLead: "What we do.",
+        whatTitleSub: "Building initiatives and an empowering environment for growth and independence.",
+        card1Tag: "01 / Focus",
+        card1Cat: "Education",
+        card1Title: "Learning",
+        card1P1: "We build tuition-free educational programs and engage practitioners with proven industry experience.",
+        card1P2: "It is essential to us that after completing their studies, women take away not just theoretical knowledge, but practical skills they can apply immediately: landing a first role, pivoting careers, or exploring a new field.",
+        card2Tag: "02 / Focus",
+        card2Cat: "Career",
+        card2Title: "Career Opportunities",
+        card2P1: "We help women discover professions and industries they might not have previously considered.",
+        card2P2: "We introduce them to experts, mentors, companies, and networks of professionals ready to share experience, contacts, and opportunities.",
+        card3Tag: "03 / Focus",
+        card3Cat: "Network",
+        card3Title: "Community",
+        card3P1: "We want to make it effortless for women to find one another and offer mutual support.",
+        card3P2: "Advice. Contacts. Recommendations. Job referrals. Lived experience. Often, that is the exact missing link needed to make the next move.",
+        card4Tag: "04 / Focus",
+        card4Cat: "Social Impact",
+        card4Title: "Public Initiatives",
+        card4P1: "We also openly address the factors that continue to constrain women's choices: financial dependence, professional stereotypes, and career barriers.",
+        card4P2: "Societal expectations surrounding family, motherhood, age, or just how “ambitious” a woman is permitted to be.",
+        forWhomTitle: "Who we work for",
+        forWhomSubtitle: "For women who want to make meaningful changes in their lives.",
+        targetItem1: "Land a job.",
+        targetItem2: "Master a new profession.",
+        targetItem3: "Return to career after a break.",
+        targetItem4: "Increase personal earnings.",
+        targetItem5: "Launch their own project.",
+        targetItem6: "Or simply gain clarity on where to go next.",
+        targetBannerTitle: "There is no single correct outcome.",
+        targetBannerP1: "Some strive for a high-trajectory career, others for steady employment and financial stability, and others for a complete shift in direction.",
+        targetBannerP2: "What matters to us is that this choice belongs entirely to the woman herself.",
+        whyTitle: "Why we do this",
+        whySubtitle: "Because even today, women's lives are shaped by many factors that have nothing to do with their talents or abilities.",
+        whyQuote1: "We will not solve all these systemic problems with a single project.",
+        whyQuote2: "But we can help an individual woman gain another viable option.",
+        whyItem1: "Someone puts her career on hold because the burden of caregiving automatically falls on her.",
+        whyItem2: "Someone remains financially dependent on a partner for years.",
+        whyItem3: "Someone hesitates to apply for a great opening, believing she is not qualified enough.",
+        whyItem4: "Someone at 35 or 40 thinks it is already too late to start something new.",
+        whyItem5: "And someone has grown accustomed since childhood to the belief that certain fields, incomes, or ambitions are simply 'not for her.'",
+        formulaTitleLead: "Why “Freedom Formula”.",
+        formulaTitleSub: "Because freedom looks different for every woman.",
+        freedomCard1Title: "Personal income",
+        freedomCard1P: "For some, it is earning their own money.",
+        freedomCard2Title: "Work she loves",
+        freedomCard2P: "For some, it is doing work she truly desires.",
+        freedomCard3Title: "Personal autonomy",
+        freedomCard3P: "For some, it is the ability to walk away from relationships or jobs where she feels unhappy.",
+        freedomCard4Title: "A fresh start",
+        freedomCard4P: "For some, it is starting fresh after relocation, war, maternity leave, or years in a different field.",
+        formulaManifestoP1: "We do not know a universal blueprint for a good life. Nor do we want to invent one.",
+        formulaManifestoP2: "Our purpose is to equip more women with the resources and opportunities to author their own.",
+        beliefsTitle: "What we believe",
+        pillarTag1: "Principle 01",
+        pillar1Title: "A woman knows best how she wants to live.",
+        pillar1Desc: "We do not dictate to women how to navigate their careers, families, or personal choices. We want to open more avenues from which they can choose.",
+        pillarTag2: "Principle 02",
+        pillar2Title: "Personal income is essential.",
+        pillar2Desc: "Money does not resolve every challenge, but financial independence profoundly expands the scope of freedom and choice one has.",
+        pillarTag3: "Principle 03",
+        pillar3Title: "Starting over is completely normal.",
+        pillar3Desc: "At 25, 35, or 50. After maternity leave, relocation, layoff, war, or simply the realization that you no longer wish to live as before.",
+        pillarTag4: "Principle 04",
+        pillar4Title: "Women can unlock opportunities for each other.",
+        pillar4Desc: "We have witnessed time and again how a single introduction, recommendation, or word of support transformed a life. We want more of those stories.",
+        stanceTag: "Our stance",
+        stanceTitle: "We do not “rescue” women.",
+        stanceP1: "We do not treat our participants as people who need saving or instructing on how to live properly. They already possess talent, experience, and their own aspirations.",
+        stanceP2: 'Often what is missing is a tangible piece: knowledge, funding for training, an essential contact, initial work experience, or a person saying: <span class="font-semibold text-stripe-dark">“I know exactly who to introduce you to.”</span>',
+        stanceConclusion: "This is precisely where our support creates lasting impact.",
+        goalTag: "Core focus",
+        goalTitle: "More choices for every woman.",
+        goalP1: "Our goal is simple: for women to have more choices and fewer reasons to step back from the life they want.",
+        goalP2: "Every initiative is designed to broaden career, educational, and financial horizons.",
+        goalActionBtn: "Join the initiative",
+        joinSectionTitle: "Join us",
+        joinSectionP1: "Our initiatives thrive thanks to people and organizations generous with their time, expertise, and resources.",
+        joinSectionP2: "You can collaborate with us as a mentor, expert, institutional partner, company, or donor.",
+        joinSectionP3: "If our mission resonates with you, we invite you to connect.",
+        joinSectionBtn: "Join us",
+        footerSlogan: "Helping women learn, work, become more independent, and gain more choices in their lives.",
+        footerColOrg: "Organization",
+        footerLinkProjects: "Our initiatives",
+        footerLinkAbout: "About us",
+        footerLinkJoin: "Join us",
+        footerColContact: "Connect",
+        footerLinkContacts: "Contact",
+        footerCopyright: "© Freedom Formula. All rights reserved.",
+        footerCountry: "Ukraine",
+        modalBrandTag: "Freedom Formula",
+        modalTitle: "Join us",
+        modalDesc: "Reach out to learn more or support our initiatives.",
+        modalRoleLabel: "How would you like to participate:",
+        optParticipant: "Participant (learning, career, employment)",
+        optMentor: "Mentor",
+        optExpert: "Industry expert",
+        optPartner: "Partner or enterprise",
+        optDonor: "Donor",
+        modalNameLabel: "Your name:",
+        namePlaceholder: "Full name",
+        modalEmailLabel: "Email address:",
+        modalMsgLabel: "Message:",
+        msgPlaceholder: "Write your message...",
+        modalBtnSubmit: "Send message",
+        toastSuccessTitle: "Thank you for reaching out!",
+        toastSuccessDesc: "Our team will be in touch with you shortly."
+      }
+    };
+
+    let currentLang = 'uk';
+
+    function updateLanguageUrl(lang) {
+      try {
+        const url = new URL(window.location.href);
+        if (lang === 'en') {
+          // If path doesn't end with /english, update it
+          if (!url.pathname.endsWith('/english')) {
+            const basePath = url.pathname.replace(/\/+$/, '');
+            url.pathname = (basePath ? basePath : '') + '/english';
+          }
+          window.history.pushState({ lang: 'en' }, '', url.toString());
+        } else {
+          // Revert to root / default path without /english
+          if (url.pathname.endsWith('/english')) {
+            url.pathname = url.pathname.replace(/\/english\/?$/, '') || '/';
+          }
+          window.history.pushState({ lang: 'uk' }, '', url.toString());
+        }
+      } catch (err) {
+        // Fallback for sandboxed or restricted iframe environments
+        if (lang === 'en') {
+          window.location.hash = 'english';
+        } else if (window.location.hash === '#english') {
+          try {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          } catch (e) {
+            window.location.hash = '';
+          }
+        }
+      }
+    }
+
+    function switchLanguage(lang, syncUrl = true) {
+      if (!i18n[lang]) return;
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      localStorage.setItem('ff_language', lang);
+
+      if (syncUrl) {
+        updateLanguageUrl(lang);
+      }
+
+      const d = i18n[lang];
+
+      // Update titles and logos
+      document.getElementById('meta-title').textContent = d.metaTitle;
+      document.getElementById('brand-logo').innerHTML = d.brandHtml;
+      document.getElementById('footer-logo').innerHTML = d.footerBrandHtml;
+
+      // Nav
+      document.getElementById('nav-what-we-do').textContent = d.navWhatWeDo;
+      document.getElementById('nav-for-whom').textContent = d.navForWhom;
+      document.getElementById('nav-why-us').textContent = d.navWhyUs;
+      document.getElementById('nav-formula').textContent = d.navFormula;
+      document.getElementById('nav-beliefs').textContent = d.navBeliefs;
+      document.getElementById('header-btn-join').textContent = d.btnJoin;
+
+      // Mobile Nav
+      document.getElementById('mob-nav-what-we-do').textContent = d.navWhatWeDo;
+      document.getElementById('mob-nav-for-whom').textContent = d.navForWhom;
+      document.getElementById('mob-nav-why-us').textContent = d.navWhyUs;
+      document.getElementById('mob-nav-formula').textContent = d.navFormula;
+      document.getElementById('mob-nav-beliefs').textContent = d.navBeliefs;
+      document.getElementById('mob-btn-join').textContent = d.btnJoin;
+
+      // Hero
+      document.getElementById('hero-title-main').textContent = d.heroTitleMain;
+      document.getElementById('hero-title-sub').innerHTML = d.heroTitleSub;
+      document.getElementById('hero-description').textContent = d.heroDesc;
+      document.getElementById('hero-quote').textContent = d.heroQuote;
+      document.getElementById('hero-btn-join').textContent = d.btnJoin;
+
+      // What we do
+      document.getElementById('what-title-lead').textContent = d.whatTitleLead;
+      document.getElementById('what-title-sub').textContent = d.whatTitleSub;
+      
+      document.getElementById('card-1-tag').textContent = d.card1Tag;
+      document.getElementById('card-1-cat').textContent = d.card1Cat;
+      document.getElementById('card-1-title').textContent = d.card1Title;
+      document.getElementById('card-1-p1').textContent = d.card1P1;
+      document.getElementById('card-1-p2').textContent = d.card1P2;
+
+      document.getElementById('card-2-tag').textContent = d.card2Tag;
+      document.getElementById('card-2-cat').textContent = d.card2Cat;
+      document.getElementById('card-2-title').textContent = d.card2Title;
+      document.getElementById('card-2-p1').textContent = d.card2P1;
+      document.getElementById('card-2-p2').textContent = d.card2P2;
+
+      document.getElementById('card-3-tag').textContent = d.card3Tag;
+      document.getElementById('card-3-cat').textContent = d.card3Cat;
+      document.getElementById('card-3-title').textContent = d.card3Title;
+      document.getElementById('card-3-p1').textContent = d.card3P1;
+      document.getElementById('card-3-p2').textContent = d.card3P2;
+
+      document.getElementById('card-4-tag').textContent = d.card4Tag;
+      document.getElementById('card-4-cat').textContent = d.card4Cat;
+      document.getElementById('card-4-title').textContent = d.card4Title;
+      document.getElementById('card-4-p1').textContent = d.card4P1;
+      document.getElementById('card-4-p2').textContent = d.card4P2;
+
+      document.querySelectorAll('.card-btn-join').forEach(el => el.textContent = d.btnJoin);
+      document.querySelectorAll('.audience-btn-join').forEach(el => el.textContent = d.btnJoin);
+
+      // Target audience
+      document.getElementById('for-whom-title').textContent = d.forWhomTitle;
+      document.getElementById('for-whom-subtitle').textContent = d.forWhomSubtitle;
+      document.getElementById('target-item-1').textContent = d.targetItem1;
+      document.getElementById('target-item-2').textContent = d.targetItem2;
+      document.getElementById('target-item-3').textContent = d.targetItem3;
+      document.getElementById('target-item-4').textContent = d.targetItem4;
+      document.getElementById('target-item-5').textContent = d.targetItem5;
+      document.getElementById('target-item-6').textContent = d.targetItem6;
+
+      document.getElementById('target-banner-title').textContent = d.targetBannerTitle;
+      document.getElementById('target-banner-p1').textContent = d.targetBannerP1;
+      document.getElementById('target-banner-p2').textContent = d.targetBannerP2;
+
+      // Why us
+      document.getElementById('why-title').textContent = d.whyTitle;
+      document.getElementById('why-subtitle').textContent = d.whySubtitle;
+      document.getElementById('why-quote-1').textContent = d.whyQuote1;
+      document.getElementById('why-quote-2').textContent = d.whyQuote2;
+      document.getElementById('why-item-1').textContent = d.whyItem1;
+      document.getElementById('why-item-2').textContent = d.whyItem2;
+      document.getElementById('why-item-3').textContent = d.whyItem3;
+      document.getElementById('why-item-4').textContent = d.whyItem4;
+      document.getElementById('why-item-5').textContent = d.whyItem5;
+
+      // Formula
+      document.getElementById('formula-title-lead').textContent = d.formulaTitleLead;
+      document.getElementById('formula-title-sub').textContent = d.formulaTitleSub;
+      document.getElementById('freedom-card-1-title').textContent = d.freedomCard1Title;
+      document.getElementById('freedom-card-1-p').textContent = d.freedomCard1P;
+      document.getElementById('freedom-card-2-title').textContent = d.freedomCard2Title;
+      document.getElementById('freedom-card-2-p').textContent = d.freedomCard2P;
+      document.getElementById('freedom-card-3-title').textContent = d.freedomCard3Title;
+      document.getElementById('freedom-card-3-p').textContent = d.freedomCard3P;
+      document.getElementById('freedom-card-4-title').textContent = d.freedomCard4Title;
+      document.getElementById('freedom-card-4-p').textContent = d.freedomCard4P;
+      document.getElementById('formula-manifesto-p1').textContent = d.formulaManifestoP1;
+      document.getElementById('formula-manifesto-p2').textContent = d.formulaManifestoP2;
+
+      // Beliefs
+      document.getElementById('beliefs-title').textContent = d.beliefsTitle;
+      document.getElementById('pillar-tag-1').textContent = d.pillarTag1;
+      document.getElementById('pillar-1-title').textContent = d.pillar1Title;
+      document.getElementById('pillar-1-desc').textContent = d.pillar1Desc;
+      document.getElementById('pillar-tag-2').textContent = d.pillarTag2;
+      document.getElementById('pillar-2-title').textContent = d.pillar2Title;
+      document.getElementById('pillar-2-desc').textContent = d.pillar2Desc;
+      document.getElementById('pillar-tag-3').textContent = d.pillarTag3;
+      document.getElementById('pillar-3-title').textContent = d.pillar3Title;
+      document.getElementById('pillar-3-desc').textContent = d.pillar3Desc;
+      document.getElementById('pillar-tag-4').textContent = d.pillarTag4;
+      document.getElementById('pillar-4-title').textContent = d.pillar4Title;
+      document.getElementById('pillar-4-desc').textContent = d.pillar4Desc;
+
+      // Stance & Goal
+      document.getElementById('stance-tag').textContent = d.stanceTag;
+      document.getElementById('stance-title').textContent = d.stanceTitle;
+      document.getElementById('stance-p1').textContent = d.stanceP1;
+      document.getElementById('stance-p2').innerHTML = d.stanceP2;
+      document.getElementById('stance-conclusion').textContent = d.stanceConclusion;
+
+      document.getElementById('goal-tag').textContent = d.goalTag;
+      document.getElementById('goal-title').textContent = d.goalTitle;
+      document.getElementById('goal-p1').textContent = d.goalP1;
+      document.getElementById('goal-p2').textContent = d.goalP2;
+      document.getElementById('goal-action-btn').textContent = d.goalActionBtn;
+
+      // Join section
+      document.getElementById('join-section-title').textContent = d.joinSectionTitle;
+      document.getElementById('join-section-p1').textContent = d.joinSectionP1;
+      document.getElementById('join-section-p2').textContent = d.joinSectionP2;
+      document.getElementById('join-section-p3').textContent = d.joinSectionP3;
+      document.getElementById('join-section-btn').textContent = d.joinSectionBtn;
+
+      // Footer
+      document.getElementById('footer-slogan').textContent = d.footerSlogan;
+      document.getElementById('footer-col-org').textContent = d.footerColOrg;
+      document.getElementById('footer-link-projects').textContent = d.footerLinkProjects;
+      document.getElementById('footer-link-about').textContent = d.footerLinkAbout;
+      document.getElementById('footer-link-join').textContent = d.footerLinkJoin;
+      document.getElementById('footer-col-contact').textContent = d.footerColContact;
+      const footerContactsText = document.getElementById('footer-link-contacts-text');
+      if (footerContactsText) {
+        footerContactsText.textContent = d.footerLinkContacts;
+      } else {
+        document.getElementById('footer-link-contacts').textContent = d.footerLinkContacts;
+      }
+      document.getElementById('footer-copyright').textContent = d.footerCopyright;
+      document.getElementById('footer-country').textContent = d.footerCountry;
+
+      // Modal
+      document.getElementById('modal-brand-tag').textContent = d.modalBrandTag;
+      document.getElementById('modal-title').textContent = d.modalTitle;
+      document.getElementById('modal-desc').textContent = d.modalDesc;
+      document.getElementById('modal-role-label').textContent = d.modalRoleLabel;
+      document.getElementById('opt-participant').textContent = d.optParticipant;
+      document.getElementById('opt-mentor').textContent = d.optMentor;
+      document.getElementById('opt-expert').textContent = d.optExpert;
+      document.getElementById('opt-partner').textContent = d.optPartner;
+      document.getElementById('opt-donor').textContent = d.optDonor;
+      document.getElementById('modal-name-label').textContent = d.modalNameLabel;
+      document.getElementById('user-name').placeholder = d.namePlaceholder;
+      document.getElementById('modal-email-label').textContent = d.modalEmailLabel;
+      document.getElementById('modal-msg-label').textContent = d.modalMsgLabel;
+      document.getElementById('user-message').placeholder = d.msgPlaceholder;
+      document.getElementById('modal-btn-submit').textContent = d.modalBtnSubmit;
+
+      // Update button toggles
+      const btnUk = document.getElementById('btn-lang-uk');
+      const btnEn = document.getElementById('btn-lang-en');
+      const btnUkMob = document.getElementById('btn-lang-uk-mob');
+      const btnEnMob = document.getElementById('btn-lang-en-mob');
+
+      if (lang === 'en') {
+        btnEn.className = "px-3 py-1 rounded-full transition-all text-white bg-stripe-purple shadow-xs font-bold";
+        btnUk.className = "px-3 py-1 rounded-full transition-all text-stripe-slate hover:text-stripe-dark font-semibold";
+        btnEnMob.className = "px-2 py-0.5 rounded-full text-white bg-stripe-purple font-bold";
+        btnUkMob.className = "px-2 py-0.5 rounded-full text-stripe-slate font-semibold";
+      } else {
+        btnUk.className = "px-3 py-1 rounded-full transition-all text-white bg-stripe-purple shadow-xs font-bold";
+        btnEn.className = "px-3 py-1 rounded-full transition-all text-stripe-slate hover:text-stripe-dark font-semibold";
+        btnUkMob.className = "px-2 py-0.5 rounded-full text-white bg-stripe-purple font-bold";
+        btnEnMob.className = "px-2 py-0.5 rounded-full text-stripe-slate font-semibold";
+      }
+    }
+
+    // Determine initial language based on URL (/english, #english, ?lang=en) or storage
+    function detectInitialLanguage() {
+      const pathname = window.location.pathname.toLowerCase();
+      const hash = window.location.hash.toLowerCase();
+      const search = window.location.search.toLowerCase();
+
+      if (pathname.endsWith('/english') || pathname.includes('/english') || hash === '#english' || search.includes('lang=en')) {
+        return 'en';
+      }
+
+      return localStorage.getItem('ff_language') || 'uk';
+    }
+
+    // Initialize on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const initialLang = detectInitialLanguage();
+      switchLanguage(initialLang, initialLang === 'en');
+    });
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', () => {
+      const currentUrlLang = detectInitialLanguage();
+      switchLanguage(currentUrlLang, false);
+    });
+
     // Mobile navigation toggle
     const mobileToggle = document.getElementById('mobile-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -943,11 +1450,61 @@
       }, 5000);
     }
 
-    function handleFormSubmit(event) {
+    // URL опублікованого Web App із Google Apps Script
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwwCV1EmK5dZnD-vPKpkQ92Peck8o64gw3rvdi-lPsGqWTuoWKxV3NdSOjFzqL44qUp/exec";
+
+    async function handleFormSubmit(event) {
       event.preventDefault();
-      closeModal();
-      document.getElementById('contact-form').reset();
-      showToast('Повідомлення надіслано!', 'Дякуємо, що написали нам. Ми звʼяжемося з вами незабаром.');
+      
+      const submitBtn = document.getElementById('modal-btn-submit');
+      const originalHtml = submitBtn.innerHTML;
+      const isUk = currentLang === 'uk';
+
+      const payload = {
+        role: document.getElementById('role-select').value,
+        name: document.getElementById('user-name').value.trim(),
+        email: document.getElementById('user-email').value.trim(),
+        message: document.getElementById('user-message').value.trim(),
+        lang: currentLang
+      };
+
+      // Миттєвий візуальний відгук на клік
+      submitBtn.textContent = isUk ? "Надсилаємо..." : "Sending...";
+      submitBtn.disabled = true;
+
+      try {
+        if (GOOGLE_SCRIPT_URL) {
+          // Відправляємо запит з прапорцем keepalive у фоновому режимі,
+          // щоб користувач не чекав кілька секунд внутрішніх перенаправлень серверів Google
+          fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            keepalive: true,
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(payload)
+          }).catch(err => {
+            console.error("Помилка фонового надсилання:", err);
+          });
+        }
+        
+        // Коротка приємна пауза (300 мс) для природності натискання
+        await new Promise(resolve => setTimeout(resolve, 300));
+        
+        closeModal();
+        document.getElementById('contact-form').reset();
+        const d = i18n[currentLang];
+        showToast(d.toastSuccessTitle, d.toastSuccessDesc);
+      } catch (err) {
+        console.error("Помилка відправки:", err);
+        const errTitle = isUk ? "Помилка відправлення" : "Submission error";
+        const errDesc = isUk ? "Будь ласка, напишіть нам на info@freedomformula.co.ua" : "Please reach out to info@freedomformula.co.ua";
+        showToast(errTitle, errDesc);
+      } finally {
+        submitBtn.innerHTML = originalHtml;
+        submitBtn.disabled = false;
+      }
     }
   </script>
 </body>
