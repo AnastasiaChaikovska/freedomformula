@@ -164,6 +164,10 @@
 
         <nav class="hidden md:flex items-center gap-7 lg:gap-8 text-[14px] lg:text-[15px] font-semibold text-stripe-slate">
           <a href="#what-we-do" id="nav-what-we-do" class="hover:text-stripe-dark transition-colors">Що ми робимо</a>
+          <a href="chaos_formula.html" class="hover:text-red-700 transition-colors inline-flex items-center gap-1.5 text-red-700 font-bold">
+            <span class="w-2 h-2 rounded-full bg-red-700 animate-pulse"></span>
+            <span>Chaos Formula</span>
+          </a>
           <a href="#for-whom" id="nav-for-whom" class="hover:text-stripe-dark transition-colors">Для кого</a>
           <a href="#why-us" id="nav-why-us" class="hover:text-stripe-dark transition-colors">Чому ми</a>
           <a href="#formula" id="nav-formula" class="hover:text-stripe-dark transition-colors">Формула свободи</a>
@@ -209,6 +213,10 @@
     <!-- Mobile Dropdown Navigation -->
     <div id="mobile-menu" class="hidden md:hidden border-b border-stripe-border px-6 py-4 bg-white space-y-3">
       <a href="#what-we-do" id="mob-nav-what-we-do" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Що ми робимо</a>
+      <a href="chaos_formula.html" class="block py-1.5 font-bold text-red-700 hover:text-red-800 mob-link flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-red-700 animate-pulse"></span>
+        <span>Chaos Formula (Перший проєкт)</span>
+      </a>
       <a href="#for-whom" id="mob-nav-for-whom" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Для кого</a>
       <a href="#why-us" id="mob-nav-why-us" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Чому ми</a>
       <a href="#formula" id="mob-nav-formula" class="block py-1.5 font-medium text-stripe-slate hover:text-stripe-purple mob-link">Формула свободи</a>
@@ -275,6 +283,31 @@
         <p id="what-title-sub" class="text-2xl sm:text-3xl lg:text-[36px] font-medium tracking-[-0.03em] text-stripe-slate inline ml-1 sm:ml-2">
           Створюємо проєкти та середовище для розвитку й незалежності.
         </p>
+      </div>
+
+      <!-- Featured Project Banner: Chaos Formula (Deep Fire Red) -->
+      <div class="mb-8 rounded-2xl border border-red-200/90 bg-gradient-to-r from-red-50/75 via-rose-50/40 to-white p-6 sm:p-8 relative overflow-hidden transition-all hover:border-red-300 hover:shadow-lg">
+        <div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-gradient-to-br from-red-700/15 to-rose-600/10 blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="max-w-2xl">
+            <div class="flex items-center gap-2 mb-2.5">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-100 text-red-800 uppercase tracking-wider border border-red-200">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-700 animate-ping"></span>
+                Перший проєкт
+              </span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-extrabold text-stripe-dark mb-2">Chaos Formula</h3>
+            <p class="text-sm sm:text-base text-stripe-slate leading-relaxed font-normal">
+              Безкоштовне навчання бізнес-професіям для жінок, яким потрібен новий старт. Практика, менторство від практиків ринку та ICF-коучинг.
+            </p>
+          </div>
+          <a href="chaos_formula.html" class="stripe-btn shrink-0 inline-flex items-center gap-2 bg-gradient-to-r from-red-800 via-red-700 to-rose-800 hover:from-red-900 hover:to-red-800 text-white px-6 py-3 rounded-full text-sm font-bold shadow-md shadow-red-900/20 transition-all">
+            <span>Дізнатися більше</span>
+            <svg class="w-4 h-4 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+            </svg>
+          </a>
+        </div>
       </div>
 
       <!-- 4 Cards Grid with adult architectural layout -->
@@ -802,6 +835,12 @@
               <a href="#what-we-do" id="footer-link-projects" class="hover:text-stripe-purple transition-colors">Наші проєкти</a>
             </li>
             <li>
+              <a href="chaos_formula.html" class="text-red-700 hover:text-red-800 font-semibold transition-colors flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-700"></span>
+                <span>Проєкт Chaos Formula</span>
+              </a>
+            </li>
+            <li>
               <a href="#formula" id="footer-link-about" class="hover:text-stripe-purple transition-colors">Про організацію</a>
             </li>
             <li>
@@ -1155,6 +1194,11 @@
 
     function updateLanguageUrl(lang) {
       try {
+        if (window.location.protocol === 'file:') {
+          window.location.hash = lang === 'en' ? 'english' : '';
+          return;
+        }
+
         const url = new URL(window.location.href);
         if (lang === 'en') {
           if (!url.pathname.endsWith('/english')) {
@@ -1169,15 +1213,13 @@
           window.history.pushState({ lang: 'uk' }, '', url.toString());
         }
       } catch (err) {
-        if (lang === 'en') {
-          window.location.hash = 'english';
-        } else if (window.location.hash === '#english') {
-          try {
-            history.replaceState(null, '', window.location.pathname + window.location.search);
-          } catch (e) {
+        try {
+          if (lang === 'en') {
+            window.location.hash = 'english';
+          } else if (window.location.hash === '#english') {
             window.location.hash = '';
           }
-        }
+        } catch (e) {}
       }
     }
 
@@ -1458,7 +1500,7 @@
     }
 
     // URL опублікованого Google Apps Script
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwwCV1EmK5dZnD-vPKpkQ92Peck8o64gw3rvdi-lPsGqWTuoWKxV3NdSOjFzqL44qUp/exec";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwE0aWK_zxQ1SulNedT9TUTfq4MSPNwo_m67kNH0HvL5nhVvwMlkfCWTOJ5k24ur-5W/exec";
 
     async function handleFormSubmit(event) {
       event.preventDefault();
@@ -1472,7 +1514,8 @@
         name: document.getElementById('user-name').value.trim(),
         email: document.getElementById('user-email').value.trim(),
         message: document.getElementById('user-message').value.trim(),
-        lang: currentLang
+        lang: currentLang,
+        source: "Головна (Формула свободи)"
       };
 
       submitBtn.textContent = isUk ? "Надсилаємо..." : "Sending...";
