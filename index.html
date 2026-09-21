@@ -293,16 +293,16 @@
             <div class="flex items-center gap-2 mb-2.5">
               <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-100 text-red-800 uppercase tracking-wider border border-red-200">
                 <span class="w-1.5 h-1.5 rounded-full bg-red-700 animate-ping"></span>
-                Перший проєкт
+                <span id="featured-project-badge">Перший проєкт</span>
               </span>
             </div>
             <h3 class="text-xl sm:text-2xl font-extrabold text-stripe-dark mb-2">Chaos Formula</h3>
-            <p class="text-sm sm:text-base text-stripe-slate leading-relaxed font-normal">
+            <p id="featured-project-desc" class="text-sm sm:text-base text-stripe-slate leading-relaxed font-normal">
               Безкоштовне навчання бізнес-професіям для жінок, яким потрібен новий старт. Практика, менторство від практиків ринку та ICF-коучинг.
             </p>
           </div>
           <a href="chaos_formula.html" class="stripe-btn shrink-0 inline-flex items-center gap-2 bg-gradient-to-r from-red-800 via-red-700 to-rose-800 hover:from-red-900 hover:to-red-800 text-white px-6 py-3 rounded-full text-sm font-bold shadow-md shadow-red-900/20 transition-all">
-            <span>Дізнатися більше</span>
+            <span id="featured-project-btn">Дізнатися більше</span>
             <svg class="w-4 h-4 stripe-button-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
             </svg>
@@ -837,7 +837,7 @@
             <li>
               <a href="chaos_formula.html" class="text-red-700 hover:text-red-800 font-semibold transition-colors flex items-center gap-1.5">
                 <span class="w-1.5 h-1.5 rounded-full bg-red-700"></span>
-                <span>Проєкт Chaos Formula</span>
+                <span id="footer-link-chaos">Проєкт Chaos Formula</span>
               </a>
             </li>
             <li>
@@ -953,12 +953,16 @@
         navFormula: "Формула свободи",
         navBeliefs: "У що ми віримо",
         btnJoin: "Долучитися",
+        mobNavChaos: "Chaos Formula (Перший проєкт)",
         heroTitleMain: "Формула свободи.",
         heroTitleSub: 'Допомагаємо жінкам отримувати <span class="text-stripe-purple font-semibold">більше можливостей</span> для навчання, роботи та незалежного життя.',
         heroDesc: "Ми створюємо освітні, карʼєрні та соціальні проєкти для жінок. Допомагаємо здобувати нові навички, пробувати себе в нових професіях, знаходити людей і можливості, які можуть стати наступним кроком у карʼєрі або житті.",
         heroQuote: "«Наша мета проста: щоб у жінок було більше вибору і менше причин відмовлятися від того життя, якого вони хочуть.»",
         whatTitleLead: "Що ми робимо.",
         whatTitleSub: "Створюємо проєкти та середовище для розвитку й незалежності.",
+        featuredBadge: "Перший проєкт",
+        featuredDesc: "Безкоштовне навчання бізнес-професіям для жінок, яким потрібен новий старт. Практика, менторство від практиків ринку та ICF-коучинг.",
+        featuredBtn: "Дізнатися більше",
         card1Tag: "01 / Напрям",
         card1Cat: "Освіта",
         card1Title: "Навчання",
@@ -1042,6 +1046,7 @@
         footerSlogan: "Допомагаємо жінкам навчатися, працювати, ставати незалежнішими і мати більше вибору у власному житті.",
         footerColOrg: "Організація",
         footerLinkProjects: "Наші проєкти",
+        footerLinkChaos: "Проєкт Chaos Formula",
         footerLinkAbout: "Про організацію",
         footerLinkJoin: "Долучитися",
         footerColContact: "Звʼязок",
@@ -1067,7 +1072,7 @@
         toastSuccessDesc: "Ми звʼяжемося з вами найближчим часом."
       },
       en: {
-        metaTitle: "Freedom Formula — Opportunities for Learning, Career, and Independent Living",
+        metaTitle: "Freedom Formula — Opportunities for Learning, Work, and Independent Living",
         brandAlt: "Freedom Formula",
         navWhatWeDo: "What we do",
         navForWhom: "Who it's for",
@@ -1075,12 +1080,16 @@
         navFormula: "Freedom Formula",
         navBeliefs: "What we believe",
         btnJoin: "Join us",
+        mobNavChaos: "Chaos Formula (Inaugural Project)",
         heroTitleMain: "Freedom Formula.",
         heroTitleSub: 'Helping women unlock <span class="text-stripe-purple font-semibold">more opportunities</span> for learning, work, and an independent life.',
         heroDesc: "We create educational, career, and social initiatives for women. We help develop new skills, explore new professions, and connect with people and opportunities that can become the catalyst for the next step in career or life.",
         heroQuote: "“Our goal is simple: to ensure women have more choices and fewer reasons to compromise on the life they truly want.”",
         whatTitleLead: "What we do.",
         whatTitleSub: "Building initiatives and an empowering environment for growth and independence.",
+        featuredBadge: "Inaugural Project",
+        featuredDesc: "Free tuition-free training in modern business professions for women ready for a fresh start. Practical casework, industry mentorship, and ICF coaching.",
+        featuredBtn: "Learn more",
         card1Tag: "01 / Focus",
         card1Cat: "Education",
         card1Title: "Learning",
@@ -1097,7 +1106,7 @@
         card3P1: "We want to make it effortless for women to find one another and offer mutual support.",
         card3P2: "Advice. Contacts. Recommendations. Job referrals. Lived experience. Often, that is the exact missing link needed to make the next move.",
         card4Tag: "04 / Focus",
-        card4Cat: "Social Impact",
+        card4Cat: "Society",
         card4Title: "Public Initiatives",
         card4P1: "We also openly address the factors that continue to constrain women's choices: financial dependence, professional stereotypes, and career barriers.",
         card4P2: "Societal expectations surrounding family, motherhood, age, or just how “ambitious” a woman is permitted to be.",
@@ -1146,7 +1155,7 @@
         pillarTag4: "Principle 04",
         pillar4Title: "Women can unlock opportunities for each other.",
         pillar4Desc: "We have witnessed time and again how a single introduction, recommendation, or word of support transformed a life. We want more of those stories.",
-        stanceTag: "Our stance",
+        stanceTag: "This matters",
         stanceTitle: "We do not “rescue” women.",
         stanceP1: "We do not treat our participants as people who need saving or instructing on how to live properly. They already possess talent, experience, and their own aspirations.",
         stanceP2: 'Often what is missing is a tangible piece: knowledge, funding for training, an essential contact, initial work experience, or a person saying: <span class="font-semibold text-stripe-dark">“I know exactly who to introduce you to.”</span>',
@@ -1164,7 +1173,8 @@
         footerSlogan: "Helping women learn, work, become more independent, and gain more choices in their lives.",
         footerColOrg: "Organization",
         footerLinkProjects: "Our initiatives",
-        footerLinkAbout: "About us",
+        footerLinkChaos: "Chaos Formula Project",
+        footerLinkAbout: "About the organization",
         footerLinkJoin: "Join us",
         footerColContact: "Connect",
         footerLinkContacts: "Contact",
@@ -1174,7 +1184,7 @@
         modalTitle: "Join us",
         modalDesc: "Reach out to learn more or support our initiatives.",
         modalRoleLabel: "How would you like to participate:",
-        optParticipant: "Participant (learning, career, employment)",
+        optParticipant: "Participant (learning, career, work)",
         optMentor: "Mentor",
         optExpert: "Industry expert",
         optPartner: "Partner or enterprise",
@@ -1183,7 +1193,7 @@
         namePlaceholder: "Full name",
         modalEmailLabel: "Email address:",
         modalMsgLabel: "Message:",
-        msgPlaceholder: "Write your message...",
+        msgPlaceholder: "Write to us...",
         modalBtnSubmit: "Send message",
         toastSuccessTitle: "Thank you for reaching out!",
         toastSuccessDesc: "Our team will be in touch with you shortly."
@@ -1191,6 +1201,17 @@
     };
 
     let currentLang = 'uk';
+
+    // Safe DOM manipulation helpers
+    function setTxt(id, val) {
+      const el = document.getElementById(id);
+      if (el && val !== undefined) el.textContent = val;
+    }
+
+    function setHtml(id, val) {
+      const el = document.getElementById(id);
+      if (el && val !== undefined) el.innerHTML = val;
+    }
 
     function updateLanguageUrl(lang) {
       try {
@@ -1237,189 +1258,196 @@
 
       const d = i18n[lang];
 
-      // Update titles and alt texts
-      document.getElementById('meta-title').textContent = d.metaTitle;
-      
+      // Titles & Alt
+      setTxt('meta-title', d.metaTitle);
       const brandLogoImg = document.getElementById('brand-logo-img');
-      if (brandLogoImg) {
-        brandLogoImg.alt = d.brandAlt;
-      }
+      if (brandLogoImg) brandLogoImg.alt = d.brandAlt;
 
-      // Nav
-      document.getElementById('nav-what-we-do').textContent = d.navWhatWeDo;
-      document.getElementById('nav-for-whom').textContent = d.navForWhom;
-      document.getElementById('nav-why-us').textContent = d.navWhyUs;
-      document.getElementById('nav-formula').textContent = d.navFormula;
-      document.getElementById('nav-beliefs').textContent = d.navBeliefs;
-      document.getElementById('header-btn-join').textContent = d.btnJoin;
+      // Header Nav
+      setTxt('nav-what-we-do', d.navWhatWeDo);
+      setTxt('nav-for-whom', d.navForWhom);
+      setTxt('nav-why-us', d.navWhyUs);
+      setTxt('nav-formula', d.navFormula);
+      setTxt('nav-beliefs', d.navBeliefs);
+      setTxt('header-btn-join', d.btnJoin);
 
       // Mobile Nav
-      document.getElementById('mob-nav-what-we-do').textContent = d.navWhatWeDo;
-      document.getElementById('mob-nav-for-whom').textContent = d.navForWhom;
-      document.getElementById('mob-nav-why-us').textContent = d.navWhyUs;
-      document.getElementById('mob-nav-formula').textContent = d.navFormula;
-      document.getElementById('mob-nav-beliefs').textContent = d.navBeliefs;
-      document.getElementById('mob-btn-join').textContent = d.btnJoin;
+      setTxt('mob-nav-what-we-do', d.navWhatWeDo);
+      setTxt('mob-nav-chaos', d.mobNavChaos);
+      setTxt('mob-nav-for-whom', d.navForWhom);
+      setTxt('mob-nav-why-us', d.navWhyUs);
+      setTxt('mob-nav-formula', d.navFormula);
+      setTxt('mob-nav-beliefs', d.navBeliefs);
+      setTxt('mob-btn-join', d.btnJoin);
 
       // Hero
-      document.getElementById('hero-title-main').textContent = d.heroTitleMain;
-      document.getElementById('hero-title-sub').innerHTML = d.heroTitleSub;
-      document.getElementById('hero-description').textContent = d.heroDesc;
-      document.getElementById('hero-quote').textContent = d.heroQuote;
-      document.getElementById('hero-btn-join').textContent = d.btnJoin;
+      setTxt('hero-title-main', d.heroTitleMain);
+      setHtml('hero-title-sub', d.heroTitleSub);
+      setTxt('hero-description', d.heroDesc);
+      setTxt('hero-quote', d.heroQuote);
+      setTxt('hero-btn-join', d.btnJoin);
 
-      // What we do
-      document.getElementById('what-title-lead').textContent = d.whatTitleLead;
-      document.getElementById('what-title-sub').textContent = d.whatTitleSub;
-      
-      document.getElementById('card-1-tag').textContent = d.card1Tag;
-      document.getElementById('card-1-cat').textContent = d.card1Cat;
-      document.getElementById('card-1-title').textContent = d.card1Title;
-      document.getElementById('card-1-p1').textContent = d.card1P1;
-      document.getElementById('card-1-p2').textContent = d.card1P2;
+      // What we do & Featured Project Banner
+      setTxt('what-title-lead', d.whatTitleLead);
+      setTxt('what-title-sub', d.whatTitleSub);
+      setTxt('featured-project-badge', d.featuredBadge);
+      setTxt('featured-project-desc', d.featuredDesc);
+      setTxt('featured-project-btn', d.featuredBtn);
 
-      document.getElementById('card-2-tag').textContent = d.card2Tag;
-      document.getElementById('card-2-cat').textContent = d.card2Cat;
-      document.getElementById('card-2-title').textContent = d.card2Title;
-      document.getElementById('card-2-p1').textContent = d.card2P1;
-      document.getElementById('card-2-p2').textContent = d.card2P2;
+      // Cards
+      setTxt('card-1-tag', d.card1Tag);
+      setTxt('card-1-cat', d.card1Cat);
+      setTxt('card-1-title', d.card1Title);
+      setTxt('card-1-p1', d.card1P1);
+      setTxt('card-1-p2', d.card1P2);
 
-      document.getElementById('card-3-tag').textContent = d.card3Tag;
-      document.getElementById('card-3-cat').textContent = d.card3Cat;
-      document.getElementById('card-3-title').textContent = d.card3Title;
-      document.getElementById('card-3-p1').textContent = d.card3P1;
-      document.getElementById('card-3-p2').textContent = d.card3P2;
+      setTxt('card-2-tag', d.card2Tag);
+      setTxt('card-2-cat', d.card2Cat);
+      setTxt('card-2-title', d.card2Title);
+      setTxt('card-2-p1', d.card2P1);
+      setTxt('card-2-p2', d.card2P2);
 
-      document.getElementById('card-4-tag').textContent = d.card4Tag;
-      document.getElementById('card-4-cat').textContent = d.card4Cat;
-      document.getElementById('card-4-title').textContent = d.card4Title;
-      document.getElementById('card-4-p1').textContent = d.card4P1;
-      document.getElementById('card-4-p2').textContent = d.card4P2;
+      setTxt('card-3-tag', d.card3Tag);
+      setTxt('card-3-cat', d.card3Cat);
+      setTxt('card-3-title', d.card3Title);
+      setTxt('card-3-p1', d.card3P1);
+      setTxt('card-3-p2', d.card3P2);
+
+      setTxt('card-4-tag', d.card4Tag);
+      setTxt('card-4-cat', d.card4Cat);
+      setTxt('card-4-title', d.card4Title);
+      setTxt('card-4-p1', d.card4P1);
+      setTxt('card-4-p2', d.card4P2);
 
       document.querySelectorAll('.card-btn-join').forEach(el => el.textContent = d.btnJoin);
       document.querySelectorAll('.audience-btn-join').forEach(el => el.textContent = d.btnJoin);
 
-      // Target audience
-      document.getElementById('for-whom-title').textContent = d.forWhomTitle;
-      document.getElementById('for-whom-subtitle').textContent = d.forWhomSubtitle;
-      document.getElementById('target-item-1').textContent = d.targetItem1;
-      document.getElementById('target-item-2').textContent = d.targetItem2;
-      document.getElementById('target-item-3').textContent = d.targetItem3;
-      document.getElementById('target-item-4').textContent = d.targetItem4;
-      document.getElementById('target-item-5').textContent = d.targetItem5;
-      document.getElementById('target-item-6').textContent = d.targetItem6;
+      // Target Audience
+      setTxt('for-whom-title', d.forWhomTitle);
+      setTxt('for-whom-subtitle', d.forWhomSubtitle);
+      setTxt('target-item-1', d.targetItem1);
+      setTxt('target-item-2', d.targetItem2);
+      setTxt('target-item-3', d.targetItem3);
+      setTxt('target-item-4', d.targetItem4);
+      setTxt('target-item-5', d.targetItem5);
+      setTxt('target-item-6', d.targetItem6);
 
-      document.getElementById('target-banner-title').textContent = d.targetBannerTitle;
-      document.getElementById('target-banner-p1').textContent = d.targetBannerP1;
-      document.getElementById('target-banner-p2').textContent = d.targetBannerP2;
+      setTxt('target-banner-title', d.targetBannerTitle);
+      setTxt('target-banner-p1', d.targetBannerP1);
+      setTxt('target-banner-p2', d.targetBannerP2);
 
       // Why us
-      document.getElementById('why-title').textContent = d.whyTitle;
-      document.getElementById('why-subtitle').textContent = d.whySubtitle;
-      document.getElementById('why-quote-1').textContent = d.whyQuote1;
-      document.getElementById('why-quote-2').textContent = d.whyQuote2;
-      document.getElementById('why-item-1').textContent = d.whyItem1;
-      document.getElementById('why-item-2').textContent = d.whyItem2;
-      document.getElementById('why-item-3').textContent = d.whyItem3;
-      document.getElementById('why-item-4').textContent = d.whyItem4;
-      document.getElementById('why-item-5').textContent = d.whyItem5;
+      setTxt('why-title', d.whyTitle);
+      setTxt('why-subtitle', d.whySubtitle);
+      setTxt('why-quote-1', d.whyQuote1);
+      setTxt('why-quote-2', d.whyQuote2);
+      setTxt('why-item-1', d.whyItem1);
+      setTxt('why-item-2', d.whyItem2);
+      setTxt('why-item-3', d.whyItem3);
+      setTxt('why-item-4', d.whyItem4);
+      setTxt('why-item-5', d.whyItem5);
 
       // Formula
-      document.getElementById('formula-title-lead').textContent = d.formulaTitleLead;
-      document.getElementById('formula-title-sub').textContent = d.formulaTitleSub;
-      document.getElementById('freedom-card-1-title').textContent = d.freedomCard1Title;
-      document.getElementById('freedom-card-1-p').textContent = d.freedomCard1P;
-      document.getElementById('freedom-card-2-title').textContent = d.freedomCard2Title;
-      document.getElementById('freedom-card-2-p').textContent = d.freedomCard2P;
-      document.getElementById('freedom-card-3-title').textContent = d.freedomCard3Title;
-      document.getElementById('freedom-card-3-p').textContent = d.freedomCard3P;
-      document.getElementById('freedom-card-4-title').textContent = d.freedomCard4Title;
-      document.getElementById('freedom-card-4-p').textContent = d.freedomCard4P;
-      document.getElementById('formula-manifesto-p1').textContent = d.formulaManifestoP1;
-      document.getElementById('formula-manifesto-p2').textContent = d.formulaManifestoP2;
+      setTxt('formula-title-lead', d.formulaTitleLead);
+      setTxt('formula-title-sub', d.formulaTitleSub);
+      setTxt('freedom-card-1-title', d.freedomCard1Title);
+      setTxt('freedom-card-1-p', d.freedomCard1P);
+      setTxt('freedom-card-2-title', d.freedomCard2Title);
+      setTxt('freedom-card-2-p', d.freedomCard2P);
+      setTxt('freedom-card-3-title', d.freedomCard3Title);
+      setTxt('freedom-card-3-p', d.freedomCard3P);
+      setTxt('freedom-card-4-title', d.freedomCard4Title);
+      setTxt('freedom-card-4-p', d.freedomCard4P);
+      setTxt('formula-manifesto-p1', d.formulaManifestoP1);
+      setTxt('formula-manifesto-p2', d.formulaManifestoP2);
 
       // Beliefs
-      document.getElementById('beliefs-title').textContent = d.beliefsTitle;
-      document.getElementById('pillar-tag-1').textContent = d.pillarTag1;
-      document.getElementById('pillar-1-title').textContent = d.pillar1Title;
-      document.getElementById('pillar-1-desc').textContent = d.pillar1Desc;
-      document.getElementById('pillar-tag-2').textContent = d.pillarTag2;
-      document.getElementById('pillar-2-title').textContent = d.pillar2Title;
-      document.getElementById('pillar-2-desc').textContent = d.pillar2Desc;
-      document.getElementById('pillar-tag-3').textContent = d.pillarTag3;
-      document.getElementById('pillar-3-title').textContent = d.pillar3Title;
-      document.getElementById('pillar-3-desc').textContent = d.pillar3Desc;
-      document.getElementById('pillar-tag-4').textContent = d.pillarTag4;
-      document.getElementById('pillar-4-title').textContent = d.pillar4Title;
-      document.getElementById('pillar-4-desc').textContent = d.pillar4Desc;
+      setTxt('beliefs-title', d.beliefsTitle);
+      setTxt('pillar-tag-1', d.pillarTag1);
+      setTxt('pillar-1-title', d.pillar1Title);
+      setTxt('pillar-1-desc', d.pillar1Desc);
+      setTxt('pillar-tag-2', d.pillarTag2);
+      setTxt('pillar-2-title', d.pillar2Title);
+      setTxt('pillar-2-desc', d.pillar2Desc);
+      setTxt('pillar-tag-3', d.pillarTag3);
+      setTxt('pillar-3-title', d.pillar3Title);
+      setTxt('pillar-3-desc', d.pillar3Desc);
+      setTxt('pillar-tag-4', d.pillarTag4);
+      setTxt('pillar-4-title', d.pillar4Title);
+      setTxt('pillar-4-desc', d.pillar4Desc);
 
       // Stance & Goal
-      document.getElementById('stance-tag').textContent = d.stanceTag;
-      document.getElementById('stance-title').textContent = d.stanceTitle;
-      document.getElementById('stance-p1').textContent = d.stanceP1;
-      document.getElementById('stance-p2').innerHTML = d.stanceP2;
-      document.getElementById('stance-conclusion').textContent = d.stanceConclusion;
+      setTxt('stance-tag', d.stanceTag);
+      setTxt('stance-title', d.stanceTitle);
+      setTxt('stance-p1', d.stanceP1);
+      setHtml('stance-p2', d.stanceP2);
+      setTxt('stance-conclusion', d.stanceConclusion);
 
-      document.getElementById('goal-tag').textContent = d.goalTag;
-      document.getElementById('goal-title').textContent = d.goalTitle;
-      document.getElementById('goal-p1').textContent = d.goalP1;
-      document.getElementById('goal-p2').textContent = d.goalP2;
-      document.getElementById('goal-action-btn').textContent = d.goalActionBtn;
+      setTxt('goal-tag', d.goalTag);
+      setTxt('goal-title', d.goalTitle);
+      setTxt('goal-p1', d.goalP1);
+      setTxt('goal-p2', d.goalP2);
+      setTxt('goal-action-btn', d.goalActionBtn);
 
-      // Join section
-      document.getElementById('join-section-title').textContent = d.joinSectionTitle;
-      document.getElementById('join-section-p1').textContent = d.joinSectionP1;
-      document.getElementById('join-section-p2').textContent = d.joinSectionP2;
-      document.getElementById('join-section-p3').textContent = d.joinSectionP3;
-      document.getElementById('join-section-btn').textContent = d.joinSectionBtn;
+      // Join Section
+      setTxt('join-section-title', d.joinSectionTitle);
+      setTxt('join-section-p1', d.joinSectionP1);
+      setTxt('join-section-p2', d.joinSectionP2);
+      setTxt('join-section-p3', d.joinSectionP3);
+      setTxt('join-section-btn', d.joinSectionBtn);
 
       // Footer
-      document.getElementById('footer-slogan').textContent = d.footerSlogan;
-      document.getElementById('footer-col-org').textContent = d.footerColOrg;
-      document.getElementById('footer-link-projects').textContent = d.footerLinkProjects;
-      document.getElementById('footer-link-about').textContent = d.footerLinkAbout;
-      document.getElementById('footer-link-join').textContent = d.footerLinkJoin;
-      document.getElementById('footer-col-contact').textContent = d.footerColContact;
-      const footerContactsText = document.getElementById('footer-link-contacts-text');
-      if (footerContactsText) {
-        footerContactsText.textContent = d.footerLinkContacts;
-      }
-      document.getElementById('footer-copyright').textContent = d.footerCopyright;
-      document.getElementById('footer-country').textContent = d.footerCountry;
+      setTxt('footer-slogan', d.footerSlogan);
+      setTxt('footer-col-org', d.footerColOrg);
+      setTxt('footer-link-projects', d.footerLinkProjects);
+      setTxt('footer-link-chaos', d.footerLinkChaos);
+      setTxt('footer-link-about', d.footerLinkAbout);
+      setTxt('footer-link-join', d.btnJoin);
+      setTxt('footer-col-contact', d.footerColContact);
+      setTxt('footer-link-contacts-text', d.footerLinkContacts);
+      setTxt('footer-copyright', d.footerCopyright);
+      setTxt('footer-country', d.footerCountry);
 
       // Modal
-      document.getElementById('modal-brand-tag').textContent = d.modalBrandTag;
-      document.getElementById('modal-title').textContent = d.modalTitle;
-      document.getElementById('modal-desc').textContent = d.modalDesc;
-      document.getElementById('modal-role-label').textContent = d.modalRoleLabel;
-      document.getElementById('opt-participant').textContent = d.optParticipant;
-      document.getElementById('opt-mentor').textContent = d.optMentor;
-      document.getElementById('opt-expert').textContent = d.optExpert;
-      document.getElementById('opt-partner').textContent = d.optPartner;
-      document.getElementById('opt-donor').textContent = d.optDonor;
-      document.getElementById('modal-name-label').textContent = d.modalNameLabel;
-      document.getElementById('user-name').placeholder = d.namePlaceholder;
-      document.getElementById('modal-email-label').textContent = d.modalEmailLabel;
-      document.getElementById('modal-msg-label').textContent = d.modalMsgLabel;
-      document.getElementById('user-message').placeholder = d.msgPlaceholder;
-      document.getElementById('modal-btn-submit').textContent = d.modalBtnSubmit;
+      setTxt('modal-brand-tag', d.modalBrandTag);
+      setTxt('modal-title', d.modalTitle);
+      setTxt('modal-desc', d.modalDesc);
+      setTxt('modal-role-label', d.modalRoleLabel);
+      setTxt('opt-participant', d.optParticipant);
+      setTxt('opt-mentor', d.optMentor);
+      setTxt('opt-expert', d.optExpert);
+      setTxt('opt-partner', d.optPartner);
+      setTxt('opt-donor', d.optDonor);
+      setTxt('modal-name-label', d.modalNameLabel);
+      setTxt('modal-email-label', d.modalEmailLabel);
+      setTxt('modal-msg-label', d.modalMsgLabel);
+      setTxt('modal-btn-submit', d.modalBtnSubmit);
 
-      // Update button toggles
+      const userName = document.getElementById('user-name');
+      if (userName) userName.placeholder = d.namePlaceholder;
+      const userMsg = document.getElementById('user-message');
+      if (userMsg) userMsg.placeholder = d.msgPlaceholder;
+
+      // Toast
+      setTxt('toast-title', d.toastSuccessTitle);
+      setTxt('toast-desc', d.toastSuccessDesc);
+
+      // Toggle button styles
       const btnUk = document.getElementById('btn-lang-uk');
       const btnEn = document.getElementById('btn-lang-en');
       const btnUkMob = document.getElementById('btn-lang-uk-mob');
       const btnEnMob = document.getElementById('btn-lang-en-mob');
 
       if (lang === 'en') {
-        btnEn.className = "px-3 py-1 rounded-full transition-all text-white bg-stripe-purple shadow-xs font-bold";
-        btnUk.className = "px-3 py-1 rounded-full transition-all text-stripe-slate hover:text-stripe-dark font-semibold";
-        btnEnMob.className = "px-2 py-0.5 rounded-full text-white bg-stripe-purple font-bold";
-        btnUkMob.className = "px-2 py-0.5 rounded-full text-stripe-slate font-semibold";
+        if (btnEn) btnEn.className = "px-3 py-1 rounded-full transition-all text-white bg-stripe-purple shadow-xs font-bold";
+        if (btnUk) btnUk.className = "px-3 py-1 rounded-full transition-all text-stripe-slate hover:text-stripe-dark font-semibold";
+        if (btnEnMob) btnEnMob.className = "px-2 py-0.5 rounded-full text-white bg-stripe-purple font-bold";
+        if (btnUkMob) btnUkMob.className = "px-2 py-0.5 rounded-full text-stripe-slate font-semibold";
       } else {
-        btnUk.className = "px-3 py-1 rounded-full transition-all text-white bg-stripe-purple shadow-xs font-bold";
-        btnEn.className = "px-3 py-1 rounded-full transition-all text-stripe-slate hover:text-stripe-dark font-semibold";
-        btnUkMob.className = "px-2 py-0.5 rounded-full text-white bg-stripe-purple font-bold";
-        btnEnMob.className = "px-2 py-0.5 rounded-full text-stripe-slate font-semibold";
+        if (btnUk) btnUk.className = "px-3 py-1 rounded-full transition-all text-white bg-stripe-purple shadow-xs font-bold";
+        if (btnEn) btnEn.className = "px-3 py-1 rounded-full transition-all text-stripe-slate hover:text-stripe-dark font-semibold";
+        if (btnUkMob) btnUkMob.className = "px-2 py-0.5 rounded-full text-white bg-stripe-purple font-bold";
+        if (btnEnMob) btnEnMob.className = "px-2 py-0.5 rounded-full text-stripe-slate font-semibold";
       }
     }
 
