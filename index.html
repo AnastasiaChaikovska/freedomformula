@@ -1220,18 +1220,25 @@
           return;
         }
 
+        // /english is served by english.html (and 404.html for other paths),
+        // which redirect back here with ?lang=en. Normalize to a clean URL:
+        // "/" for Ukrainian, "/english" for English, never "/index.html/english".
         const url = new URL(window.location.href);
-        if (lang === 'en') {
-          if (!url.pathname.endsWith('/english')) {
-            const basePath = url.pathname.replace(/\/+$/, '');
-            url.pathname = (basePath ? basePath : '') + '/english';
-          }
-          window.history.pushState({ lang: 'en' }, '', url.toString());
+        const fromRedirect = url.hash.toLowerCase() === '#english' || url.searchParams.get('lang') === 'en';
+        if (url.hash.toLowerCase() === '#english') url.hash = '';
+        url.searchParams.delete('lang');
+        const basePath = url.pathname
+          .replace(/\/english\/?$/i, '')
+          .replace(/\/index\.html$/i, '')
+          .replace(/\/+$/, '');
+        url.pathname = lang === 'en' ? basePath + '/english' : (basePath || '/');
+
+        const isInitialSync = !updateLanguageUrl.done;
+        if (url.toString() === window.location.href) return;
+        if (fromRedirect || isInitialSync) {
+          window.history.replaceState({ lang: lang }, '', url.toString());
         } else {
-          if (url.pathname.endsWith('/english')) {
-            url.pathname = url.pathname.replace(/\/english\/?$/, '') || '/';
-          }
-          window.history.pushState({ lang: 'uk' }, '', url.toString());
+          window.history.pushState({ lang: lang }, '', url.toString());
         }
       } catch (err) {
         try {
@@ -1470,10 +1477,12 @@
     window.addEventListener('DOMContentLoaded', () => {
       const initialLang = detectInitialLanguage();
       switchLanguage(initialLang, initialLang === 'en');
+      updateLanguageUrl.done = true;
     });
 
     window.addEventListener('popstate', () => {
-      const currentUrlLang = detectInitialLanguage();
+      // Back/forward: the URL decides the language, not the saved preference.
+      const currentUrlLang = /\/english\/?$/i.test(window.location.pathname) ? 'en' : 'uk';
       switchLanguage(currentUrlLang, false);
     });
 
