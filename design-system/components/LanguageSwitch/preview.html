@@ -1,0 +1,22 @@
+<!-- @dsCard group="Navigation" height=80 -->
+<!doctype html>
+<html>
+<head><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><meta charset="utf-8"><style>body{margin:0} .wrap{padding:24px} .row{display:flex;flex-wrap:wrap;gap:14px;align-items:center} </style></head>
+<body class="ff">
+<div class="wrap">
+<div class="row">
+  <div class="ff-lang" role="group" aria-label="Мова"><button aria-pressed="true">UA</button><button aria-pressed="false">EN</button></div>
+  <div class="ff-lang" role="group" aria-label="Language"><button aria-pressed="false">UA</button><button aria-pressed="true">EN</button></div>
+  <div class="ff-lang ff-lang--fire" role="group" aria-label="Мова"><button aria-pressed="true">UA</button><button aria-pressed="false">EN</button></div>
+</div>
+<script>
+document.querySelectorAll('.ff-lang').forEach(function (g) {
+  g.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    g.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+  });
+});
+</script>
+</div>
+</body>
+</html>
