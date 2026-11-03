@@ -591,3 +591,4 @@ span[data-glyph]:not(.ff-wm) { display: contents; }
 .ff-night--fire .ff-term { background: rgba(225, 29, 72, .18); color: #ffe4ea; }
 .ff-night--fire .ff-term--key { background: linear-gradient(150deg, var(--fire-deep), var(--ember)); color: #fff; }
 .ff-night--fire .ff-op { background-image: linear-gradient(120deg, #ff8fa3, #ffd0da); }
+.ff-footer .ff-brand { display: inline-flex; align-items: center; gap: 10px; margin: 0; color: var(--on-night); font: 600 15px/1.1 var(--font-display); }

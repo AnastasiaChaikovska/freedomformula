@@ -1,8 +1,10 @@
 # Logos
 
-The Freedom Formula mark: a violet flame rising from an open isometric box. Both files are 1254×1254 transparent PNGs from the repository.
+The Freedom Formula mark, redrawn as vector in November 2026: a flame rising out of an open isometric box. The flame runs from deep indigo at the tip to pale lilac at its core; the box is violet; three small sparks (ember, magenta, violet) replace the old orange ones.
 
-- `logo.png`: the full mark with sparks. Header (40px, beside the two-line Unbounded wordmark), footer, and large inside the hero's night mark panel, where it glows.
-- `favicon.png`: the tighter version without sparks.
+- `logo.svg`: the mark for light grounds. Header (40px, beside the two-line Unbounded wordmark from 1440px), documents.
+- `logo-dark.svg`: the same mark with a lighter box, for `night` grounds (footer, hero panels).
+- `logo-app.svg`: the mark on a rounded `night` square, for the favicon, the phone home-screen icon and social avatars.
+- The repository root `logo.png` (1024px) and `favicon.png` (512px, app version) are renders of these files for places that need a bitmap.
 
-It works on white and on `night`. The sparks are orange; a redraw with ember or magenta sparks would complete the no-orange palette. There is no SVG or single-colour version yet.
+Rules: keep clear space of a quarter of the mark's width on every side, never recolour the flame, and don't put the light version on dark grounds. The previous raster PNG mark is retired.
