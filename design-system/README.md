@@ -78,7 +78,7 @@ Don't use orange, yellow, cyan or navy, and don't use more than one gradient per
 
 ## Iconography and imagery
 
-- **Logo:** the flame-in-box PNG, alone or with a two-line Unbounded wordmark ("Формула / свободи"). On white it is used at 40px; in the hero it sits large inside the night mark panel, where it glows. The logo's small sparks are orange: that is the mark itself, and it is left as is (see "Open questions").
+- **Logo:** a flame rising out of an open isometric box, drawn as vector (`assets/Logos/logo.svg`, `logo-dark.svg` for night grounds, `logo-app.svg` for icons). The flame grades from indigo to pale lilac, the box is violet, and three small sparks are ember, magenta and violet; there is no orange. In the header it sits at 40px, with the two-line Unbounded wordmark from 1440px wide.
 - **Icons:** outline, 24px, round caps, stroke 2.2 (`arrow-right`, `arrow-up-right`, `arrow-left`, `menu`, `close`). Forward actions use `arrow-right`; links that go elsewhere use `arrow-up-right`.
 - **Illustration:** `flame-fibers`, lines fanning up from one root with a violet → magenta gradient and an ember spark at the top. It sits under the manifesto line. `radiating-fibers-fire` is the Chaos Formula version.
 - No stock photos and no people illustrations.
@@ -90,11 +90,6 @@ There is no JavaScript bundle; `components/bundle.css` holds `ff-*` classes over
 ## Language URLs
 
 `/english` is not a file: the language switch rewrites the address bar. The site therefore needs `english.html` (redirect to `/?lang=en`) and `404.html` (catch-all for `*/english`), or GitHub Pages returns a 404 on reload and on shared links. Both were added in the repository on branch `claude/design-system-extraction-0fpkh2`.
-
-## Open questions
-
-- The logo's sparks are orange. If orange is to go everywhere, the mark needs a redraw with ember or magenta sparks.
-- There is no SVG logo yet. An SVG of the flame-in-box would sharpen the small header size.
 
 ## Provenance
 
