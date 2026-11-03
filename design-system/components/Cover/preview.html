@@ -1,0 +1,44 @@
+<!-- @dsCard height=320 -->
+<!doctype html>
+<html>
+<head><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><meta charset="utf-8">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--surface); width: 960px; height: 320px; position: relative; overflow: hidden; font-family: var(--font-sans); }
+  svg { position: absolute; left: 0; top: 0; }
+  .night { fill: var(--night); }
+  .violet { fill: var(--violet); }
+  .magenta { fill: var(--magenta); }
+  .ember { fill: var(--ember); }
+  .tint { fill: var(--violet-tint); }
+  .rlg { rx: var(--radius-lg); }
+  .rxl { rx: var(--radius-xl); }
+  .box { fill: none; stroke: var(--violet-bright); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+  .grid { stroke: var(--night-line); stroke-width: 1; }
+  .name { position: absolute; left: 40px; bottom: 36px; max-width: 440px; }
+  .name h1 { margin: 0; font: 700 64px/.95 var(--font-display); letter-spacing: -.02em; color: var(--ink); }
+  .name p { margin: 14px 0 0; font: 500 14px/20px var(--font-sans); color: var(--text); }
+</style>
+</head>
+<body>
+<svg width="960" height="320" viewBox="0 0 960 320" aria-hidden="true">
+  <!--
+    blocks: night 320x288 (radius-xl, bleeds bottom) · violet 96x224 flame tongue (pill, rises out of the box, bleeds top) · magenta 64 disc · ember 24 spark · violet-tint 96x192 relief (radius-lg, bleeds right/bottom)
+    arrangement: one night slab holding the open box, the violet tongue rising out of it, sparks above, a tint slab at the right edge; all x >= 528
+    pattern: literal motif (the logo's open isometric box), drawn as five strokes in violet-bright over the night slab, with three isometric grid hairlines behind it
+    scales: sides in 32px (space-8) multiples; radii radius-xl 36, radius-lg 24, pills half the short side (48); stroke 3, grid 1
+  -->
+  <rect class="night rxl" x="528" y="64" width="320" height="288"/>
+  <path class="grid" d="M528 160 L848 344 M528 256 L700 352 M848 160 L528 344"/>
+  <rect class="violet" x="640" y="-32" width="96" height="256" rx="48"/>
+  <path class="box" d="M592 176 L688 224 L784 176 M688 224 L688 320 M592 176 L592 272 L688 320 L784 272 L784 176"/>
+  <circle class="magenta" cx="784" cy="64" r="32"/>
+  <circle class="ember" cx="600" cy="40" r="12"/>
+  <rect class="tint rlg" x="880" y="160" width="96" height="192"/>
+</svg>
+<div class="name">
+  <h1>Freedom Formula</h1>
+  <p>More choices for every woman.</p>
+</div>
+</body>
+</html>
