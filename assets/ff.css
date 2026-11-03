@@ -552,9 +552,18 @@ body.overflow-hidden { overflow: hidden; }
 /* Glyph placeholders filled by ff.js */
 span[data-glyph]:not(.ff-wm) { display: contents; }
 .ff-wm > .ff-glyph { width: 100%; height: 100%; }
-@media (min-width: 1101px) { .ff-mobile-menu { display: none !important; } }
+@media (min-width: 1181px) { .ff-mobile-menu { display: none !important; } }
 .ff-wm > .ff-glyph, .ff-night .ff-wm > .ff-glyph { color: inherit; }
-@media (max-width: 1399px) { .ff-header .ff-brand span { display: none; } }
+/* Header layout: brand and actions keep their size, the nav takes the rest */
+.ff-header__in { max-width: 1360px; }
+.ff-header .ff-brand { color: var(--ink); flex: none; }
+.ff-header__right, .ff-header__mob { flex: none; }
+.ff-nav { flex: 1 1 auto; justify-content: center; min-width: 0; }
+@media (max-width: 1439px) { .ff-header .ff-brand span { display: none; } }
+@media (max-width: 1180px) {
+  .ff-nav, .ff-header__right { display: none; }
+  .ff-header__mob { display: flex; }
+}
 
 /* Fire mode (Chaos Formula pages) */
 .ff-fire .ff-link { color: var(--fire-red); }
